@@ -1,0 +1,67 @@
+body{
+    background-image: url(fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* opacity:70%
+    } */
+}
+    .titulo{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 30px; color: white
+    ;
+    text-shadow: 0px 4px 4px #282828;
+    }
+    
+    .subtitulo{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 30px; color: white
+    ;
+    text-shadow: 0px 4px 4px #282828;
+    }
+    
+    .cadastro{
+    background-color: #f4897888;
+    width: 250px;
+    height: 100%;
+    padding: 15px;
+    border-radius: 5%;
+    border: 10px groove;
+    border-color: oldlace;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 22px; color: white
+    ;
+    text-shadow: 0px 1px 1px gray;
+    
+    }
+    
+    .input{
+    color: gray;
+    background-color: whitesmoke;
+    border: 3px gray outset;
+    }
+    
+    .botao{
+    color: black;
+    background-color: whitesmoke;
+
+}
+    
+    .select{
+    color: black;
+    background-color: whitesmoke;
+    border: 3px gray outset;
+    }
+    
+    .texto{
+    color: black;
+    font-family: sans-serif;
+    }
