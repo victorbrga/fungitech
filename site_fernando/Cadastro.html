@@ -17,16 +17,18 @@
                 <h1 class="titulo">FungiTech</h1>
             </div>
             <ul class="navbar">
-                <li>Home</li>
+                <li><a style="color: red; text-decoration: none;" href="home.html">Home</a></li>
                 <li>|</li>
-                <li>Simulador Financeiro</li>
+                <li>Simulador</li>
                 <li>|</li>
-                <li>Login</li>
+                <li><a style="color: red; text-decoration: none;" href="login.html">Login</a></li>
+                <li>|</li>
+                <li class="agora">Cadastro</li>
             </ul>
         </div>
     </div>
 
-    <div class="cadastro">
+    <div class="banner">
         <div class="container">
             <div class="card">
                 <h2>Cadastrar</h2>
@@ -36,11 +38,15 @@
 
                 <span>CPF:</span> <input placeholder="   CPF" type="text" id="input_cpf">
 
+                <span>Cargo:</span> <select id="select_tabuada">
+                    <option value="0" selected disabled>Cargo</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Funcionário</option>
+                </select>
+
                 <span>Senha:</span> <input placeholder="   Password" type="text" id="input_senha">
 
                 <span>Digite a senha novamente:</span> <input placeholder="   Password" type="text" id="input_senha2">
-
-                <span style="color: aqua; padding-left: 110px; padding-top: 10px; text-decoration: underline; cursor: pointer;"><i>Esqueci minha senha</i></span>
 
                 <button>Cadastrar</button>
 

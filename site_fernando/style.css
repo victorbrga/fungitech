@@ -12,7 +12,8 @@ body {
 }
 
 
-.container{
+
+.header .container{
     display: flex;
     width: 80%;
     margin: auto;
@@ -50,7 +51,7 @@ body {
     color: #FF0000;
 }
 
-.cadastro {
+.banner {
     padding: 40px 20px 30px 10px;
     color: antiquewhite;
     height: 600px;
@@ -60,22 +61,31 @@ body {
     background-repeat: no-repeat;
 }
 
-.cadastro .container{
+.banner .container{
     padding: 30px;
    display: flex;
-   justify-content: center;
+   justify-content: left;
+   
 }
 
-.card{
+.banner .container .card{
     color: black;
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 500px;
+    height: 525px;
     text-align: center;
-    background-color: rgba(244, 137, 120, 0.533);
+    background-color: rgba(129, 95, 81, 0.699);
     border: 3px solid red; 
     border-radius: 20px;
+}
+
+.banner .container p {
+    font-size: 36px;
+}
+
+.banner .container p span {
+    font-weight: bold;
 }
 
 input{
@@ -86,7 +96,7 @@ input{
    align-self: center;
 }
 
-span{
+.card span{
     font-weight: 600;
     font-size: small;
     padding: 20px 0px 5px 80px;
@@ -96,11 +106,57 @@ span{
 button{
     color: white;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 30px;
     height: 30px;
     width: 110px;
     align-self: center;
     border-radius: 25px;
     background: linear-gradient(140deg, #e60909, #f57c7c, #f62424, #f57c7c);
     cursor: pointer;
+}
+
+select {
+    padding: 0%;
+    width: 200px;
+    height: 25px;
+    border-radius: 20px;
+   align-self: center;
+}
+
+.agora{
+    font-weight: 900;
+}
+
+.social {
+    background-color: rgb(102, 60, 41);
+    padding: 40px 20px 30px 10px;
+    border-top: 3px solid red; 
+}
+
+.social .container{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.social .container .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 450px;
+    width: 350px;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid red; 
+    border-radius: 20px;
+}
+
+.social .container .card img {
+    height: 200px;
+    width: 200px;
+}
+
+.social .container .card h4 {
+    font-size: 24px;
 }
