@@ -1,0 +1,122 @@
+body {
+ background-color: aliceblue;
+
+ 
+}
+
+.caixauniversal{
+ margin-top: 2cm;
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+
+
+}
+
+
+
+.box1{
+display: flex;
+justify-content: start;
+flex-direction: column;
+align-items: center;
+
+
+
+}
+
+.bola{
+width: 100px;
+height: 100px;
+display: flex;
+direction: inherit;
+transform: rotate(45deg);
+
+
+
+}
+.box{
+ display: flex;
+ justify-content: start;
+ flex-direction: column;
+
+ 
+
+
+ width: 17cm;
+ height: 20cm;
+ 
+
+
+}
+
+.h1 {
+font-family: monospace;
+color: rgb(194, 0, 0);
+text-shadow: 5px 5px 5px #bebebe;
+font-size: 2cm;
+ }
+h3 {
+    
+    font-family: monospace;
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 5px 5px #bebebe;
+    font-size: 30px;
+
+
+}
+.inputs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+
+.inputs .selct {
+    display: flex;
+border-radius: 30px;
+border: 2px solid;
+width: 550px;
+height: 32px;
+
+
+}
+
+.input1 {
+display: flex;
+    border-radius: 10px;
+    width: 550px;
+    height: 32px;
+
+}
+.input2 {
+display: flex;
+    border-radius: 10px;
+    width: 550px;
+    height: 32px;
+
+}
+.input3 {
+display: flex;
+align-items: center;
+    border-radius: 10px;
+    width: 550px;
+    height: 32px;
+
+}
+
+.box22{
+  color: white;
+  font-family: monospace;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(195, 0, 0);
+  border-radius: 20px;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+}
