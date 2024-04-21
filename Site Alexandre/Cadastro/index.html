@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FungiTech | Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body >
+    <!-- <img src="Captura de tela 2024-04-10 092319.png" alt="imagem"> -->
+
+    <center>
+        <h1 class="titulo">CADASTRO </h1>
+        <h3 class="subtitulo">Insira dados do usuário abaixo:</h3>
+        <br>
+        <div class="cadastro">
+            <span class="texto" >Nome:</span>
+            <br>
+            <input placeholder="Nome" type="text" id="inputNome" class="input">
+            <br> <br>
+
+            <span class="texto">Cargo:</span>
+            <br>
+            <select id="selectCargo" class="select">
+                <option selected disabled>-SELECIONE SEU CARGO-</option>
+                <option value="admin">ADMINISTRADOR</option>
+                <option value="funci">FUNCIONÁRIO</option>
+            </select>
+            <br> <br>
+
+            <span class="texto">Email:</span>
+            <br>
+            <input placeholder="E-mail" type="text" id="inputEmail" class="input">
+            <br> <br>
+
+            <span class="texto">Senha:</span>
+            <br>
+            <input placeholder="Senha" type="password" id="inputSenha" class="input">
+            <br> <br>
+
+            <span class="texto">Confirme sua Senha:</span>
+            <br>
+            <input placeholder="Confirme a senha" type="password" id="inputConfirmacao" class="input">
+            <br> <br>
+
+            <button onclick="confirmar()" class="botao">CONFIRMAR</button>
+        </div>
+    </center>
+</body>
+
+</html>
