@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FungiTech | Cadastro</title>
+    <link rel="stylesheet" href="PrototipoSiteFungiTech.css">
+</head>
+
+<body>
+
+    <center>
+        <div class="cadastro">
+            <h3 class="titulo">Faça seu cadastro abaixo:</h3>
+            <br> <br> <br>
+            <span class="texto">Nome:</span>
+            <br>
+            <input type="text" id="inputNome">
+            <br> <br>
+
+            <span class="texto">Cargo:</span>
+            <br>
+            <select id="selectCargo">
+                <option selected disabled>-SELECIONE SEU CARGO-</option>
+                <option value="admin">ADMINISTRADOR</option>
+                <option value="funci">FUNCIONÁRIO</option>
+            </select>
+            <br> <br>
+
+            <span class="texto">Email:</span>
+            <br>
+            <input type="text" id="inputEmail">
+            <br> <br>
+
+            <span class="texto">Senha:</span>
+            <br>
+            <input type="text" id="inputSenha">
+            <br> <br>
+
+            <span class="texto">Confirme sua Senha:</span>
+            <br>
+            <input type="text" id="inputConfirmacao">
+            <br> <br>
+
+            <button onclick="confirmar()">CONFIRMAR</button>
+        </div>
+    </center>
+</body>
+
+</html>

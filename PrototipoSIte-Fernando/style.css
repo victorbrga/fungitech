@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: antiquewhite;
+}
+
+.header{
+    background-color: black;
+    border-bottom: 3px solid #FF0000;
+    justify-content: space-between;
+}
+
+
+
+.header .container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.container2{
+    display: flex;
+}
+
+
+.header .container{
+    flex-direction: row;
+    width: 100%;
+}
+
+.header .container img{
+   width: 30px;
+   height: 30px;
+   padding: 25px 40px 0px 40px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 300px;
+    color: red;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.titulo{
+    color: #FF0000;
+}
+
+.banner {
+    padding: 40px 20px 30px 10px;
+    color: antiquewhite;
+    height: 600px;
+    background-image: url("fundo\ -\ Copia.jpg");
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner .container{
+    padding: 30px;
+   display: flex;
+   justify-content: left;
+   
+}
+
+.banner .container .card{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 525px;
+    text-align: center;
+    background-color: rgba(129, 95, 81, 0.699);
+    border: 3px solid red; 
+    border-radius: 20px;
+}
+
+.banner .container p {
+    font-size: 36px;
+}
+
+.banner .container p span {
+    font-weight: bold;
+}
+
+input{
+    padding: 0%;
+    width: 200px;
+    height: 20px;
+    border-radius: 20px;
+   align-self: center;
+}
+
+.card span{
+    font-weight: 600;
+    font-size: small;
+    padding: 20px 0px 5px 80px;
+   text-align: left;
+}
+
+button{
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+    height: 30px;
+    width: 110px;
+    align-self: center;
+    border-radius: 25px;
+    background: linear-gradient(140deg, #e60909, #f57c7c, #f62424, #f57c7c);
+    cursor: pointer;
+}
+
+select {
+    padding: 0%;
+    width: 200px;
+    height: 25px;
+    border-radius: 20px;
+   align-self: center;
+}
+
+.agora{
+    font-weight: 900;
+}
+
+.social {
+    background-color: rgb(102, 60, 41);
+    padding: 40px 20px 30px 10px;
+    border-top: 3px solid red; 
+}
+
+.social .container{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.social .container .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 450px;
+    width: 350px;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid red; 
+    border-radius: 20px;
+}
+
+.social .container .card img {
+    height: 200px;
+    width: 200px;
+}
+
+.social .container .card h4 {
+    font-size: 24px;
+}

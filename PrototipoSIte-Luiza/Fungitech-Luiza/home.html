@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+
+    <!--Links das Animações-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!--Google Fonts Poppins-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Home Page - FungiTech</title>
+</head>
+<body>
+
+<!-- Banner Com Frase escrita -->
+
+    <img src="IMG/Banners.png" class="banner"> <!--Imagem de fundo-->
+
+<p id="digit"> <!--Função JS para fazer as frases aparecerem e sumirem-->
+    <span id="predefined-text"> A FUNGITECH </span> <span id="typing-effect" style="color: beige;"></span>
+</p>
+
+<!-- Header Adaptativo, Muda a sua posição conforme o site desce -->
+
+    <header id="head">
+        <div>
+            <div>
+                <a href="home.html" onclick="window.scrollTo(0, 0);" style="text-decoration: none;">
+                    <h1>FungiTech</h1>
+                </a>
+            </div>
+
+            <!--Link direto para as seguintes partes-->
+            <div class="link">
+                <a href="#servico">Nossos Serviços</a>
+            </div>
+            
+            <div class="link">
+                <a href="#quem_somos">Quem Somos</a>
+            </div>
+
+            <div class="link">
+                <a href="#contate_nos">Fale Conosco</a>
+            </div>
+
+            <div class="link">
+                <a href="cadastro.html">Contrate-Nos</a>
+            </div>
+            
+            <div>
+                <a href="home.html"><img src="https://cdn.icon-icons.com/icons2/2199/PNG/512/mushrooms_icon_133974.png" alt="logo"></a> <!--Imagem que leva diretamente a página de Cadastro/Login -->
+            </div>
+        </div>
+    </header>
+
+    <br>
+
+<!-- Nossos serviços ou Produtos -->
+    <section class="z" id="servico"> <!--Identificando qual o tópico-->
+        <h1 class="text"> Nossos Serviços</h1> <!-- Título -->
+        <div class="show-on-scroll"> <!--Mantendo um efeito conforme a página vai descendo -->
+            <br>
+            <div class="cento"> <!--Div que armazena todos os icones de -->
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                <img src="https://cdn.icon-icons.com/icons2/1286/PNG/512/67_85312.png" alt=""> <!--Imagem do nosso produto-->
+                <span class="topic">Serviço 1</span> <!--Descrição-->
+                </a>
+
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                    <img src="https://cdn.icon-icons.com/icons2/1286/PNG/512/67_85312.png" alt=""> <!--Imagem do nosso produto-->
+                    <span class="topic">Serviço 2</span> <!--Descrição-->
+                </a>
+
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                    <img src="https://cdn.icon-icons.com/icons2/1286/PNG/512/67_85312.png" alt=""> <!--Imagem do nosso produto-->
+                    <span class="topic">Serviço 3</span> <!--Descrição-->
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Quem nós somos, nossa empresa e valores... -->
+    <section class="y" id="quem_somos"> <!--Identificando qual o tópico sendo puxado-->
+        <h1 class="text"> Quem Somos? </h1> <!-- Título -->
+        <div class="show-on-scroll"> <!-- Efeito enquanto a página desce -->
+            <br>
+
+            <div class="show-on-scroll"> 
+                <h2 class="background"><span>Sobre a Fungitech</span></h2> <!--Titulo destaque-->
+
+                <div class="cento">  <!-- Divisória principal-->
+                    <div class="inline"> <!-- Divisória dos cartões-->
+                        <ul class="c-services"> <!-- lista desordenada (Configuração do cartão) -->
+                            <li class="c-services_item"> <!--Lista de itens (decoração onde tem o cogumelo)-->
+                                <h3>A Empresa</h3> <!-- Título -->                                
+                                <br>
+                                <!-- Paragrafo para falar sobre a ideia da empresa, nome, etc..-->
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sed cumque eius repellat libero quas voluptatem rerum iste molestias? Molestias!</p>
+                            </li>
+                        </ul>
+
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Projeto</h3> 
+                                <br>
+                                <!--Falar sobre os públicos alvos, e porque criamos o projeto..-->
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sed cumque eius repellat libero quas voluptatem rerum iste molestias? Molestias!</p>
+                            </li>
+                        </ul>
+
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Diferenciais</h3> 
+                                <br>
+                                <!--Falar sobre os diferenciais de mercado (O que nos destaca das outras empresas que podem fazer o controle que fazemos?)..-->
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sed cumque eius repellat libero quas voluptatem rerum iste molestias? Molestias!</p>
+                            </li>
+                        </ul>
+
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Benefícios para o consumidor</h3>  
+                                <br>
+                                <!--Falar sobre os beneficios do nosso projeto para o comprador/consumidor..-->
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sed cumque eius repellat libero quas voluptatem rerum iste molestias? Molestias!</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            <div class="wrapper"> <!-- Cards giratórios -->
+                <h2 class="background"><span>Valores da Empresa</span></h2> <!--Títulos da empresa-->
+                <div class="cols">
+
+<!--Nossa Missão-->           
+                    <div class="col" ontouchstart="this.classList.toggle('hover');"> <!-- Div indicando o efeito "de capa" ao passar o mouse-->
+                        <div class="container"> <!--Div dos cards-->
+                            <div class="front" img style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYX1DgpWvg1kajb4j5wnVOYp3V69-s2TVHTlrMzwEtzjzR4DPjhKOg3F9uveimhgs15XE&usqp=CAU);"> <!--Local para adicionar imagens -->
+                            <div class="inner"> <!--Div Especifica do card-->
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: brown;"> <!--Div das informações que ficam atrás -->
+                            <div class="inner"> <!--Div do card-->
+                                <p>
+                                    <h1>Nossa Missão</h1> <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit deleniti voluptate assumenda quo molestias cupiditate velit quasi molestiae praesentium?
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+<!-- Nossa Visão -->
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                        <div class="container">
+                            <div class="front" img style="background-image: url(https://everythingmushrooms.com/wp-content/uploads/2019/05/DSC07906-2.jpg);">
+                            <div class="inner">
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: bisque;">
+                            <div class="inner">
+                                <p>
+                                    <h1>Nossa Visão</h1> <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit deleniti voluptate assumenda quo molestias cupiditate velit quasi molestiae praesentium?
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+<!--Nossos Valores-->
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                        <div class="container">
+                            <div class="front" img style="background-image: url(https://images.tcdn.com.br/img/img_prod/1077856/cogumelo_shitake_500g_679_1_e87795a59729ba689ab4d0c05afb5cc5.png);">
+                            <div class="inner">
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: burlywood;">
+                            <div class="inner">
+                                <p>
+                                    <h1>Nossa Valores</h1> <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit deleniti voluptate assumenda quo molestias cupiditate velit quasi molestiae praesentium?
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+        <footer>
+            <div class="last"> <!--Footer -->
+              <br>   <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+            </div>
+        </footer>
+
+<style>
+    /*Root é utilizado para criar itens que vão re repetir várias vezes (automação para itens que podem ser pré definidos)*/
+    :root{
+        --color-white: #ffffff;
+        --color-black: #000;
+        --color-brown: ;
+    
+    }
+
+    /* global */
+    /* --- descida suave ---*/
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* efeito de opacidade antes de carregar todos os itens da página */
+
+        .show-on-scroll {
+            opacity: 0;
+            transition: all 1.5s ease-in-out; /*Transition é utilizada pra dar um tempo para o efeito*/
+        }
+
+        .show-on-scroll.is-visible {
+            opacity: 1;
+        }
+
+        body{
+            margin: 0;
+            background-color: var(--color-white);
+            transition: 0.5s;
+        }
+
+        /* Header principal */
+
+        header {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.171) 100%); /*Esse é utilizado pra fazer o efeito de transparencia em gradiente*/
+            position: absolute;
+            top: 0;
+        }
+
+        header div {
+            height: min-content;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 4px;
+            z-index: 1;
+        }
+
+        div.link {
+            display: table;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+        p#digit { /*Efeito de escrita do banner- esse aqui modifica o tamanho da fonte e sua posição*/ 
+            position: absolute;
+            top: 30vh;
+            left: 5%;
+            font-weight: bolder;
+            font-size: 45px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) { /*Utilizado para dar a responsividade (Definir um tamanho especifico para celulares/tablets etc.. e quando passar aquele temanho ele já se adequa ao tamanho da tela)*/
+        p#digit { /*Efeito da escrita com responsividade para computador*/
+            position: absolute;
+            top: 20vh;
+            left: 5%;
+            font-weight: bolder;
+            font-size: 40px;
+        }
+    }
+
+        @media screen and (max-width: 767px) { /*Efeito de responsividade para celulares e aparelhos menores*/
+            p#digit {
+                position: absolute;
+                top: 10vh;
+                left: 5%;
+                font-weight: bolder;
+                font-size: 20px;
+            }
+        }
+
+        #typing-effect { /*Efeito que faz as letras parecerem que estão sendo escritas/apagadas */
+            border-right: .15em solid;
+            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        #predefined-text { 
+            color: #B77872;
+            /* Cor da frase pré-definida */
+        }
+
+        @keyframes typing { /* efeito que escreve*/
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret { /*efeito apagando*/
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: rgb(255, 255, 255);
+            }
+        }
+
+        div.link a {
+            text-decoration: none;
+            font-family: poppins, sans-serif;
+        }
+
+        @media screen and (max-width: 767px) {
+            div.link a {
+                text-decoration: none;
+                font-family: poppins, sans-serif;
+                font-size: small;
+            }
+        }
+
+        header div div a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div div a:hover {
+            color: #d79a95;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div .link a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #665C25;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        header.pop div div a {
+            color: #665C25;
+            transition: 0.5s;
+
+        }
+        header.pop div div a:hover {
+            color: #7d733b;
+            transition: 0.5s;
+
+        }
+
+        header div .link a:hover::after {
+            color: rgb(255, 70, 70);
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        header div div a img {
+            width: 40px;
+            height: 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div div a img {
+                width: 30px;
+                height: 30px;
+                margin-top: 5px;
+
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        header div a h1 {
+            color: #B34F4F;
+            font-family: poppins, sans-serif;
+            font-weight: bold;
+            margin-bottom: -5px;
+            vertical-align: middle;
+            font-size: xx-large;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div a h1 {
+                color: #B34F4F;
+                font-family: poppins, sans-serif;
+                font-weight: bold;
+                margin-top: 5px;
+                vertical-align: middle;
+                font-size: x-large;
+            }
+        }
+
+        /* Header pop (muda de estado após descer a página) */
+
+        .pop {
+            width: 100%;
+            margin: 0 auto;
+            position: sticky;
+            transition: 0.1s;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.32);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.9px);
+            -webkit-backdrop-filter: blur(6.9px);
+        }
+
+        @media screen and (max-width: 767px) {
+            .pop {
+                width: 100%;
+                margin: 0 auto;
+                position: sticky;
+                transition: 0.1s;
+                z-index: 5;
+                background: rgba(0, 0, 0, 0.32);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(6.9px);
+                -webkit-backdrop-filter: blur(6.9px);
+            }
+        }
+
+        img.logo {
+            height: 40px;
+            width: 60px;
+        }
+
+        @media screen and (max-width: 767px) {
+            img.logo {
+                height: 30px;
+                width: 50px;
+            }
+        }
+
+    
+
+        /* Sessão - Nossos serviços */
+        div.cento {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .link {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            font-size: 10;
+            padding: 2%;
+            border-radius: 10px;
+        }
+
+
+        .link img {
+            margin: 10px;
+            width: 240px;
+            height: 240px;
+            transition: all .33s;
+        }
+
+
+        @media screen and (max-width: 767px) {
+            .link img {
+                margin: 30px;
+                width: 115px;
+                height: 115px;
+                transition: all .33s;
+            }
+        }
+
+        .link span {
+            font-family: poppins, sans-serif;
+            text-align: center;
+            display: block;
+            font-size: 16px;
+            opacity: 0;
+            transition: all .5s;
+            color: black;
+        }
+
+        .link span {
+            font-family: poppins, sans-serif;
+            text-align: center;
+            display: block;
+            font-size: 16px;
+            opacity: 0;
+            transition: all .5s;
+            color: rgb(0, 0, 0);
+        }
+
+        .link:hover img {
+            transform: translateY(20px);
+        }
+
+        .link:hover span {
+            opacity: 1;
+            text-align: center;
+        }
+
+                /*sessão - quem somos - topicos */
+
+                div.inline {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        div.inline {
+            display: block;
+            justify-content: space-around;
+            margin: 20px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            div.inline {
+                display: block;
+                justify-content: space-around;
+                margin: 20px;
+            }
+        }
+
+        .c-services {
+            display: grid;
+            width: 30%;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .c-services {
+            display: inline-block;
+            margin: 0 auto;
+            width: 45%;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 30px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .c-services {
+                display: grid;
+                width: 90%;
+                position: relative;
+                z-index: 1;
+                padding-bottom: 20px;
+            }
+        }
+
+        .c-services h2,
+        h3,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        .c-services_item {
+            background: #fff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 7px 20px rgba(90, 45, 29, 0.14);
+            transition: all 300ms ease, transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .dark .c-services_item {
+            background:  #313131;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 7px 20px rgba(255, 255, 255, 0.14);
+            transition: all 300ms ease, transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .c-services_item h3 {
+            color: rgb(152, 101, 62);
+            line-height: 1.2;
+            font-weight: bolder;
+        }
+
+        .c-services_item p {
+            margin-top: var(--s-1);
+            font-weight: 400;
+            color: #706d7e;
+            text-align: justify;
+            font-family: poppins, sans-serif;
+        }
+
+        .dark .c-services_item p {
+            margin-top: var(--s-1);
+            font-weight: 400;
+            color: #ffffff;
+            text-align: justify;
+            font-family: poppins, sans-serif;
+        }
+
+        ul li:before {
+            content: "​";
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            position: absolute;
+        }
+
+        .c-services_item:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px 0;
+            cursor: pointer;
+            transition: inherit;
+            background-color: rgb(201, 142, 96);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("https://cdn-icons-png.flaticon.com/512/622/622103.png");
+        }
+
+        .c-services_item:hover {
+            background-color: rgb(201, 142, 96);
+        }
+
+        .c-services_item:hover {
+            transform: translateY(-10px);
+        }
+
+        .c-services_item:hover h3 {
+            color: #fff;
+        }
+
+        .c-services_item:hover p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .c-services_item:hover:after {
+            background-color: #fff;
+            background-image: url("https://cdn-icons-png.flaticon.com/512/622/622103.png");
+        }
+
+
+        /* Linha de divisão */
+
+        h2.background {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2.background:before {
+            border-top: 2px solid #dfdfdf;
+            content: "";
+            margin: 0 auto;
+            /* this centers the line to the full width specified */
+            position: absolute;
+            /* positioning must be absolute here, and relative positioning must be applied to the parent */
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 95%;
+            z-index: -1;
+        }
+
+        h2.background span {
+            /* to hide the lines from behind the text, you have to set the background color the same as the container */
+            background: white;
+            padding: 0 15px;
+            font-family: poppins, sans-serif;
+            transition: 0.5s;
+            font-weight: bolder;
+
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-family: poppins, sans-serif;
+            font-weight: normal;
+            color: #444;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        @media screen and (max-width: 767px) {
+            h2 {
+                font-size: large;
+                font-family: poppins, sans-serif;
+                font-weight: normal;
+                color: #444;
+                text-align: center;
+                margin: 2rem 0;
+            }
+        }
+
+        /* Cards giratórios - Missão Visão e Valores */
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 80rem;
+        }
+
+        .cols {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .cols {
+        display: block;
+        margin: 0 auto;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .cols {
+                display: block;
+                margin: 0 auto;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+        }
+
+        .col {
+            width: calc(25% - 2rem);
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .col {
+            width: 75%;
+            margin: 0 auto;
+            cursor: pointer;
+            padding-bottom: 50px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .col {
+                width: 90%;
+                padding: 20px;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+        }
+
+        .container {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-perspective: 1000px;
+            perspective: 1000px;
+        }
+
+        .front,
+        .back {
+            background-size: cover;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            background-position: center;
+            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            text-align: center;
+            min-height: 400px;
+            height: auto;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+
+        .front:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            content: '';
+            display: block;
+            opacity: .6;
+            background-color: #000;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .container:hover .front,
+        .container:hover .back {
+            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .inner {
+            -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: 1px solid transparent;
+            -webkit-perspective: inherit;
+            perspective: inherit;
+            z-index: 2;
+        }
+
+        .container .back {
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container .front {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container:hover .back {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container:hover .front {
+            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .front .inner p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .back .inner p {
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .front .inner p:after {
+            content: '';
+            width: 4rem;
+            height: 2px;
+            position: absolute;
+            background: #C6D4DF;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: -.75rem;
+        }
+
+        .front .inner span {
+            color: rgba(255, 255, 255, 0.7);
+            font-family: poppins, sans-serif;
+            font-weight: 300;
+        }
+
+        img.banner {
+            width: 100%;
+            height: min-content;
+            top: 0;
+            z-index: auto;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        img.banner {
+            width: 100%;
+            height: min-content;
+            top: 0;
+            z-index: auto;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            img.banner {
+                width: 100%;
+                height: min-content;
+                top: 0;
+                z-index: auto;
+            }
+        }
+
+        section {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-family: poppins, sans-serif;
+        }
+
+        section {
+            padding: 5%;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        section {
+            padding: 40px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            section {
+                padding: 10px;
+            }
+        }
+
+/*Titulos*/
+        .text {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Poppins, sans-serif;
+            color: black;
+            font-weight: bolder;
+        }
+
+        @media screen and (max-width: 767px) {
+            .text {
+                text-align: center;
+                margin-bottom: 20px;
+                font-family: Poppins, sans-serif;
+                font-size: xx-large;
+            }
+        }
+
+    
+
+        /* Parte do footer */
+
+        footer {
+            position: static;
+            width: 100%;
+            margin-top: 0%;
+            background-color: #282d32;
+            color: white;
+        }
+
+        footer div{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            height: min-content;
+            padding: 1px;
+        }
+
+        footer div img {
+            width: 10%;
+            height: min-content;
+            position: relative;
+            bottom: 0;
+            top: 50%;
+            right: 0;
+        }
+        
+        div.last div {
+            display: inline-block;
+        }
+
+        footer div p{
+            align-items: center;
+        }
+        
+
+</style>
+
+</body>
+</html>

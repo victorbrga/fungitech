@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: black;
+    color: black;
+    background-image: url(FundoCadastro.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+header {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    background: linear-gradient(#DF8F68 , 15%, #CE7C50);
+    position: absolute;
+    top: 0;
+}
+
+header div {
+    height: min-content;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+
+div.link {
+    display: table;
+    vertical-align: middle;
+    padding: 25px;
+    padding-top: 40px;
+}
+
+div.link a {
+    text-decoration: none;
+    font-family: poppins, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+    div.link a {
+        text-decoration: none;
+        font-family: poppins, sans-serif;
+        font-size: small;
+    }
+}
+
+header div div a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Poppins, sans-serif;
+    transition: 0.5s;
+}
+
+header div div a:hover {
+    color: #860000;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Poppins, sans-serif;
+    transition: 0.5s;
+}
+
+
+header div .link a:hover::after {
+    color: rgb(255, 70, 70);
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+header div div a img {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 10px ;
+}
+
+.logo {
+    height: 100PX;
+    width: 300px;
+    margin: 0px;
+}
+
+header div div a .img2{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    header div div a img {
+        width: 30px;
+        height: 30px;
+        margin-top: 5px;
+
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+header div a h1 {
+    color: #B34F4F;
+    font-family: poppins, sans-serif;
+    font-weight: bold;
+    margin-bottom: -5px;
+    vertical-align: middle;
+    font-size: xx-large;
+}
+
+@media screen and (max-width: 767px) {
+    header div a h1 {
+        color: #d79a95;
+        font-family: poppins, sans-serif;
+        font-weight: bold;
+        margin-top: 5px;
+        vertical-align: middle;
+        font-size: x-large;
+    }
+}
+
+footer {
+    position: absolute;
+    margin: 0%;
+    margin-top: 40px;
+    width: 100%;
+    border-top: #250F04 solid 2px;
+    background-color: #98512B;
+    color: #F8DFC9;
+}
+
+footer div {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    height: min-content;
+    padding: 1px;
+}
+
+footer div img {
+    width: 10%;
+    height: min-content;
+    position: relative;
+    bottom: 0;
+    top: 50%;
+    right: 0;
+}
+
+div.last div {
+    display: inline-block;
+}
+
+footer div p {
+    align-items: center;
+}
+
+.login {
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    padding-bottom: 30px;
+
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9C2F20;
+    font-weight: bold;
+    align-items: flex-start;
+}
+
+.campo input {
+    width: 200px;
+    padding: 10px 0px;
+    border: 2px solid #80350F;
+    background-color: #F6D4B7;
+    font-size: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card3 {
+    background-color: #e6a56ccd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 470px;
+    width: 370px;
+    margin: 150px;
+    border-radius: 5px;
+    font-family: poppins, sans-serif;
+    padding-bottom: 5px;
+}
+
+.card3 h2 {
+    color: #9C2F20;
+}
+
+.card3 button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #9C2F20;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+    background-color: rgb(174, 35, 35);
+    color: beige;
+}
+
+.header{
+    background-color: beige;
+    border-bottom: 3px solid #7d0909;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.titulo{
+ color: #7d0909;
+ font-family: monospace;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    width: 350px;
+    color: rgb(99, 7, 25);
+    align-items: center;
+}
+
+.banner{
+    padding: 40px 20px 30px 10px;
+    color: #fff;
+    height: 400px;
+    background-image: url(/home/aluno/Downloads/HomePageFungiTech/shiitake.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.banner .container p {
+    font-size: 40px;
+    width: 25%;
+}
+
+.banner .container span {
+    color: #7d0909;
+    font-weight: bold;
+}
+
+.social{
+    background-color: white;
+    color: black;
+    padding: 40px 0;
+}
+
+.social .container{
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.card h4{
+    font-size: 24px;
+}
+
+.objetivo{
+display: flex;
+justify-content: flex-start;
+
+padding-right: 50px;
+padding-left: 150px;
+font-family: sans-serif;
+}
+
+.objetivo span{
+    font-size: 30px;
+    font-weight: bolder;
+}
+.objetivo p{
+    margin: 0;
+}
+.objetivo img{
+    width: 300px;
+    margin-right: 50px;
+    border: 7px dashed #7d0909;
+
+}
+
+.footer{
+    height: 100px;
+    background-color: #7d0909;
+}
+
+.footer .container{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.footer .container{
+    font-weight: bold;
+    color: black;
+}

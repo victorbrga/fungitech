@@ -1,0 +1,56 @@
+body{
+    margin: 0%;
+    background-color: white;
+    background-image: url(fundoCadastro.avif);
+    background-repeat: no-repeat;
+    background-size: 100%
+}
+
+.titulo {
+    margin: 0px;
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: sans-serif;
+    color: #7d0909;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.cadastro{
+    margin: 0%;
+    margin-top: 30px;
+    background-color: #bc9057c8;
+    width: 500px;
+    height: 603px;
+    padding: 15px;
+    padding-top: 0px;
+    border: 5px outset;
+    border-color: #74562d;
+}
+
+.cadastro input{
+    color: black;
+    background-color: whitesmoke;
+    border: 3px gray outset;
+    width: 400px;
+    padding: 10px;
+}
+
+.cadastro button{
+    color: black;
+    background-color: whitesmoke;
+}
+
+.cadastro select{
+    color: black;
+    background-color: whitesmoke;
+    border: 3px gray outset;
+    width: 427px;
+    padding: 10px;
+}
+
+.texto{
+    color: black;
+    font-size: 30px;
+    font-family: sans-serif;
+}

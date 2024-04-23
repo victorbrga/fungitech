@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title> Cadastro - Fungitech </title>
+        <!--Google Fonts Poppins-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header id="head">
+        <div>
+            <div>
+                <a href="home.html" onclick="window.scrollTo(0, 0);" style="text-decoration: none;">
+                    <h1>FungiTech</h1>
+                </a>
+            </div>
+
+            <!--Link direto para as seguintes partes-->
+            <div class="link">
+                <a href="home.html">Voltar para a página inicial</a>
+            </div>
+            
+            <div class="link">
+                <a href="#">Fale com o COGU</a>
+            </div>
+            
+            <div>
+                <a href="home.html"><img src="https://cdn.icon-icons.com/icons2/2199/PNG/512/mushrooms_icon_133974.png" alt="logo"></a> <!--Imagem que leva diretamente a página de Cadastro/Login -->
+            </div>
+        </div>
+    </header>
+<br><br><br>
+    <center>
+
+            <div class="form">
+                <h2>Seja bem Vindo ao cadastro! <h4>Por favor insira seus dados abaixo!</h4> </h2>
+                <br> <br>
+                <img src="https://cdn.icon-icons.com/icons2/2199/PNG/512/mushrooms_icon_133974.png" style="height: 10%; width: 10%;">
+                <div class="buttons">
+                    <area></area>
+                    <label class="signup active">Cadastre-se</label>
+                    <label class="signin">Já possuo Cadastro</label>
+                </div>
+
+                <div class="clear"></div>
+                
+                <div class="name">
+                    <span class="up active">Cadastre-se</span>
+                    <p> ou </p>
+                    <span class="in">Login</span>
+                </div>
+                
+                <div class="clear"></div>
+
+                <form action="su" action="home.html">
+                    <h3> Nome da Empresa </h3>
+                    <input type="text" name="name" placeholder="Digite seu nome completo" autocomplete="off">
+
+                    <h3> Senha </h3>
+                    <input type="password" name="password" placeholder="*********************" autocomplete="off">
+
+                    <h3> Email </h3>
+                    <input type="email" name="email" placeholder="Digite seu E-mail" autocomplete="off">
+                    
+                    <div class="clear"></div>
+
+                    <label><input type="checkbox" id="check"> <section for="#check"></section> Li e concordo com os <a href="#">Termos de Serviço</a> </label>
+
+                    <div class="clear"></div>
+
+                    <input type="submit" class="buttonsu" value="Entrar">
+                </form>
+
+                <form class="si" action="home.html">
+                    <h3> Usuário </h3>
+                    <input class="lemail" type="text" name="name" placeholder="Digite seu email" autocomplete="off">
+
+                    <h3> Senha </h3>
+                    <input class="lpassword" type="password" name="password" placeholder="********************" autocomplete="off">
+
+                    <div class="clear"></div><br>
+                    <input class="buttonsi" type="submit" value="Entrar">
+                </form>
+
+                </div>
+
+            </div>
+
+
+    </center>
+
+    <footer>
+        <div class="last">
+            <br>   <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+          </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+</body>
+</html>
+
+<style>
+    body{
+/*      background-image: url(https://img.freepik.com/fotos-premium/cogumelo-selvagem-em-forma-de-ovo-4k-visao-detalhada_1068178-1680.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;                  */
+        background-color: #895854;
+        font-family: poppins, sans-serif;
+    }
+
+     /* Header principal */
+
+     header {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.171) 100%);
+            position: absolute;
+            top: 0;
+        }
+
+        header div {
+            height: min-content;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 4px;
+            z-index: 1;
+        }
+
+        div.link {
+            display: table;
+            vertical-align: middle;
+            padding: 25px;
+        }
+
+        div.link a {
+            text-decoration: none;
+            font-family: poppins, sans-serif;
+        }
+
+        @media screen and (max-width: 767px) {
+            div.link a {
+                text-decoration: none;
+                font-family: poppins, sans-serif;
+                font-size: small;
+            }
+        }
+
+        header div div a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div div a:hover {
+            color: #d79a95;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+
+        header div .link a:hover::after {
+            color: rgb(255, 70, 70);
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        header div div a img {
+            width: 40px;
+            height: 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div div a img {
+                width: 30px;
+                height: 30px;
+                margin-top: 5px;
+
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        header div a h1 {
+            color: #B34F4F;
+            font-family: poppins, sans-serif;
+            font-weight: bold;
+            margin-bottom: -5px;
+            vertical-align: middle;
+            font-size: xx-large;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div a h1 {
+                color: #d79a95;
+                font-family: poppins, sans-serif;
+                font-weight: bold;
+                margin-top: 5px;
+                vertical-align: middle;
+                font-size: x-large;
+            }
+        }
+
+            /* Login */
+            *{
+                font-family: Poppins, sans-serif;
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+            }
+
+            .clear{
+                clear: both;
+            }
+
+            .form {
+                width: 70%;
+                padding: 50px;
+                background: #B34F4F;
+                margin: 50px auto;
+                overflow: hidden;
+                box-shadow: 0px 5px 10px 0px #d79a95;
+            }
+
+            .form .buttons {
+            width: 370px;
+                float: right;
+                margin-bottom: 80px;
+                color: #d79a95;
+                background: #282d32;
+                position: relative;
+            }
+
+            .form .buttons area {
+                position: absolute;
+                z-index: 1;
+                width: 50%;
+                right: 0;
+                top: 0;
+                height: 100%;
+                background-color: #d79a95;
+            }
+
+            .form .buttons label {
+                float: right;
+                padding: 3px;
+                width: 50%;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                z-index: 2;
+            }
+
+            .form .buttons label.active {
+                color: aliceblue;
+            }
+
+            .form .name{
+                margin-bottom: 40px;
+                color: #282d32;
+            }
+
+            .form .name span{
+                padding: 10px 0px;
+                font-size: 25px;
+            }
+
+            .form .name span.active{
+                color: aliceblue;
+                border-bottom: 2px solid #d79a95;
+            }
+
+            .form .name span:first-child{
+                padding-left: 0;
+            }
+
+            .form .name p{
+                display: inline-block;
+                padding: 0px 20px;
+            }
+
+            .form form h3 {
+                margin-bottom: 8px;
+                margin-top: 8px;
+                color: aliceblue;
+            }
+
+            .form form input[type="text"], input[type="password"],input[type="email"]{
+                background: #d79a95;
+                outline: none;
+                border:1px solid #d79a95;
+                border-radius: 10px;
+                padding: 5px;
+                border-bottom: 1px solid #d79a95;
+                width: 100%;
+                color: beige;
+            }
+
+            .form form input[type="submit"]{
+                padding: 5px;
+                font-size: 20px;
+                width: 20%;
+                left: 40%;
+                position: relative;
+                border: 1px solid #a44343;
+                background: #d79a95;
+                color: #B34F4F;
+                outline: none;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+            .form form label input[type="checkbox"] {
+	display: none;
+}
+
+            .form form label input[type="checkbox"]:checked + section {
+                border-radius: 5px;
+                background: #d79a95;
+            }
+
+            .form form label section{
+                float: left;
+                border-radius: 50%;
+                overflow: hidden;
+                background: #282d32;
+                width: 20px;
+                height: 20px;
+                margin: 3px 5px 0px 0px;
+                position: relative;
+                cursor: pointer;
+                transition: 400ms;
+            }
+
+            .form form label{
+                color: #d79a95;
+            }
+
+            .form form label a{
+                padding: 3px 0px;
+                color: #fff;
+                border-bottom: 1px solid #d79a95;
+                text-decoration: none;
+                margin-left: 5px;
+            }
+
+            .form form.si{
+                display: none;
+            }
+
+            /* Parte do footer */
+
+            footer {
+            position: absolute;
+            width: 100%;
+            margin-top: 1%;
+            background-color: #282d32;
+            color: white;
+        }
+
+        footer div{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            height: min-content;
+            padding: 1px;
+        }
+
+        footer div img {
+            width: 10%;
+            height: min-content;
+            position: relative;
+            bottom: 0;
+            top: 50%;
+            right: 0;
+        }
+        
+        div.last div {
+            display: inline-block;
+        }
+
+        footer div p{
+            align-items: center;
+        }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $(".signin").on("click", function (){
+            $("area").animate({"right":"50%"} , 100);
+            $(".signin").addClass("active");
+            $(".signup").removeClass("active");
+            
+            $(".in").css({"color":"#FFF","border-bottom":"2px solid #d79a95"});
+            $(".up").css({"color":"#72849c","border-bottom":"none"});
+
+            $(".su").fadeOut(100 , function() {
+                $(".si").fadeIn();
+            });
+        });
+
+        $(".signup").on("click" , function (){
+            $("area").animate({"right":"0"} , 100);
+            $(".signup").addClass("active");
+            $("signin").removeClass("active");
+
+            $(".up").css({"color":"#FFF","border-bottom":"2px solid #d79a95"});
+            $(".in").css({"color":"#72849c","border-bottom":"none"});
+
+            $(".si").fadeOut(100 , function (){
+                $(".su").fadeIn();
+            });
+        });
+
+        $("form:first").submit(function(e){
+            if ($("form:first input[type='text']").val() === "" && $("form:first input[type='email']").val() === "" && $("form:first input[type='password']").val() === "") {
+
+$("form:first input[type='text'] , form:first input[type='email'] , form:first input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+
+} else if ($("form:first input[type='text']").val() === "" && $("form:first input[type='email']").val() !== "" && $("form:first input[type='password']").val() !== "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid #27b59d"});
+
+} else if ($("form:first input[type='text']").val() !== "" && $("form:first input[type='email']").val() === "" && $("form:first input[type='password']").val() !== "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid #27b59d"});
+
+} else if ($("form:first input[type='text']").val() !== "" && $("form:first input[type='email']").val() !== "" && $("form:first input[type='password']").val() === "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+
+} else if ($("form:first input[type='text']").val() !== "" && $("form:first input[type='email']").val() === "" && $("form:first input[type='password']").val() === "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+
+} else if ($("form:first input[type='text']").val() === "" && $("form:first input[type='email']").val() !== "" && $("form:first input[type='password']").val() === "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid #27b59d"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+
+} else if ($("form:first input[type='text']").val() === "" && $("form:first input[type='email']").val() === "" && $("form:first input[type='password']").val() !== "") {
+
+$("form:first input[type='text']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='email']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:first input[type='password']").css({"border-bottom":"1px solid #27b59d"});
+
+} else {
+return;
+}
+
+e.preventDefault();
+});
+
+
+$("form:last").submit(function (e) {
+if ($("form:last input[type='email']").val() ==="" && $("form:last input[type='password']").val() ==="") {
+  $("form:last input[type='email'] , form:last input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+} else if ($("form:last input[type='email']").val() ==="" && $("form:last input[type='password']").val() !=="") {
+$("form:last input[type='email']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:last input[type='password']").css({"border-bottom":"1px solid #27b59d"});
+} else if ($("form:last input[type='email']").val() !=="" && $("form:last input[type='password']").val() ==="") {
+$("form:last input[type='password']").css({"border-bottom":"1px solid rgb(218, 45, 62)"});
+$("form:last input[type='email']").css({"border-bottom":"1px solid #27b59d"});
+} else {
+return;
+}
+
+e.preventDefault();
+});
+});
+
+</script>
