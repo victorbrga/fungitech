@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style_dash.css">
+</head>
+<body>
+
+ <div class="header">
+        
+          <img class="back" src="voltar.png" alt="back">
+          <a href="home.html" onclick="window.scrollTo(0, 0);" style="text-decoration: none;">
+            <img class="logo" src="LogoFungiTech.png" alt="">
+         </a>
+    
+    </div>
+
+
+    <div class="graficos">
+
+      <select></select>
+      <div class="container" >
+        <div>
+          <canvas class="grafico" id="myChart" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+  
+        <div>
+          <canvas class="grafico" id="myChart2" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+      </div>
+
+      <div class="container">
+        <div>
+          <canvas class="grafico" id="myChart3" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+      </div>
+    </div>
+    
+   
+</body>
+
+<script>
+
+    const grafico = document.getElementById('myChart');
+  
+    new Chart(grafico, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'Temperatura Média',
+          backgroundColor: 'rgb(236, 58, 58)',
+          data: [20, 23, 27, 24, 22, 22],
+          borderWidth: 1
+        }
+    ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+
+    const grafico2 = document.getElementById('myChart2');
+
+    new Chart(grafico2, {
+      type: 'line',
+      data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [{
+          label: 'Úmidade',
+          backgroundColor: 'rgb(58, 153, 236)',
+          borderColor: 'rgb(58, 153, 236)',
+          data: [80, 83, 87, 86, 82, 83],
+          borderWidth: 1
+        }
+    ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+
+    const grafico3 = document.getElementById('myChart3');
+
+    new Chart(grafico3, {
+      type: 'doughnut',
+      data: {
+        labels: [
+    'Red',
+    'Blue',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</html>
