@@ -1,4 +1,4 @@
-body {
+.cadastro {
     margin: 0;
     padding: 0;
     font-family: Poppins, sans-serif;
@@ -209,4 +209,77 @@ footer div p {
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+}
+
+.simulador {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.calculadora {
+    max-width: 600px;
+    margin-top: 130px;
+    padding: 20px;
+    text-align: center;
+}
+
+.calculadora-mensagem{
+    max-width: 1200px;
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.calculadora h1 {
+    color: #c92026;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.inputs input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.calculadora button {
+    background-color: #c92026;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    align-items: center;
+    margin-left: 10px;
+    padding: 20px;
+    
+}
+
+
+.positivo{
+    color: green
+}
+
+.negativo{
+    color: red;
 }
