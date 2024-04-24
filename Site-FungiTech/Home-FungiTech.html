@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+
+    <!--Links das Animações-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!--Google Fonts Poppins-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>FungiTech|Home</title>
+</head>
+<body>
+
+<!-- Banner Com Frase escrita -->
+
+    <img src="img/Banners.png" class="banner"> <!--Imagem de fundo-->
+
+<p id="digit"> <!--Função JS para fazer as frases aparecerem e sumirem-->
+    <span id="predefined-text"> A FUNGITECH </span> <span id="typing-effect" style="color: beige;"></span>
+</p>
+
+<!-- Header Adaptativo, Muda a sua posição conforme o site desce -->
+
+    <header id="head">
+        <div>
+            <div>
+                <a href="Home-FungiTech.html" onclick="window.scrollTo(0, 0);" style="text-decoration: none;">
+                    <img class="logo" src="img/LogoFungiTech.png" alt="">
+                </a>
+            </div>
+
+            <!--Link direto para as seguintes partes-->
+            <div class="link">
+                <a href="#servico">Nossos Serviços</a>
+            </div>
+            
+            <div class="link">
+                <a href="#quem_somos">Quem Somos</a>
+            </div>
+
+            <div class="link">
+                <a href="#contate_nos">Fale conosco</a>
+            </div>
+
+            <div class="link">
+                <a href="Simulador-FungiTech.html">Simulador Financeiro</a>
+            </div>
+
+            <div class="link">
+                <a href="Cadastro-FungiTech.html">Contrate nossos serviços</a>
+            </div>
+            
+            <div>
+                <a href="Home-FungiTech.html"><img src="img/logoCogumelo.png" alt="logo"></a> <!--Imagem que leva diretamente a página de Cadastro/Login -->
+            </div>
+        </div>
+    </header>
+
+    <br>
+
+<!-- Nossos serviços ou Produtos -->
+    <section class="z" id="servico"> <!--Identificando qual o tópico-->
+        <h1 class="text"> Nossos Serviços</h1> <!-- Título -->
+        <div class="show-on-scroll"> <!--Mantendo um efeito conforme a página vai descendo -->
+            <br>
+            <div class="cento"> <!--Div que armazena todos os icones de -->
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                    <img src="data:image/jpeg;base64,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" alt="">
+                <span class="topic">Monitoramento em tempo real</span> <!--Descrição-->
+                </a>
+
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                    <img src="https://planta.vc/wp-content/uploads/2023/01/lampada.png" alt="">
+                    <!--<img src="https://cdn-icons-png.flaticon.com/512/11164/11164101.png" alt=""> <!--Imagem do nosso produto-->
+                    <!-- Imagem antiga do cogumelo <img src="https://cdn.icon-icons.com/icons2/1286/PNG/512/67_85312.png" alt=""> -->
+                    <span class="topic">Redução de desperdícios</span> <!--Descrição-->
+                </a>
+
+                <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVcqqGN-o663gANMDe4bO5W7wiC9wKCyniu9AoouVLgw&s" alt="">
+                    <!--<img src="https://cdn-icons-png.flaticon.com/512/6467/6467284.png" alt=""> <!--Imagem do nosso produto-->
+                    <span class="topic">Otimização do ambiente de cultivo</span> <!--Descrição-->
+                    </a>
+    
+                    <a class="link desktop" href="#" style="text-decoration: none;"> <!-- Criando um hyperlink com o css -->
+                        <img src="https://bddb.ag/wp-content/uploads/2016/03/img_bi.png" alt="">
+                       <!--<img src="https://cdn-icons-png.flaticon.com/512/4719/4719335.png" alt=""> <!--Imagem do nosso produto-->
+                        <span class="topic">Aumento da rentabilidade</span> <!--Descrição-->
+                    </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Quem nós somos, nossa empresa e valores... -->
+    <section class="y" id="quem_somos"> <!--Identificando qual o tópico sendo puxado-->
+        <h1 class="text"> Quem Somos? </h1> <!-- Título -->
+        <div class="show-on-scroll"> <!-- Efeito enquanto a página desce -->
+
+            <div class="wrap">
+                <img src="img/LogoFungiTech.png">
+                <div class="txt">
+                    <h3>A Empresa</h3>
+                    <p class="texto_princ">Na FungiTech, estamos empenhados em criar e implementar sistemas completos que oferecem uma experiência intuitiva aos nossos clientes. Utilizando dashboards inteligentes, tornamos a interação com nossas soluções ainda mais simples e eficaz. 
+                        </p>
+                </div>
+            </div>
+<!--
+            <div class="wrap">
+               
+                <div class="txt">
+                    <h3>A Equipe</h3>
+                    <p class="texto_princ">O Arctic Monkeys é uma banda de indie rock britânica formada em 2002 em Sheffield, Inglaterra. <br> <br>
+
+                        1. Alex Turner: Vocalista principal, guitarrista e principal compositor da banda. Ele é conhecido por sua voz distintiva, letras inteligentes e estilo de composição único. Turner também toca guitarra rítmica e ocasionalmente teclado. <br> <br>
+                        
+                        2. Jamie Cook: Guitarrista principal da banda. Cook é responsável por muitos dos riffs de guitarra marcantes da banda. Ele é conhecido por seu estilo de tocar preciso e suas contribuições para o som característico do Arctic Monkeys. <br> <br>
+                        
+                        3. Nick O'Malley (Nicholas Edward O'Malley): Baixista da banda, que se juntou ao Arctic Monkeys em 2006, substituindo o baixista original Andy Nicholson. O'Malley trouxe uma nova dinâmica para a banda, contribuindo para a evolução de seu som. <br> <br>
+                        
+                        4. Matt Helders (Matthew Helders): Baterista e vocalista de apoio. Helders é conhecido por sua habilidade técnica na bateria e sua energia no palco. Ele também contribuiu com vocais em várias faixas da banda, adicionando camadas à sua música. <br> <br>
+                        
+                        Esses quatro membros formam o núcleo do Arctic Monkeys e têm sido consistentes ao longo dos anos, com sua química musical única ajudando-os a alcançar o sucesso e a manter uma base de fãs dedicada. 
+                        </p>
+                </div>
+                <img src="https://www.folhadelondrina.com.br/img/Facebook/3240000/Album-AM-do-Arctic-Monkeys-comemora-10-anos0324125700202310271304.jpg?xid=6004907">
+            </div>
+-->
+
+            <div class="show-on-scroll"> 
+                <h2 class="background"><span>Sobre a Fungitech</span></h2> <!--Titulo destaque-->
+
+                <div class="cento">  <!-- Divisória principal-->
+                    <div class="inline"> <!-- Divisória dos cartões-->
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Projeto</h3> 
+                                <br>
+                                <!--Falar sobre os públicos alvos, e porque criamos o projeto..-->
+                                <p> Nosso projeto concentra-se em criar as condições ideais para o cultivo de cogumelos, assegurando uma análise precisa e em tempo real dos dados de temperatura e umidade relativa do ar. Esses dados são coletados por sensores posicionados estrategicamente, garantindo um ambiente ideal para o crescimento saudável dos cogumelos.</p>
+                            </li>
+                        </ul>
+
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Diferenciais</h3> 
+                                <br>
+                                <!--Falar sobre os diferenciais de mercado (O que nos destaca das outras empresas que podem fazer o controle que fazemos?)..-->
+                                <p> A FungiTech Solutions oferece soluções inovadoras e personalizadas para o cultivo de cogumelos, combinando tecnologia avançada com um compromisso centrado no cliente. Priorizamos a excelência em todas as etapas do processo, do desenvolvimento de sistemas ao suporte técnico especializado, enquanto nosso compromisso com a sustentabilidade garante uma parceria estratégica para ajudar os produtores a alcançar seus objetivos de produção.</p>
+                            </li>
+                        </ul>
+
+                        <ul class="c-services">
+                            <li class="c-services_item">
+                                <h3>Benefícios para o consumidor</h3>  
+                                <br>
+                                <!--Falar sobre os beneficios do nosso projeto para o comprador/consumidor..-->
+                                <p>Estamos comprometidos em evitar desperdícios e maximizar a rentabilidade dos produtores, oferecendo soluções tecnológicas eficazes para o cultivo de cogumelos. Nossos produtos visam otimizar os processos, reduzindo custos e aumentando a eficiência da produção.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <br>
+            <div class="wrapper"> <!-- Cards giratórios -->
+                <h2 class="background"><span>Valores da Empresa</span></h2> <!--Títulos da empresa-->
+                <div class="cols">
+
+<!--Nossa Missão-->           
+                    <div class="col" ontouchstart="this.classList.toggle('hover');"> <!-- Div indicando o efeito "de capa" ao passar o mouse-->
+                        <div class="container"> <!--Div dos cards-->
+                            <div class="front" img style="background-image: url(https://veganbusiness.com.br/wp-content/uploads/2022/05/mercado-de-cogumelo-shiitake-760x507.jpg);"> <!--Local para adicionar imagens -->
+                            <div class="inner"> <!--Div Especifica do card-->
+                                <h1>Nossa Missão</h1>
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: #860000;"> <!--Div das informações que ficam atrás -->
+                            <div class="inner"> <!--Div do card-->
+                                <p>
+                                    <br>  A missão da FungiTech Solutions é revolucionar o cultivo de cogumelos através da inovação tecnológica e da excelência. Priorizamos soluções personalizadas e eficazes que maximizem a rentabilidade dos produtores e minimizem o impacto ambiental, sempre superando as expectativas dos clientes. Com suporte técnico especializado e práticas sustentáveis, buscamos impulsionar o sucesso e o crescimento sustentável da indústria de cogumelos.
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+<!-- Nossa Visão -->
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                        <div class="container">
+                            <div class="front" img style="background-image: url(https://everythingmushrooms.com/wp-content/uploads/2019/05/DSC07906-2.jpg);"> 
+                            <div class="inner">
+                                <h1>Nossa Visão</h1>
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: #8D431E;">
+                            <div class="inner">
+                                <p>
+                                     <br>A visão da FungiTech Solutions é se tornar líder global no fornecimento de soluções tecnológicas inovadoras para o cultivo de cogumelos. Almejamos ser reconhecidos como referência em excelência, oferecendo produtos e serviços que impulsionem o sucesso e a sustentabilidade dos nossos clientes em todo o mundo. Buscamos continuamente expandir nossas fronteiras, explorando novas oportunidades de crescimento e desenvolvimento, enquanto mantemos nosso compromisso com a qualidade, a inovação e a responsabilidade ambiental. Com uma equipe dedicada e uma cultura empresarial voltada para a excelência, aspiramos a moldar o futuro da indústria de cogumelos e deixar um legado duradouro no mercado global.
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+<!--Nossos Valores-->
+                    <div class="col" ontouchstart="this.classList.toggle('hover');">
+                        <div class="container">
+                            <div class="front" img style="background-image: url(https://images.tcdn.com.br/img/img_prod/1077856/cogumelo_shitake_500g_679_1_e87795a59729ba689ab4d0c05afb5cc5.png);">
+                            <div class="inner">
+                                <h1>Nossos Valores</h1>
+                            </div>
+                        </div>
+                        <div class="back" style="background-color: #D1884E;">
+                            <div class="inner">
+                                <p>
+                                     <br> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam reprehenderit deleniti voluptate assumenda quo molestias cupiditate velit quasi molestiae praesentium?
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+
+    <!-- Fale conosco -->
+
+    <section class="z" id="contate_nos"> <!--Identificando qual o tópico-->
+        <h2 class="background"><span>Fale Conosco</span></h2>  <!-- Título -->
+        <div class="show-on-scroll"> <!--Mantendo um efeito conforme a página vai descendo -->
+
+            </div>
+        </div>
+    </section>  
+    <!--End Contact Address Area-->  
+     
+    <!--Start contact form area-->
+    <section class="contact-info-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="contact-form">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="sec-title-style1 float-left">
+                                    <div class="title"> <img style="width: 80px;" src="https://i.pinimg.com/originals/fd/3c/8e/fd3c8e35a6eeaf227a5e00d340f4708b.gif"> Send Your Message</div>
+                                </div>
+                            </div> 
+                        </div>   
+                        <div class="inner-box">
+                            <form id="contact-form" name="contact_form" class="default-form" action="inc/sendmail.php" method="post">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-12">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="input-box">   
+                                                    <input type="text" name="form_name" value="" placeholder="Nome" required="">
+                                                </div> 
+                                                 <div class="input-box"> 
+                                                    <input type="text" name="form_phone" value="" placeholder="Telefone">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="input-box"> 
+                                                    <input type="email" name="form_email" value="" placeholder="Email" required="">
+                                                </div>
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12">
+                                        <div class="input-box">    
+                                            <textarea name="form_message" placeholder="Insira sua mensagem..." required=""></textarea>
+                                        </div>
+                                        <div class="button-box">
+                                            <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                            <button type="submit" data-loading-text="Please wait...">Send Message<span class="flaticon-next"></span></button>    
+                                        </div>         
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+        <footer>
+            <div class="last"> <!--Footer -->
+              <br>   <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+            </div>
+        </footer>
+
+<style>
+    /*Root é utilizado para criar itens que vão re repetir várias vezes (automação para itens que podem ser pré definidos)*/
+    :root{
+        --color-white: #ffffff;
+        --color-black: #000;
+        --color-brown: ;
+    
+    }
+
+    /* global */
+    /* --- descida suave ---*/
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* efeito de opacidade antes de carregar todos os itens da página */
+
+        .show-on-scroll {
+            opacity: 0;
+            transition: all 1.5s ease-in-out; /*Transition é utilizada pra dar um tempo para o efeito*/
+        }
+
+        .show-on-scroll.is-visible {
+            opacity: 1;
+        }
+
+        body{
+            margin: 0;
+            background-color: var(--color-white);
+            transition: 0.5s;
+        }
+
+        /* Header principal */
+
+        header {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.171) 100%); /*Esse é utilizado pra fazer o efeito de transparencia em gradiente*/
+            position: absolute;
+            top: 0;
+        }
+
+        header img.logo {
+            height: 50px;
+            width: 200px;
+            margin-top:-3px;
+        }
+
+        header div {
+            height: min-content;
+            display: flex;
+            justify-content: space-evenly;      
+            padding: 4px;
+            z-index: 1;
+        }
+
+        div.link {
+            display: table;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+        p#digit { /*Efeito de escrita do banner- esse aqui modifica o tamanho da fonte e sua posição*/ 
+            position: absolute;
+            top: 30vh;
+            left: 5%;
+            font-weight: bolder;
+            font-size: 45px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) { /*Utilizado para dar a responsividade (Definir um tamanho especifico para celulares/tablets etc.. e quando passar aquele temanho ele já se adequa ao tamanho da tela)*/
+        p#digit { /*Efeito da escrita com responsividade para computador*/
+            position: absolute;
+            top: 20vh;
+            left: 5%;
+            font-weight: bolder;
+            font-size: 40px;
+        }
+    }
+
+        @media screen and (max-width: 767px) { /*Efeito de responsividade para celulares e aparelhos menores*/
+            p#digit {
+                position: absolute;
+                top: 10vh;
+                left: 5%;
+                font-weight: bolder;
+                font-size: 20px;
+            }
+        }
+
+        #typing-effect { /*Efeito que faz as letras parecerem que estão sendo escritas/apagadas */
+            border-right: .15em solid;
+            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        #predefined-text { 
+            color: #B77872;
+            /* Cor da frase pré-definida */
+        }
+
+        @keyframes typing { /* efeito que escreve*/
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret { /*efeito apagando*/
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: rgb(255, 255, 255);
+            }
+        }
+
+        div.link a {
+            text-decoration: none;
+            font-family: poppins, sans-serif;
+        }
+
+        @media screen and (max-width: 767px) {
+            div.link a {
+                text-decoration: none;
+                font-family: poppins, sans-serif;
+                font-size: small;
+            }
+        }
+
+        header div div a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div div a:hover {
+            color: #d79a95;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div .link a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #665C25;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        header.pop div div a {
+            color: #860000;
+            transition: 0.5s;
+
+        }
+        header.pop div div a:hover {
+            color: #AD591E;
+            transition: 0.5s;
+
+        }
+
+        header div .link a:hover::after {
+            color: rgb(255, 70, 70);
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        header div div a img {
+            width: 60px;
+            height: 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div div a img {
+                width: 30px;
+                height: 30px;
+                margin-top: 5px;
+
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        header div a h1 {
+            color: #B34F4F;
+            font-family: poppins, sans-serif;
+            font-weight: bold;
+            margin-bottom: -5px;
+            vertical-align: middle;
+            font-size: xx-large;
+        }
+
+        @media screen and (max-width: 767px) {
+            header div a h1 {
+                color: #B34F4F;
+                font-family: poppins, sans-serif;
+                font-weight: bold;
+                margin-top: 5px;
+                vertical-align: middle;
+                font-size: x-large;
+            }
+        }
+
+        /* Header pop (muda de estado após descer a página) */
+
+        .pop {
+            width: 100%;
+            margin: 0 auto;
+            position: sticky;
+            transition: 0.1s;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.32);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.9px);
+            -webkit-backdrop-filter: blur(6.9px);
+        }
+
+        @media screen and (max-width: 767px) {
+            .pop {
+                width: 100%;
+                margin: 0 auto;
+                position: sticky;
+                transition: 0.1s;
+                z-index: 5;
+                background: rgba(0, 0, 0, 0.32);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(6.9px);
+                -webkit-backdrop-filter: blur(6.9px);
+            }
+        }
+
+
+        /* Sessão - Nossos serviços */
+        div.cento {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .link {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            font-size: 10;
+            padding: 2%;
+            border-radius: 10px;
+        }
+
+
+        .link img {
+            margin: 20px;
+            width: 120px;
+            height: 120px;
+            transition: all .33s;
+        }
+
+
+        @media screen and (max-width: 767px) {
+            .link img {
+                margin: 30px;
+                width: 115px;
+                height: 115px;
+                transition: all .33s;
+            }
+        }
+
+        .link span {
+            font-family: poppins, sans-serif;
+            text-align: center;
+            display: block;
+            font-size: 16px;
+            opacity: 0;
+            transition: all .5s;
+            color: black;
+        }
+
+        .link span {
+            font-family: poppins, sans-serif;
+            text-align: center;
+            display: block;
+            font-size: 16px;
+            opacity: 0;
+            transition: all .5s;
+            color: rgb(0, 0, 0);
+        }
+
+        .link:hover img {
+            transform: translateY(20px);
+        }
+
+        .link:hover span {
+            opacity: 1;
+            text-align: center;
+        }
+
+        /*Sessão quem somos - empresa*/
+        
+.wrap {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.wrap img {
+    width: 40%;
+    height: 40%;
+    vertical-align: middle;
+    border-radius: 20px;
+}
+
+.txt {
+    width: 55%;
+    text-align: justify;
+}
+
+.txt h3 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+        /*sessão - quem somos - topicos */
+
+                div.inline {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        div.inline {
+            display: block;
+            justify-content: space-around;
+            margin: 20px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            div.inline {
+                display: block;
+                justify-content: space-around;
+                margin: 20px;
+            }
+        }
+
+        .c-services {
+            display: grid;
+            width: 30%;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .c-services {
+            display: inline-block;
+            margin: 0 auto;
+            width: 45%;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 30px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .c-services {
+                display: grid;
+                width: 90%;
+                position: relative;
+                z-index: 1;
+                padding-bottom: 20px;
+            }
+        }
+
+        .c-services h2,
+        h3,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        .c-services_item {
+            background: #fff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 7px 20px rgba(90, 45, 29, 0.14);
+            transition: all 300ms ease, transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .dark .c-services_item {
+            background:  #313131;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 7px 20px rgba(255, 255, 255, 0.14);
+            transition: all 300ms ease, transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .c-services_item h3 {
+            color: rgb(152, 101, 62);
+            line-height: 1.2;
+            font-weight: bolder;
+        }
+
+        .c-services_item p {
+            margin-top: var(--s-1);
+            font-weight: 200;
+            color: #706d7e;
+            text-align: left;
+            font-family: poppins, sans-serif;
+        }
+
+        .dark .c-services_item p {
+            margin-top: var(--s-1);
+            font-weight: 400;
+            color: #ffffff;
+            text-align: justify;
+            font-family: poppins, sans-serif;
+        }
+
+        ul li:before {
+            content: "​";
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            position: absolute;
+        }
+
+        .c-services_item:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px 0;
+            cursor: pointer;
+            transition: inherit;
+            background-color: rgb(201, 142, 96);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("https://cdn-icons-png.flaticon.com/512/622/622103.png");
+        }
+
+        .c-services_item:hover {
+            background-color: rgb(201, 142, 96);
+        }
+
+        .c-services_item:hover {
+            transform: translateY(-10px);
+        }
+
+        .c-services_item:hover h3 {
+            color: #fff;
+        }
+
+        .c-services_item:hover p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .c-services_item:hover:after {
+            background-color: #fff;
+            background-image: url("https://cdn-icons-png.flaticon.com/512/622/622103.png");
+        }
+
+
+        /* Linha de divisão */
+
+        h2.background {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2.background:before {
+            border-top: 2px solid #dfdfdf;
+            content: "";
+            margin: 0 auto;
+            /* this centers the line to the full width specified */
+            position: absolute;
+            /* positioning must be absolute here, and relative positioning must be applied to the parent */
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 95%;
+            z-index: -1;
+        }
+
+        h2.background span {
+            /* to hide the lines from behind the text, you have to set the background color the same as the container */
+            background: white;
+            padding: 0 15px;
+            font-family: poppins, sans-serif;
+            transition: 0.5s;
+            font-weight: bolder;
+
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-family: poppins, sans-serif;
+            font-weight: normal;
+            color: #444;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        @media screen and (max-width: 767px) {
+            h2 {
+                font-size: large;
+                font-family: poppins, sans-serif;
+                font-weight: normal;
+                color: #444;
+                text-align: center;
+                margin: 2rem 0;
+            }
+        }
+
+        /* Cards giratórios - Missão Visão e Valores */
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 80rem;
+        }
+
+        .cols {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .cols {
+        display: block;
+        margin: 0 auto;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .cols {
+                display: block;
+                margin: 0 auto;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+        }
+
+        .col {
+            width: calc(25% - 2rem);
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .col {
+            width: 75%;
+            margin: 0 auto;
+            cursor: pointer;
+            padding-bottom: 50px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            .col {
+                width: 90%;
+                padding: 20px;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+        }
+
+        .container {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-perspective: 1000px;
+            perspective: 1000px;
+        }
+
+        .front,
+        .back {
+            background-size: cover;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.764);
+            border-radius: 10px;
+            background-position: center;
+            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            text-align: center;
+            min-height: 400px;
+            height: auto;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+
+        .front:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            content: '';
+            display: block;
+            opacity: .6;
+            background-color: #000000a5;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .container:hover .front,
+        .container:hover .back {
+            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .inner {
+            -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: 1px solid transparent;
+            -webkit-perspective: inherit;
+            perspective: inherit;
+            z-index: 2;
+        }
+
+        .container .back {
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container .front {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container:hover .back {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .container:hover .front {
+            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .front .inner p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .back .inner p {
+            text-align: justify;
+            padding: 10px;
+            font-size: large;
+        }
+
+        .front .inner p:after {
+            content: '';
+            width: 4rem;
+            height: 2px;
+            position: absolute;
+            background: #C6D4DF;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: -.75rem;
+        }
+
+        .front .inner span {
+            color: rgba(255, 255, 255, 0.7);
+            font-family: poppins, sans-serif;
+            font-weight: 300;
+        }
+
+        img.banner {
+            width: 100%;
+            height: min-content;
+            top: 0;
+            z-index: auto;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        img.banner {
+            width: 100%;
+            height: min-content;
+            top: 0;
+            z-index: auto;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            img.banner {
+                width: 100%;
+                height: min-content;
+                top: 0;
+                z-index: auto;
+            }
+        }
+
+        section {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-family: poppins, sans-serif;
+        }
+
+        section {
+            padding: 2%;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        section {
+            padding: 40px;
+        }
+    }
+
+        @media screen and (max-width: 767px) {
+            section {
+                padding: 10px;
+            }
+        }
+
+/*Titulos*/
+        .text {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Poppins, sans-serif;
+            color: black;
+            font-weight: bolder;
+        }
+
+        @media screen and (max-width: 767px) {
+            .text {
+                text-align: center;
+                margin-bottom: 20px;
+                font-family: Poppins, sans-serif;
+                font-size: xx-large;
+            }
+        }
+
+        /*Contate-nos*/
+        
+        a,
+        a:active,
+        a:focus {
+            color: #333;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+
+/*titulo mensagem*/
+.sec-title-style1 .title {
+    position: relative;
+    display: block;
+    color: #98512B;
+    font-size: 36px;
+    line-height: 46px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact-form {
+    position: relative;
+    display: block;
+    background: #f2c1974f;
+    padding: 100px 60px 80px;
+    box-shadow: 0px 3px 8px 2px #8d431e40;
+    z-index: 3;
+}
+.contact-form .sec-title-style1{
+    position: relative;
+    display: block;
+    padding-bottom: 51px;
+    width: 100%;
+}
+.contact-form .text-box{
+    position: relative;
+    display: block;
+    margin-top: 19px;
+    width: 50%;    
+}
+
+.contact-form form input[type="text"],
+.contact-form form input[type="email"],
+.contact-form form textarea{
+    position: relative;
+    display: block;   
+    background: #e6a56c8d;
+    border: 1px solid #eeeeee;
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    padding-left: 19px;
+    padding-right: 15px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    transition: all 500ms ease;
+}
+.contact-form form textarea {
+    height: 130px;
+    padding-left: 19px;
+    padding-right: 15px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+}
+.contact-form form button {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #98512B;
+    border: 1px solid #98512B;
+    color: #F2C197;
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+    cursor: pointer;
+}
+
+.contact-form form button:hover{
+    color: #ffffff;
+    background: #80350F;
+}
+      
+    
+
+        /* Parte do footer */
+
+        footer {
+            position: static;
+            width: 100%;
+            margin-top: 1%;
+            background-color: #282d32;
+            color: white;
+        }
+
+        footer div{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            height: min-content;
+            padding: 1px;
+        }
+
+        footer div img {
+            width: 10%;
+            height: min-content;
+            position: relative;
+            bottom: 0;
+            top: 50%;
+            right: 0;
+        }
+        
+        div.last div {
+            display: inline-block;
+        }
+
+        footer div p{
+            align-items: center;
+        }
+        
+
+</style>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-// ancora do header //
+// ancora do header
 
 const menuLinks = document.querySelectorAll("header a");
 
@@ -10,14 +10,14 @@ function scrollToSection(event) {
 }
 
 window.onscroll = function () {
-  var screenSize = window.innerWidth; // Obtém o tamanho total da tela
+  var screenSize = window.innerWidth;
 
-  // Verifica o tamanho da tela e atualiza o valor conforme necessário
-  if (screenSize >= 1024) { // Desktop
+ 
+  if (screenSize >= 1024) {
     var threshold = 700;
-  } else if (screenSize >= 768) { // Tablet
+  } else if (screenSize >= 768) {
     var threshold = 400;
-  } else { // Celular
+  } else {
     var threshold = 200;
   }
 
@@ -29,7 +29,7 @@ window.onscroll = function () {
 };
 
 
-// efeito de opacidade ao descer a página //
+// efeito de opacidade ao descer a página
 
 function isAnyPartOfElementInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -61,30 +61,30 @@ const texts = [
 ];
 let currentTextIndex = 0;
 let isDeleting = false;
-let typingSpeed = 100; // Velocidade da digitação em milissegundos
+let typingSpeed = 100;
 
 function type() {
   const text = texts[currentTextIndex];
   const currentSpanText = document.getElementById("typing-effect").textContent;
 
   if (isDeleting) {
-    // Apagando o texto
+   
     document.getElementById("typing-effect").textContent = currentSpanText.substring(0, currentSpanText.length - 1);
   } else {
-    // Digitação normal
+   
     document.getElementById("typing-effect").textContent = text.substring(0, currentSpanText.length + 1);
   }
 
-  // Controla a velocidade da digitação
+ 
   typingSpeed = isDeleting ? 50 : 100;
 
-  // Verifica se a digitação/apagamento está completo
+ 
   if (!isDeleting && currentSpanText === text) {
     isDeleting = true;
-    typingSpeed = 1000; // Tempo de pausa após a digitação completa
+    typingSpeed = 1000;
   } else if (isDeleting && currentSpanText === "") {
     isDeleting = false;
-    currentTextIndex = (currentTextIndex + 1) % texts.length; // Avança para o próximo texto no array
+    currentTextIndex = (currentTextIndex + 1) % texts.length;
   }
 
   setTimeout(type, typingSpeed);
