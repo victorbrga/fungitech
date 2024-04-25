@@ -62,45 +62,46 @@
             <div id="divFuncionario"></div>
 
             <div id="divEmpresa">
-                <div class="cartaoEmpresa">
-                    <div class="formulario">
+            <div class="cartaoEmpresa">
+                <div class="formulario">
 
-                        <div class="campo">
-                            <label>Razão Social:</label>
-                            <input type="text" placeholder="Informe a Razão Social">
-                        </div>
-
-                        <br>
-
-                        <div class="campo">
-                            <label>Nome Fantasia:</label>
-                            <input type="text" placeholder="Informe o Nome Fantasia">
-                        </div>
-
-                        <br>
-
-                        <div class="campo">
-                            <label>CNPJ:</label>
-                            <input type="text" placeholder="Informe seu CNPJ">
-                        </div>
-
-                        <br>
-
-                        <div class="campo">
-                            <label>Logradouro:</label>
-                            <input type="text" placeholder="Insira o logradouro">
-                        </div>
-
-                        <br>
-
-                        <div class="campo">
-                            <label>CEP:</label>
-                            <input type="text" placeholder="Informe o CEP da região">
-                        </div>
-
-                        <button onclick="cadastrar()">Cadastrar</button>
+                    <div class="campo">
+                        <label>Razão Social:</label>
+                        <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
                     </div>
+
+                    <br>
+
+                    <div class="campo">
+                        <label>Nome Fantasia:</label>
+                        <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
+                    </div>
+
+                    <br>
+
+                    <div class="campo">
+                        <label>CNPJ:</label>
+                        <input type="text" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
+                    </div>
+
+                    <br>
+
+                    <div class="campo">
+                        <label>Logradouro:</label>
+                        <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
+                    </div>
+
+                    <br>
+
+                    <div class="campo">
+                        <label>CEP:</label>
+                        <input type="text" placeholder="Informe o CEP da região" id="inputCEP">
+                    </div>
+
+                    <button onclick="cadastrarEmpresa()">Cadastrar</button>
                 </div>
+            </div>
+        </div>
     </center>
 
 
@@ -131,38 +132,38 @@
 
                 <div class="campo">
                     <label>Razão Social:</label>
-                    <input type="text" placeholder="Informe a Razão Social">
+                    <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
                 </div> 
                 
                 <br>
 
                 <div class="campo">
                     <label>Nome Fantasia:</label>
-                    <input type="text" placeholder="Informe o Nome Fantasia">
+                    <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
                 </div> 
 
                 <br>
 
                 <div class="campo">
                     <label>CNPJ:</label>
-                    <input type="text" placeholder="Informe seu CNPJ">
+                    <input type="text" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
                 </div> 
 
                 <br>
 
                 <div class="campo">
                     <label>Logradouro:</label>
-                    <input type="text" placeholder="Insira o logradouro">
+                    <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
                 </div>
 
                 <br>
 
                 <div class="campo">
                     <label>CEP:</label>
-                    <input type="text" placeholder="Informe o CEP da região">
+                    <input type="text" placeholder="Informe o CEP da região" id="inputCEP">
                 </div> 
 
-            <button onclick="cadastrar()">Cadastrar</button>
+            <button onclick="cadastrarEmpresa()">Cadastrar</button>
         </div>
     </div>`;
         }
@@ -177,48 +178,346 @@
             
             <div class="campo">
                 <label>Nome:</label>
-                <input type="text" placeholder="Informe seu nome">
+                <input type="text" placeholder="Informe seu nome completo" id="inputNome">
             </div> 
  
             <br>
 
             <div class="campo">
                 <label>CPF:</label>
-                <input type="text" placeholder="Informe seu CPF">
+                <input type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
 
             <br>
 
             <div class="campo">
                 <label>CNPJ:</label>
-                <input type="text" placeholder="Informe o CNPJ da empresa">
+                <input type="text" placeholder="Informe o CNPJ da empresa" id="inputCNPJFuncionario">
             </div> 
 
             <br>
 
             <div class="campo">
                 <label>E-mail:</label>
-                <input type="text" placeholder="Informe seu e-mail">
+                <input type="text" placeholder="Informe seu e-mail" id="inputEmail">
             </div> 
 
             <br>
 
             <div class="campo">
                 <label>Senha:</label>
-                <input type="password" placeholder="Digite sua senha">
+                <input type="password" placeholder="Digite sua senha" id="inputSenha">
             </div> 
 
             <br>
 
             <div class="campo">
                 <label>Confirme sua Senha:</label>
-                <input type="password" placeholder="Confirme sua senha">
+                <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             </div>
 
-            <button onclick="cadastrar()">Cadastrar</button>
+            <button onclick="cadastrarFuncionario()">Cadastrar</button>
         </div>
     </div>`;
         }
+    }
+
+    function cadastrarEmpresa() {
+        // Declaração das variáveis das inputs
+        var razaoSocial = inputRazaoSocial.value;
+        var nomeFantasia = inputNomeFantasia.value;
+        var cnpjEmpresa = inputCNPJEmpresa.value;
+        var logradouro = inputLogradouro.value;
+        var cep = inputCEP.value;
+
+        // Criação de váriaveis para auxiliar as validações  
+        // Validação da Razão Social (entre 8 e 144 caracteres de acordo com a lei)
+        var tamanhoRazaoSocial = (razaoSocial.length >= 8) && (razaoSocial.length <= 144);
+
+        // Validação do Nome Fantasia (entre 8 e 60 caracteres de acordo com a lei)
+        var tamanhoNomeFantasia = (nomeFantasia.length >= 8) && (razaoSocial.length <= 60);
+
+        // Validar CNPJ (14 caracteres)
+        var tamanhoCNPJEmpresa = cnpjEmpresa.length == 14
+
+        // Validar Logradouro (campo não pode estar vazio)
+        var tamanhoLogradouro = logradouro.length > 0
+
+        // Validar CEP (8 caracteres, sem traço)
+        var tamanhoCEP = cep.length == 8;
+    }
+
+    function cadastrarFuncionario() {
+        // Declaração das variáveis das inputs
+        var nome = inputNome.value;
+        var cpf = inputCPF.value;
+        var cnpjFuncionario = inputCNPJFuncionario.value;
+        var email = inputEmail.value;
+        var senha = inputSenha.value;
+        var confirmacao = inputConfirmacao.value;
+
+        // Criação de váriaveis para auxiliar as validações
+        // Validações do campo nome (Maior ou igual a 3 caracteres e com espaço)
+        var tamanhoNome = nome.length >= 3;
+        var nomeCompleto = nome.indexOf(' ') >= 0;
+
+        // Validações dos campos CPF e CNPJ (igual a 11 e 14 caracteres)
+        var tamanhoCPF = cpf.length == 11;
+        var tamanhoCNPJFuncionario = cnpjFuncionario.length == 14;
+
+        // Validação do email (precisa ter @ e ., maximo de 320 caracteres, sendo 64 antes e 255 depois do @)
+        var emailValido = (email.indexOf('@') >= 0) && (email.indexOf('.') >= 0);
+        if (emailValido) {
+            var posicaoArroba = email.indexOf('@');
+            var tamanhoEmailTotal = email.length <= 319;
+            var tamanhoAntes = posicaoArroba <= 64;
+            var tamanhoDepois = (posicaoArroba - email.length) <= 254
+        }
+
+
+        // Validação da senha (Maior ou igual a 8, com uma maiuscula, minuscula, numero e caractere especial)
+        var tamanhoSenha = senha.length >= 8;
+
+        var senhaEspecial = (senha.indexOf('!') >= 0) ||
+            (senha.indexOf('@') >= 0) ||
+            (senha.indexOf('#') >= 0) ||
+            (senha.indexOf('$') >= 0) ||
+            (senha.indexOf('%') >= 0) ||
+            (senha.indexOf('&') >= 0) ||
+            (senha.indexOf('*') >= 0) ||
+            (senha.indexOf('?') >= 0) ||
+            (senha.indexOf('_') >= 0);
+
+        var senhaMaiuscula = (senha.indexOf('A') >= 0) ||
+            (senha.indexOf('B') >= 0) ||
+            (senha.indexOf('C') >= 0) ||
+            (senha.indexOf('D') >= 0) ||
+            (senha.indexOf('E') >= 0) ||
+            (senha.indexOf('F') >= 0) ||
+            (senha.indexOf('G') >= 0) ||
+            (senha.indexOf('H') >= 0) ||
+            (senha.indexOf('I') >= 0) ||
+            (senha.indexOf('J') >= 0) ||
+            (senha.indexOf('K') >= 0) ||
+            (senha.indexOf('L') >= 0) ||
+            (senha.indexOf('M') >= 0) ||
+            (senha.indexOf('N') >= 0) ||
+            (senha.indexOf('O') >= 0) ||
+            (senha.indexOf('P') >= 0) ||
+            (senha.indexOf('Q') >= 0) ||
+            (senha.indexOf('R') >= 0) ||
+            (senha.indexOf('S') >= 0) ||
+            (senha.indexOf('T') >= 0) ||
+            (senha.indexOf('U') >= 0) ||
+            (senha.indexOf('V') >= 0) ||
+            (senha.indexOf('W') >= 0) ||
+            (senha.indexOf('X') >= 0) ||
+            (senha.indexOf('Y') >= 0) ||
+            (senha.indexOf('Z') >= 0) ||
+            (senha.indexOf('Ç') >= 0);
+
+        var senhaMinuscula = (senha.indexOf('a') >= 0) ||
+            (senha.indexOf('b') >= 0) ||
+            (senha.indexOf('c') >= 0) ||
+            (senha.indexOf('d') >= 0) ||
+            (senha.indexOf('e') >= 0) ||
+            (senha.indexOf('f') >= 0) ||
+            (senha.indexOf('g') >= 0) ||
+            (senha.indexOf('h') >= 0) ||
+            (senha.indexOf('i') >= 0) ||
+            (senha.indexOf('j') >= 0) ||
+            (senha.indexOf('k') >= 0) ||
+            (senha.indexOf('l') >= 0) ||
+            (senha.indexOf('m') >= 0) ||
+            (senha.indexOf('n') >= 0) ||
+            (senha.indexOf('o') >= 0) ||
+            (senha.indexOf('p') >= 0) ||
+            (senha.indexOf('q') >= 0) ||
+            (senha.indexOf('r') >= 0) ||
+            (senha.indexOf('s') >= 0) ||
+            (senha.indexOf('t') >= 0) ||
+            (senha.indexOf('u') >= 0) ||
+            (senha.indexOf('v') >= 0) ||
+            (senha.indexOf('w') >= 0) ||
+            (senha.indexOf('x') >= 0) ||
+            (senha.indexOf('y') >= 0) ||
+            (senha.indexOf('z') >= 0) ||
+            (senha.indexOf('ç') >= 0);
+
+        var senhaNumeros = (senha.indexOf('0') >= 0) ||
+            (senha.indexOf('1') >= 0) ||
+            (senha.indexOf('2') >= 0) ||
+            (senha.indexOf('3') >= 0) ||
+            (senha.indexOf('4') >= 0) ||
+            (senha.indexOf('5') >= 0) ||
+            (senha.indexOf('6') >= 0) ||
+            (senha.indexOf('7') >= 0) ||
+            (senha.indexOf('8') >= 0) ||
+            (senha.indexOf('9') >= 0);
+
+        var caracteresBloquados = (senha.indexOf(' ') < 0) &&
+            (senha.indexOf('"') < 0) &&
+            (senha.indexOf("'") < 0) &&
+            (senha.indexOf('`') < 0) &&
+            (senha.indexOf('^') < 0) &&
+            (senha.indexOf('´') < 0) &&
+            (senha.indexOf('~') < 0) &&
+            (senha.indexOf(',') < 0) &&
+            (senha.indexOf('ã') < 0) &&
+            (senha.indexOf('Ã') < 0) &&
+            (senha.indexOf('â') < 0) &&
+            (senha.indexOf('Â') < 0) &&
+            (senha.indexOf('á') < 0) &&
+            (senha.indexOf('Á') < 0) &&
+            (senha.indexOf('à') < 0) &&
+            (senha.indexOf('À') < 0) &&
+            (senha.indexOf('õ') < 0) &&
+            (senha.indexOf('Õ') < 0) &&
+            (senha.indexOf('ô') < 0) &&
+            (senha.indexOf('Ô') < 0) &&
+            (senha.indexOf('ó') < 0) &&
+            (senha.indexOf('Ó') < 0) &&
+            (senha.indexOf('Ò') < 0) &&
+            (senha.indexOf('ò') < 0) &&
+            (senha.indexOf('í') < 0) &&
+            (senha.indexOf('Í') < 0) &&
+            (senha.indexOf('ì') < 0) &&
+            (senha.indexOf('Ì') < 0) &&
+            (senha.indexOf('î') < 0) &&
+            (senha.indexOf('Î') < 0) &&
+            (senha.indexOf('ĩ') < 0) &&
+            (senha.indexOf('Ĩ') < 0) &&
+            (senha.indexOf('ú') < 0) &&
+            (senha.indexOf('Ú') < 0) &&
+            (senha.indexOf('ù') < 0) &&
+            (senha.indexOf('Ù') < 0) &&
+            (senha.indexOf('ũ') < 0) &&
+            (senha.indexOf('Ũ') < 0) &&
+            (senha.indexOf('û') < 0) &&
+            (senha.indexOf('Û') < 0) &&
+            (senha.indexOf('é') < 0) &&
+            (senha.indexOf('É') < 0) &&
+            (senha.indexOf('è') < 0) &&
+            (senha.indexOf('È') < 0) &&
+            (senha.indexOf('ẽ') < 0) &&
+            (senha.indexOf('Ẽ') < 0) &&
+            (senha.indexOf('ê') < 0) &&
+            (senha.indexOf('Ê') < 0) &&
+            (senha.indexOf('ñ') < 0) &&
+            (senha.indexOf('Ñ') < 0) &&
+            (senha.indexOf(';') < 0) &&
+            (senha.indexOf('°') < 0) &&
+            (senha.indexOf('/') < 0) &&
+            (senha.indexOf('º') < 0) &&
+            (senha.indexOf('ª') < 0) &&
+            (senha.indexOf('{') < 0) &&
+            (senha.indexOf('}') < 0) &&
+            (senha.indexOf('[') < 0) &&
+            (senha.indexOf(']') < 0) &&
+            (senha.indexOf('+') < 0) &&
+            (senha.indexOf('-') < 0) &&
+            (senha.indexOf('=') < 0) &&
+            (senha.indexOf('§') < 0) &&
+            (senha.indexOf('>') < 0) &&
+            (senha.indexOf('<') < 0) &&
+            (senha.indexOf('(') < 0) &&
+            (senha.indexOf(')') < 0) &&
+            (senha.indexOf('ü') < 0) &&
+            (senha.indexOf('Ü') < 0) &&
+            (senha.indexOf('¨') < 0) &&
+            (senha.indexOf('¬') < 0) &&
+            (senha.indexOf('¢') < 0) &&
+            (senha.indexOf('£') < 0) &&
+            (senha.indexOf('³') < 0) &&
+            (senha.indexOf('²') < 0) &&
+            (senha.indexOf('¹') < 0) &&
+            (senha.indexOf('|') < 0) &&
+            (senha.indexOf('ö') < 0) &&
+            (senha.indexOf('Ö') < 0) &&
+            (senha.indexOf('ä') < 0) &&
+            (senha.indexOf('Ä') < 0) &&
+            (senha.indexOf('ï') < 0) &&
+            (senha.indexOf('Ï') < 0) &&
+            (senha.indexOf('ë') < 0) &&
+            (senha.indexOf('Ë') < 0) &&
+            (senha.indexOf(':') < 0);
+
+        // Conferir se as validações são verdadeiras
+        var validacaoCampos = 0
+        // Validar o nome
+        if ((tamanhoNome && nomeCompleto) == false) {
+            alert(`O campo nome está incorreto, tente novamente`);
+        } else {
+            validacaoCampos = validacaoCampos + 1;
+        }
+
+        // Validar o CPF
+        if (tamanhoCPF == false) {
+            alert(`O CPF está incorreto`)
+        } else {
+            validacaoCampos = validacaoCampos + 1;
+        }
+
+        // Validar o CNPJ
+        if (tamanhoCNPJFuncionario == false) {
+            alert(`O CNPJ está incorreto`)
+        } else {
+            validacaoCampos = validacaoCampos + 1;
+        }
+
+        // Validar o Email
+        if (emailValido == false ||
+        tamanhoAntes == false ||
+        tamanhoDepois == false ||
+        tamanhoEmailTotal == false) {
+            alert(`Email incorreto, insira um email existente`)
+        } else {
+            validacaoCampos = validacaoCampos + 1;
+        }
+
+        //Validar a senha (Apenas se os outros campos estiverem corretos)
+        var validacaoSenha = 0
+
+        if (validacaoCampos == 4) {
+            if (tamanhoSenha == false) {
+                alert(`Sua senha é pequena demais`);
+            } else {
+                if (senhaEspecial == false) {
+                    alert(`Sua senha precisa ter no minimo um caracter especial`)
+                } else {
+                    validacao = validacao + 1
+                }
+
+                if (senhaMaiuscula == false) {
+                    alert(`Sua senha precisa ter no minimo uma letra maiuscula`)
+                } else {
+                    validacao = validacao + 1
+                }
+
+                if (senhaMinuscula == false) {
+                    alert(`Sua senha precisa ter no minimo uma letra minuscula`)
+                } else {
+                    validacao = validacao + 1
+                }
+
+                if (senhaNumeros == false) {
+                    alert(`Sua senha precisa ter no minimo um numero`)
+                } else {
+                    validacao = validacao + 1
+                }
+            }
+        }
+
+        // Validar a senha de confirmação (apenas após a senha inserida estar validada)
+        if (validacaoSenha == 4) {
+
+            if (confirmacao == senha) {
+                alert(`cadastro concluido`)
+            } else {
+                alert(`Sua senha de confirmação não é igual a senha informada`)
+            }
+        }
+
     }
 </script>
 
