@@ -1,53 +1,26 @@
-.cadastro {
-    margin: 0;
-    padding: 0;
-    font-family: Poppins, sans-serif;
-    background-color: black;
-    color: black;
-    background-image: url(FundoCadastro.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-
-header {
+/*Header*/
+.header {
     width: 100%;
+    height: 80px;
     align-items: center;
     text-align: center;
-    background-color: rgb(0, 0, 0);
-    background: linear-gradient(#DF8F68 , 15%, #CE7C50);
-    position: absolute;
-    top: 0;
+    background-color: black;
+    background: linear-gradient(#DF8F68, 15%, #CE7C50);
 }
 
-header div {
-    height: min-content;
+.header div {
     display: flex;
-    justify-content: space-evenly;
-    z-index: 1;
+    justify-content: space-around;
+    height: 100%;
 }
 
-div.link {
-    display: table;
-    vertical-align: middle;
-    padding: 25px;
-    padding-top: 40px;
-}
-
-div.link a {
-    text-decoration: none;
+.link {
+    padding: 0px;
+    padding-top: 25px;
     font-family: poppins, sans-serif;
 }
 
-@media screen and (max-width: 767px) {
-    div.link a {
-        text-decoration: none;
-        font-family: poppins, sans-serif;
-        font-size: small;
-    }
-}
-
-header div div a {
+.header div div a { /*Mudança de cor nos links do Header*/
     color: black;
     text-decoration: none;
     font-weight: bold;
@@ -55,7 +28,7 @@ header div div a {
     transition: 0.5s;
 }
 
-header div div a:hover {
+.header div div a:hover { /*Mudança de cor nos links do Header*/
     color: #860000;
     text-decoration: none;
     font-weight: bold;
@@ -63,143 +36,108 @@ header div div a:hover {
     transition: 0.5s;
 }
 
-
-header div .link a:hover::after {
-    color: rgb(255, 70, 70);
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-header div div a img {
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
-    margin-left: 10px ;
-}
-
 .logo {
-    height: 100PX;
-    width: 300px;
+    height: 80px;
+    width: 240px;
     margin: 0px;
 }
 
-header div div a .img2{
-    margin-top: 20px;
-}
 
-@media screen and (max-width: 767px) {
-    header div div a img {
-        width: 30px;
-        height: 30px;
-        margin-top: 5px;
 
-    }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
-header div a h1 {
-    color: #B34F4F;
-    font-family: poppins, sans-serif;
-    font-weight: bold;
-    margin-bottom: -5px;
-    vertical-align: middle;
-    font-size: xx-large;
-}
-
-@media screen and (max-width: 767px) {
-    header div a h1 {
-        color: #d79a95;
-        font-family: poppins, sans-serif;
-        font-weight: bold;
-        margin-top: 5px;
-        vertical-align: middle;
-        font-size: x-large;
-    }
-}
-
-footer {
-    position: absolute;
-    margin: 0%;
-    margin-top: 40px;
+/*Footer*/
+.footer {
+    margin-top: 35px;
     width: 100%;
     border-top: #250F04 solid 2px;
     background-color: #98512B;
     color: #F8DFC9;
 }
 
-footer div {
+.footer div {
     width: 100%;
     align-items: center;
     text-align: center;
-    height: min-content;
-    padding: 1px;
+    padding-bottom: 2px;
+    padding-top: 2px;
 }
 
-footer div img {
-    width: 10%;
-    height: min-content;
-    position: relative;
-    bottom: 0;
-    top: 50%;
-    right: 0;
+
+
+/*Tela de Cadastro*/
+.cadastro {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: black;
+    color: black;
+    background-image: url(img/FundoCadastro.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-div.last div {
-    display: inline-block;
-}
-
-footer div p {
-    align-items: center;
-}
-
-.login {
+.cadastro .tela {
     justify-content: center;
     align-items: center;
-    height: 75vh;
-    padding-bottom: 30px;
-
+    height: 100%;
 }
 
-.campo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #9C2F20;
-    font-weight: bold;
-    align-items: flex-start;
-}
-
-.campo input {
-    width: 200px;
-    padding: 10px 0px;
-    border: 2px solid #80350F;
-    background-color: #F6D4B7;
-    font-size: 15px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.card3 {
+.cadastro .cartaoSelecao {
     background-color: #e6a56ccd;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 470px;
+    height: 130px;
     width: 370px;
-    margin: 150px;
+    padding: 5px;
+    margin-top: 30px;
     border-radius: 5px;
     font-family: poppins, sans-serif;
     padding-bottom: 5px;
 }
 
-.card3 h2 {
+.cadastro .cartaoSelecao h2 {
     color: #9C2F20;
+    margin: 0px;
 }
 
-.card3 button {
+.cadastro .cartaoSelecao h3 {
+    margin: 0px;
+    margin-bottom: 15px;
+    color: #9C2F20;
+    font-size: 15px;
+}
+
+.cadastro .cartaoSelecao select {
+    width: 200px;
+    padding: 10px 0px;
+    margin-bottom: 3px;
+    border: 2px solid #80350F;
+    background-color: #F6D4B7;
+    font-size: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(97, 95, 95);
+}
+
+.cadastro .cartaoEmpresa {
+    background-color: #e6a56ccd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 490px;
+    width: 370px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-family: poppins, sans-serif;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.cadastro .cartaoEmpresa button {
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 10px 20px;
@@ -211,49 +149,91 @@ footer div p {
     cursor: pointer;
 }
 
+.cadastro .cartaoFuncionario {
+    background-color: #e6a56ccd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 580px;
+    width: 370px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-family: poppins, sans-serif;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.cartaoFuncionario button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #9C2F20;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cadastro .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9C2F20;
+    font-weight: bold;
+    align-items: flex-start;
+}
+
+.cadastro .campo input {
+    width: 200px;
+    padding: 10px 0px;
+    border: 2px solid #80350F;
+    background-color: #F6D4B7;
+    font-size: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+
+/*Tela de Simulador*/
 .simulador {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: Poppins, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     color: black;
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
-.calculadora {
+.simulador .calculadora {
     max-width: 600px;
     margin-top: 130px;
     padding: 20px;
     text-align: center;
 }
 
-.calculadora-mensagem{
-    max-width: 1200px;
-    margin: 0px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.calculadora h1 {
-    color: #c92026;
-}
-
-.inputs {
+.simulador .calculadora {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.inputs input {
+.simulador .calculadora h1 {
+    color: #c92026;
+}
+
+.simulador .calculadora input {
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-.calculadora button {
+.simulador .calculadora button {
     background-color: #c92026;
     color: white;
     padding: 10px 20px;
@@ -262,7 +242,15 @@ footer div p {
     cursor: pointer;
 }
 
-.result {
+.simulador .mensagem {
+    max-width: 1200px;
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.simulador .resultado {
     margin-top: 20px;
     display: none;
     padding: 10px;
@@ -272,14 +260,13 @@ footer div p {
     align-items: center;
     margin-left: 10px;
     padding: 20px;
-    
+
 }
 
-
-.positivo{
+.simulador .positivo {
     color: green
 }
 
-.negativo{
+.simulador .negativo {
     color: red;
 }

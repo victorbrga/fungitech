@@ -4,70 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link para o CSS-->
     <link rel="stylesheet" href="CSS-FungiTech.css">
+
+    <!--Link para a fonte importada da Google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <title>FungiTech | Login</title>
 </head>
 
 <body class="cadastro">
-    <header id="head">
+
+    <!--Header-->
+    <header class="header">
         <div>
-            <div>
-                <a href="Home-FungiTech.html" onclick="window.scrollTo(0, 0);" style="text-decoration: none;">
-                   <img class="logo" src="LogoFungiTech.png" alt="">
-                </a>
+            <div> <!--Logo da Empresa-->
+                <a href=""> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech"> </a>
             </div>
 
-            <div class="link">
+            <div class="link"> <!--Ir para página inicial-->
                 <a href="Home-FungiTech.html">Voltar para a página inicial</a>
             </div>
 
-            <div class="link">
-                <a href="#">Fale com o COGU</a>
+            <div class="link"> <!--Ir para o simulador financeiro-->
+                <a href="Simulador-FungiTech.html">Simulador</a>
             </div>
 
-            <div>
-                <a href="Home-FungiTech.html"><img src="https://cdn.icon-icons.com/icons2/2199/PNG/512/mushrooms_icon_133974.png"
-                        alt="logo"></a>
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="Cadastro-FungiTech.html">Cadastre-se</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Login-->
+                <a href="Login-FungiTech.html">Entrar</a>
             </div>
         </div>
     </header>
 
+
+
+    <!--Conteúdo do Site-->
     <center>
-        <div class="login">
-            <div class="container">
-                <div class="card3">
-                    <h2>Bem-vindo!</h2>
+        <div class="tela">
+            <div class="cartaoSelecao">
+
+                <h2>Bem-vindo!</h2>
+                <h3>O que deseja cadastrar?</h3>
+
+                <select id="selectCadastro" onchange="selecionar()">
+                    <option value="empresa" selected>EMPRESA</option>
+                    <option value="funcionario">FUNCIONÁRIO</option>
+                </select>
+            </div>
+
+            <div id="divFuncionario"></div>
+
+            <div id="divEmpresa">
+                <div class="cartaoEmpresa">
                     <div class="formulario">
+
                         <div class="campo">
-                            <label>Nome:</label>
-                            <input type="text" placeholder="Insira seu nome">
-                        </div> <br>
-                        <div class="campo">
-                            <label>E-mail:</label>
-                            <input type="text" placeholder="Digite seu E-mail">
-                        </div> <br>
-                        <div class="campo">
-                            <label>Senha:</label>
-                            <input type="password" placeholder="Digite sua Senha">
-                        </div> <br>
-                        <div class="campo">
-                            <label>Confirme sua Senha:</label>
-                            <input type="password" placeholder="Confirme da Senha">
+                            <label>Razão Social:</label>
+                            <input type="text" placeholder="Informe a Razão Social">
                         </div>
-                        <button>Cadastrar</button>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>Nome Fantasia:</label>
+                            <input type="text" placeholder="Informe o Nome Fantasia">
+                        </div>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>CNPJ:</label>
+                            <input type="text" placeholder="Informe seu CNPJ">
+                        </div>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>Logradouro:</label>
+                            <input type="text" placeholder="Insira o logradouro">
+                        </div>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>CEP:</label>
+                            <input type="text" placeholder="Informe o CEP da região">
+                        </div>
+
+                        <button onclick="cadastrar()">Cadastrar</button>
                     </div>
                 </div>
-            </div>
-        </div>
     </center>
 
-    <footer>
-        <div class="last">
-            <br>
-            <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+
+
+    <!--Footer-->
+    <footer class="footer">
+        <div>
+            <p>Copyright © 2024 - Todos os direitos reservados</p>
         </div>
     </footer>
 
@@ -75,5 +116,110 @@
 
 </html>
 
+<script>
+    function selecionar() {
+        var opcao = selectCadastro.value;
+
+        divFuncionario.innerHTML = ``;
+        divEmpresa.innerHTML = ``;
+
+        if (opcao == `empresa`) {
+            divFuncionario.innerHTML = ``;
+            divEmpresa.innerHTML = `
+        <div class="cartaoEmpresa">
+            <div class="formulario">
+
+                <div class="campo">
+                    <label>Razão Social:</label>
+                    <input type="text" placeholder="Informe a Razão Social">
+                </div> 
+                
+                <br>
+
+                <div class="campo">
+                    <label>Nome Fantasia:</label>
+                    <input type="text" placeholder="Informe o Nome Fantasia">
+                </div> 
+
+                <br>
+
+                <div class="campo">
+                    <label>CNPJ:</label>
+                    <input type="text" placeholder="Informe seu CNPJ">
+                </div> 
+
+                <br>
+
+                <div class="campo">
+                    <label>Logradouro:</label>
+                    <input type="text" placeholder="Insira o logradouro">
+                </div>
+
+                <br>
+
+                <div class="campo">
+                    <label>CEP:</label>
+                    <input type="text" placeholder="Informe o CEP da região">
+                </div> 
+
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+    </div>`;
+        }
+
+
+
+        if (opcao == `funcionario`) {
+            divEmpresa.innerHTML = ``;
+            divFuncionario.innerHTML = `
+    <div class="cartaoFuncionario">
+        <div class="formulario">
+            
+            <div class="campo">
+                <label>Nome:</label>
+                <input type="text" placeholder="Informe seu nome">
+            </div> 
+ 
+            <br>
+
+            <div class="campo">
+                <label>CPF:</label>
+                <input type="text" placeholder="Informe seu CPF">
+            </div>
+
+            <br>
+
+            <div class="campo">
+                <label>CNPJ:</label>
+                <input type="text" placeholder="Informe o CNPJ da empresa">
+            </div> 
+
+            <br>
+
+            <div class="campo">
+                <label>E-mail:</label>
+                <input type="text" placeholder="Informe seu e-mail">
+            </div> 
+
+            <br>
+
+            <div class="campo">
+                <label>Senha:</label>
+                <input type="password" placeholder="Digite sua senha">
+            </div> 
+
+            <br>
+
+            <div class="campo">
+                <label>Confirme sua Senha:</label>
+                <input type="password" placeholder="Confirme sua senha">
+            </div>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+    </div>`;
+        }
+    }
+</script>
 
 <!-- window.location.href = "https://www.google.com" -->
