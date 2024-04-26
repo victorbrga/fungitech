@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Estufa 1 | Fungitech</title>
+    <!--CHART JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Google Fonts poppins-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div>
+                <a href="home.html">
+                    <img class="logo" src="IMG/LogoFungiTech.png" alt="">
+                </a>
+            </div>
+
+            <!--Link direto para as partes da página-->
+
+            <div class="link">
+                <a href="#"> Visão geral </a>
+            </div>
+
+            <div class="link">
+                <a href="#"> Controle de lucros </a>
+            </div>
+
+            <div class="link">
+                <a href="#"> Sair </a>
+            </div>
+
+
+            <div>
+                <a href="home.html"><img src="IMG/logoCogumelo.png" alt="logo"></a>
+                <!--Imagem que leva diretamente a página de Cadastro/Login -->
+            </div>
+        </div>
+    </header>
+    <!--END OF NAVBAR-->
+
+    <main>
+        <aside>
+            <section class="dash">
+                <br>
+                <div class="head">
+                    <div class="estufa">
+                        <div class="estf">
+                            <div class="card3" id="carde3">
+                                <h2> Voltar </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="head">
+                        <div class="estufa">
+                            <div class="estf">
+                                <div class="card3" id="carde4">
+                                    <h2> Visão geral da estufa </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="head">
+                        <div class="estufa">
+                            <div class="estf">
+                                <div class="card3" id="carde5">
+                                    <h2> Alertas </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+        </aside>
+        <!--------------------END OF ASIDE------------------->
+
+        <section class="middle">
+
+            <h1 style="background-color: #e9c7a9; width: 850px;"> Visão Geral da Estufa 1 </h1>
+
+                <div style="display: flex;">
+                    <div style=" width: 40%; padding-right: 50px;">
+                        <h2> Umidade média </h2> 
+                        <canvas id="myChart" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+
+                        <div class="head">
+                            <div class="estufa">
+                                <div class="estf">
+                                    <div class="card1" id="carde">
+                                        <h2> Ver Informações </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+        
+                      
+                      <div style=" width: 40%; padding-right: 50px;">
+                        
+                    <h2> Temperatura média </h2>
+                        <canvas id="myChart2" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+
+                        <div class="head">
+                            <div class="estufa">
+                                <div class="estf">
+                                    <div class="card1" id="carde2">
+                                        <h2> Ver Informações </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                </div>
+
+        </section>
+
+
+        </section>
+
+        <footer>
+            <div class="last">
+                <br>
+                <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+            </div>
+        </footer>
+        <!-- =========================================END OF MIDDLE=============================================-->
+
+
+    </main>
+    <!--END OF ASIDE-->
+    
+
+
+    <style>
+
+        /* Header principal */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Poppins, sans-serif;
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+
+        header {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(155, 20, 20, 0.778) 0%, rgba(255, 1, 1, 0.449) 100%);
+            position: absolute;
+            top: 0;
+        }
+
+        header div {
+            height: min-content;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        div.link {
+            display: table;
+            vertical-align: middle;
+            padding: 25px;
+        }
+
+
+        header div div a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header div div a:hover {
+            color: #d79a95;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Poppins, sans-serif;
+            transition: 0.5s;
+        }
+
+        header img.logo {
+            height: 50px;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        header div div a img {
+            width: 70px;
+            height: 50px;
+            margin-top: 5px
+        }
+
+
+        /* ---- Código de divisão da tela  ---- */
+        main {
+            display: grid;
+            grid-template-columns: 20rem auto;
+            gap: 60px;
+            width: 100%;
+            font-size: small;
+            padding-top: 5%;
+        }
+
+        main h1{
+            text-align: center;
+            font-weight: bold;
+            font-size: x-large;
+        }
+
+        main h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /*Card Ver informações*/
+
+        section.middle .estf h2 {
+            color: #F2C197;
+            text-align: center;
+            font-size: small;
+        }
+
+        section.middle .estufa .estf {
+            justify-content: space-around;
+            display: flex;
+        }
+
+        section.middle .estufa .card1 {
+            background-color: #8D431E;
+            width: 100%;
+            height: 20%;
+            margin: 10%;
+            border-radius: 15px;
+            border: 5px solid #80350F;
+        }
+
+        /* Div Cards Laterais */
+
+        section.dash .card {
+            display: grid;
+        }
+
+        section.dash .estf h2 {
+            color: #F2C197;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        section.dash .head h1 {
+            text-align: center;
+            margin: 5px;
+        }
+
+        section.dash .estufa {
+            color: white;
+        }
+
+        section.dash .estufa .estf {
+            justify-content: space-around;
+            display: flex;
+        }
+
+        section.dash .estufa .card3 {
+            background-color: #9C2F20;
+            width: 100%;
+            height: 100%;
+            margin: 3%;
+            border-radius: 15px;
+            border: 5px solid #860000;
+        }
+
+
+
+        /* Parte do footer */
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #282d32;
+                color: white;
+            }
+
+            footer div {
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                height: min-content;
+                padding: 2px;
+            }
+
+            div.last div {
+                display: inline-block;
+            }
+
+            footer div p {
+                align-items: center;
+            }
+
+    </style>
+
+<script>
+const labels = [
+    '12:00', 
+    '13:00', 
+    '14:00', 
+    '15:00', 
+    '16:00',
+    '17:00',  
+  ];
+
+  const labels2 = [
+    '12:00', 
+    '13:00', 
+    '14:00', 
+    '15:00', 
+    '16:00',
+    '17:00',  
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Sensor 1',
+        backgroundColor: '#860000',
+        borderColor: '#860000',
+        data: [60, 79, 98, 85, 82, 93],
+    },{
+        label: 'Acima',
+        backgroundColor: '#F2C197',
+        borderColor: '#F2C197',
+        data: [85, 85, 85, 85, 85, 85],
+    },{
+        label: 'Abaixo',
+        backgroundColor: '#F2C197',
+        borderColor: '#F2C197',
+        data: [75, 75, 75, 75, 75, 75],
+    }]
+  };
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+        label: 'Sensor 1',
+        backgroundColor: '#860000',
+        borderColor: '#860000',
+        data: [10, 26, 18, 15, 22, 13],
+    }]
+  };
+
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+  const config2 = {
+    type: 'line',
+    data: data2,
+    options: {}
+  };
+
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
+
+
+
+// MUDANDO DE PÁGINA 
+        // Obtém o elemento do card pelo ID
+        var card2 = document.getElementById('carde');
+    
+        // Adiciona um ouvinte de evento de clique ao card
+        card2.addEventListener('click', function() {
+            // Redireciona para a página desejada
+            window.location.href = 'DashUmidadeEstufa1.html';
+        });
+
+        // Obtém o elemento do card pelo ID
+        var card2 = document.getElementById('carde2');
+    
+        // Adiciona um ouvinte de evento de clique ao card
+        card2.addEventListener('click', function() {
+            // Redireciona para a página desejada
+            window.location.href = 'DashTemperaturaEstufa1.html';
+        });
+
+         // Obtém o elemento do card pelo ID
+         var card2 = document.getElementById('carde3');
+    
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function() {
+        // Redireciona para a página desejada
+        window.location.href = 'DashPrinc.html';
+    });
+
+     // Obtém o elemento do card pelo ID
+     var card2 = document.getElementById('carde4');
+    
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function() {
+        // Redireciona para a página desejada
+        window.location.href = 'DashPrinc.html';
+    });
+
+     // Obtém o elemento do card pelo ID
+     var card2 = document.getElementById('carde5');
+    
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function() {
+        // Redireciona para a página desejada
+        window.location.href = 'DashAlertaEstufa1.html';
+    });
+    </script>
+
+</body>
+
+</html>
