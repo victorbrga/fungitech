@@ -1,187 +1,144 @@
-create database sprint2;
-use sprint2;
-drop database sprint2;
+create database fungitech;
+use fungitech;
+drop database fungitech;
 
-create table Empresa(
-idEmpresa int primary key auto_increment,
-CNPJ char(11),
-nomeEmpresa varchar(45),
-CEP char(9)
+create table empresa(
+cnpj char(14) primary key,
+nomeFantasia varchar(45),
+razaoSocial varchar(45),
+cep char(9)
 );
 
-INSERT INTO Empresa values
-(null, 14020670099, 'CoguMagic', 00000-000),
-(null, 52120774512, 'Hisoka Sushi', 00000-000),
-(null, 60203540571, 'Shiitake Industry LTDA', 00000-000),
-(null, 11807060034, 'DistribuidoraCogu', 00000-000),
-(null, 92105302450, 'Yamanaka Sushi', 00000-000);
+INSERT INTO empresa values
+('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', '00000-000'),
+('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', '00000-000'),
+('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', '00000-000'),
+('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', '00000-000'),
+('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000');
 
-select idEmpresa as 'ID',
-CNPJ, CEP,
-nomeEmpresa as 'Nome da empresa'
-from Empresa;
+select cnpj as 'ID',
+cep,
+nomeFantasia as 'Nome da empresa',
+razaoSocial as 'Razão Social'
+from empresa;
 
 --
 
-
-create table Usuario(
-idUsuario int primary key auto_increment,
+create table usuario(
+cpf char(11) primary key,
 email varchar(45),
-usuario varchar(45),
+nome varchar(45),
 senha varchar(45),
-cargo varchar(13),
-cpf char(11),
-fkEmpresa int,
-constraint chkCargo check (cargo IN('Administrador', 'Funcionário')),
-constraint fkEmpresaUsuario foreign key (fkEmpresa) references Empresa(idEmpresa)
+fkCnpj char(14),
+constraint fkEmpresaUsuario foreign key (fkCnpj) references empresa(cnpj)
 );
 
-INSERT INTO Usuario(idUsuario, email, usuario, senha, cargo, cpf,fkEmpresa) values
-(null, 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', 'Funcionário', 50044758812,1),
-(null, 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', 'Funcionário', 42213426641,2),
-(null, 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', 'Administrador', 14566828117,3),
-(null, 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', 'Funcionário', 11124742898,4),
-(null, 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', 'Administrador', 10458256422,5);
+INSERT INTO usuario(cpf, email, nome, senha, fkCnpj) values
+('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
+('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
+('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
+('11124742898', 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', '11807060034612'),
+('10458256422', 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', '92105302450241');
 
-select idUsuario as 'ID do Usuário',
-usuario as 'Nome do Usuário',
-senha as 'Senha',
-cargo as 'Cargo/Função',
-cpf as 'CPF'
-from Usuario;
+select cpf as 'CPF',
+email as 'E-mail',
+nome as 'Nome do Usuário',
+senha as 'Senha'
+from usuario;
+desc usuario;
 
-
-
-
-select * from Usuario join Empresa on idEmpresa = fkEmpresa;
+select * from usuario join empresa on cnpj = fkCnpj;
 
 
-create table Metrica(
+create table metrica(
 idMetrica int primary key auto_increment,
-tempMin decimal(4,2),
-tempMax decimal(4,2),
-umidMin decimal(4,2),
-umidMax decimal(4,2)
+tempMin decimal(4, 2),
+tempMax decimal(4, 2),
+umidMin decimal(4, 2),
+umidMax decimal(4, 2)
 );
 
-INSERT INTO Metrica values
-(null, 20, 25, 75, 95);
+INSERT INTO metrica values
+(null, 20.75, 25.12, 75.87, 95.22);
 
-SELECT * FROM Metrica;
+SELECT * FROM metrica;
 
 select idMetrica as 'ID',
 concat(tempMin, '°C') as 'Temperatura Mínima',
 concat(tempMax, '°C') as 'Temperatura Máxima',
 concat(umidMin, '%') as 'Umidade Mínima',
 concat(umidMax, '%') as 'Umidade Máxima'
-from Metrica;
+from metrica;
 
 
-create table Estufa(
+create table estufa(
 idEstufa int primary key auto_increment,
 qtdToras int,
-fkUsuario int,
-fkMetricas int,
-constraint fkUsuarioEstufa foreign key(fkUsuario) references Usuario(idUsuario),
-constraint fkMetricasEstufa foreign key (fkMetrica) references Metrica(idMetrica)
+fkCpf char(11),
+fkMetrica int,
+constraint fkUsuarioEstufa foreign key (fkCpf) references usuario(cpf),
+constraint fkMetricasEstufa foreign key (fkMetrica) references metrica(idMetrica)
 );
 
-INSERT INTO Estufa(idEstufa, qtdTora,fkUsuario,fkMetrica) values
-(null, 56,1,1),
-(null, 28,2,1),
-(null, 189,3,1),
-(null, 12,4,1),
-(null, 98,5,1);
+INSERT INTO estufa(idEstufa, qtdToras, fkCpf, fkMetrica) values
+(null, 56, '50044758812', 1),
+(null, 28, '42213426641', 1),
+(null, 189, '14566828117', 1),
+(null, 12, '11124742898', 1),
+(null, 98, '10458256422', 1);
 
 select idEstufa as 'ID da estufa',
-qtdTora as 'Quantidade de toras de madeira'
-from Estufa;
+qtdToras as 'Quantidade de toras de madeira'
+from estufa;
 
-SELECT * FROM Estufa
-JOIN Usuario on fkUsuario = idUsuario;
-
-
+SELECT * FROM estufa
+JOIN usuario on fkcpf = cpf;
 
 
 
-create table Sensor( 
+
+create table sensor( 
 idSensor int primary key auto_increment,
+nomeSensor varchar(9),
+fator decimal(4,2),
 fkEstufa int,
-constraint fkEstufasSensor foreign key (fkEstufa) references Estufa(idEstufa)
+constraint fkEstufasSensor foreign key (fkEstufa) references estufa(idEstufa)
 );
 
-INSERT INTO Sensor(idSensor,fkEstufa) values
-(null,1),
-(null,2),
-(null,3),
-(null,4),
-(null,5);
+SELECT * FROM estufa;
+INSERT INTO sensor values
+(null, 'Sensor1', 1.0, 1),
+(null, 'Sensor2', 1.4, 2),
+(null, 'Sensor3', 0.5, 3);
 
 SELECT idSensor as 'ID do sensor'
-from Sensor;
+from sensor;
 
-SELECT * FROM Sensor
-JOIN Estufa ON idEstufa = fkEstufa;
+SELECT * FROM sensor
+JOIN estufa ON idEstufa = fkEstufa;
 
 
 create table dadosSensor( 
 idDado int primary key auto_increment,
-temp decimal(4, 2),
-umidade decimal(4, 2),
-dtHora datetime default current_timestamp,
-fkSensor int,
-constraint	fkSensordadosSensor foreign key (fkSensor) references Sensor (idSensor)
-);
+dht11_temperatura decimal(4, 2),
+dht11_umidade decimal(4, 2),
+dtHora datetime default current_timestamp
+); 
 
+INSERT INTO dadosSensor values
+(null, 25.22, 75.87, default),
+(null, 20.75, 65.11, default),
+(null, 21.00, 95.10, default);
 
-INSERT INTO dadosSensor(idDado, temp, umidade, dtHora,fkSensor) values
-(null,null, null, null,1),
-(null,null, null, null,2),
-(null,null, null, null,3),
-(null, null,null, null,4),
-(null, null, null, null,5);
+select s.nomeSensor as 'Nome do Sensor',
+ (dht11_temperatura * s.fator) as 'Temperatura',
+ (dht11_umidade * s.fator) as 'Umidade',
+ d.dtHora as 'Hora' 
+ from sensor as s, 
+ dadosSensor as d;
 
 select idDado as 'ID',
-concat(temp, '°C') as 'Temperatura',
-concat(umidade, '%') as 'Umidade',
+concat(dht11_temperatura, '°C') as 'Temperatura',
+concat(dht11_umidade, '%') as 'Umidade',
 dtHora as 'Horário'
-from DadosSensor;
-
-SELECT * FROM dadosSensor
-JOIN Sensor on fkSensor = idSensor;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-select * from dadosSensor join Sensor on idSensor = fkSensor join Estufas on idEstufa = fkEstufas join Metricas on idMetrica = fkMetricas join Usuario on idUsuario = fkUsuario join Empresa on idEmpresa = fkEmpresa; 
-
-select * from Usuario join Estufas on idEstufa = fkEstufas;
-
-
-
-
-
+from dadosSensor;
