@@ -1,54 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Google Fonts Poppins-->
+
+    <!--Link para o CSS-->
+    <link rel="stylesheet" href="CSS-FungiTech.css">
+
+    <!--Link para a fonte importada da Google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Home Page - FungiTech</title>
+
+    <title>FungiTech | Home</title>
 </head>
 
 <body>
 
-    <header>
+     <!--Header-->
+     <header class="header">
         <div>
-            <div>
-                <a href="home.html">
-                    <img class="logo" src="IMG/LogoFungiTech.png" alt="">
+            <div> <!--Logo da Empresa-->
+                <a href="HomePage-FungiTech.html"> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech">
                 </a>
             </div>
 
-            <!--Link direto para as partes da página-->
-            <div class="link">
-                <a href="#servico">Nossos Serviços</a>
+            <div class="link"> <!--Ir para página inicial-->
+                <a href="HomePage-FungiTech.html">Voltar para a página inicial</a>
             </div>
 
-            <div class="link">
-                <a href="#quem_somos">Quem Somos</a>
+            <div class="link"> <!--Ir para o simulador financeiro-->
+                <a href="Simulador-FungiTech.html">Simulador</a>
             </div>
 
-            <div class="link">
-                <a href="#contate_nos">Fale conosco</a>
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="Cadastro-FungiTech.html">Cadastre-se</a>
             </div>
 
-            <div class="link">
-                <a href="#">Simulador Financeiro</a>
-            </div>
-
-            <div class="link">
-                <a href="Matheus-Site-FungiTech/TelaCadastro-FungiTech/Cadastro-FungiTech.html">Contrate nossos
-                    serviços</a>
-            </div>
-
-            <div>
-                <a href="home.html"><img src="IMG/logoCogumelo.png" alt="logo"></a>
-                <!--Imagem que leva diretamente a página de Cadastro/Login -->
+            <div class="link"> <!--Ir para Tela de Login-->
+                <a href="Login-FungiTech.html">Entrar</a>
             </div>
         </div>
     </header>
+
 
 
 
@@ -259,12 +254,16 @@
 
     </section>
 
-    <footer>
-        <div class="last">
-            <br>
-            <p>Copyright © 2024 - Todos os direitos reservados</p> <br>
+    <!--Footer-->
+    <footer class="footer">
+        <div>
+            <p>Copyright © 2024 - Todos os direitos reservados</p>
         </div>
     </footer>
+
+</body>
+
+</html>
 
     <style>
         /* Header principal */
@@ -275,59 +274,6 @@
             font-family: Poppins, sans-serif;
             background-color: white;
             color: black;
-        }
-
-        header {
-            width: 100%;
-            align-items: center;
-            text-align: center;
-            background-color: rgb(0, 0, 0);
-            background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.171) 100%);
-            position: absolute;
-            top: 0;
-        }
-
-        header div {
-            height: min-content;
-            display: flex;
-            justify-content: space-evenly;
-            padding: 4px;
-            z-index: 1;
-        }
-
-        div.link {
-            display: table;
-            vertical-align: middle;
-            padding: 25px;
-        }
-
-
-        header div div a {
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            font-weight: bold;
-            font-family: Poppins, sans-serif;
-            transition: 0.5s;
-        }
-
-        header div div a:hover {
-            color: #d79a95;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: Poppins, sans-serif;
-            transition: 0.5s;
-        }
-
-        header img.logo {
-            height: 50px;
-            width: 200px;
-            margin-top: 10px;
-        }
-
-        header div div a img {
-            width: 70px;
-            height: 50px;
-            margin-top: 5px
         }
 
         /* ---- Linha de Divisão ---- */
@@ -545,38 +491,4 @@
             background: #80350F;
         }
 
-        /* Parte do footer */
-
-        footer {
-            position: absolute;
-            width: 100%;
-            margin-top: 1%;
-            background-color: #282d32;
-            color: white;
-        }
-
-        footer div {
-            width: 100%;
-            align-items: center;
-            text-align: center;
-            height: min-content;
-            padding: 1px;
-        }
-
-        footer div img {
-            width: 10%;
-            height: min-content;
-            position: relative;
-            bottom: 0;
-            top: 50%;
-            right: 0;
-        }
-
-        div.last div {
-            display: inline-block;
-        }
-
-        footer div p {
-            align-items: center;
-        }
     </style>

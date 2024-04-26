@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link para o CSS-->
+    <link rel="stylesheet" href="CSS-FungiTech.css">
+
+    <!--Link para a fonte importada da Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--Link do ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>FungiTech | Estufa 1-Temperatura</title>
+</head>
+
+<body>
+
+    <!--Header-->
+    <header class="header">
+        <div>
+            <div> <!--Logo da Empresa-->
+                <a href="HomePage-FungiTech.html"> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech">
+                </a>
+            </div>
+
+            <div class="link"> <!--Ir para página inicial-->
+                <a href="HomePage-FungiTech.html">Voltar para a página inicial</a>
+            </div>
+
+            <div class="link"> <!--Ir para o simulador financeiro-->
+                <a href="Simulador-FungiTech.html">Simulador</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="Cadastro-FungiTech.html">Cadastre-se</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Login-->
+                <a href="Login-FungiTech.html">Entrar</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <aside>
+            <section class="dash">
+                <br>
+                <div class="head">
+                    <div class="estufa">
+                        <div class="estf">
+                            <div class="card3" id="carde3">
+                                <h2> Voltar </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="head">
+                        <div class="estufa">
+                            <div class="estf">
+                                <div class="card3" id="carde4">
+                                    <h2> Visão geral da estufa </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="head">
+                        <div class="estufa">
+                            <div class="estf">
+                                <div class="card3" id="carde5">
+                                    <h2> Alertas </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </aside>
+        <!--------------------END OF ASIDE------------------->
+
+        <section class="middle">
+
+            <h1 style="background-color: #fbf5ee; width: 970px;"> Sensores de Temperatura da Estufa 1 </h1>
+
+            <div style="display: flex;">
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 1 </h2>
+                    <canvas id="myChart" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 2 </h2>
+                    <canvas id="myChart2" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 3 </h2>
+                    <canvas id="myChart3" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+            </div>
+            <br>
+
+            <div style="display: flex;">
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 4 </h2>
+                    <canvas id="myChart4" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 5 </h2>
+                    <canvas id="myChart5" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+
+                <div style=" width: 30%; padding-right: 80px;">
+                    <h2> Sensor Temperatura 6 </h2>
+                    <canvas id="myChart6" style="position: relative; height: 20vh; width: 20vw;"></canvas>
+                </div>
+            </div>
+
+        </section>
+
+
+        </section>
+    </main>
+
+
+
+    <!--Footer-->
+    <footer class="footer">
+        <div>
+            <p>Copyright © 2024 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+
+<style>
+    /* Header principal */
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Poppins, sans-serif;
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+
+    /* ---- Código de divisão da tela  ---- */
+    main {
+        display: grid;
+        grid-template-columns: 20rem auto;
+        gap: 20px;
+        width: 100%;
+        font-size: small;
+        padding-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    main h1 {
+        text-align: center;
+        font-weight: bold;
+        font-size: x-large;
+    }
+
+    main h2 {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Div Cards Laterais */
+
+    section.dash .card {
+        display: grid;
+    }
+
+    section.dash .estf h2 {
+        color: #F2C197;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    section.dash .head h1 {
+        text-align: center;
+        margin: 5px;
+    }
+
+    section.dash .estufa {
+        color: white;
+    }
+
+    section.dash .estufa .estf {
+        justify-content: space-around;
+        display: flex;
+    }
+
+    section.dash .estufa .card3 {
+        background-color: #9C2F20;
+        width: 100%;
+        height: 100%;
+        margin: 3%;
+        border-radius: 15px;
+        border: 5px solid #860000;
+    }
+
+
+
+</style>
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels2 = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels3 = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels4 = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels5 = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels6 = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#F2C197',
+            borderColor: '#F2C197',
+            data: [20, 29, 18, 25, 23, 21],
+        }]
+    };
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Temperatura ',
+            backgroundColor: '#DF9A62',
+            borderColor: '#DF9A62',
+            data: [20, 29, 13, 17, 28, 12],
+        }]
+    };
+
+    const data3 = {
+        labels: labels3,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#D1884E',
+            borderColor: '#D1884E',
+            data: [20, 19, 28, 15, 22, 23],
+        }]
+    };
+
+    const data4 = {
+        labels: labels4,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#8D431E',
+            borderColor: '#8D431E',
+            data: [20, 30, 21, 22, 12, 18],
+        }]
+    };
+
+    const data5 = {
+        labels: labels5,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#9C2F20',
+            borderColor: '#9C2F20',
+            data: [20, 12, 20, 25, 18, 23],
+        }]
+    };
+
+    const data6 = {
+        labels: labels6,
+        datasets: [{
+            label: 'Temperatura ',
+            backgroundColor: '#860000',
+            borderColor: '#860000',
+            data: [22, 24, 27, 23, 20, 18],
+        }]
+    };
+
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'line',
+        data: data2,
+        options: {}
+    };
+
+    const config3 = {
+        type: 'line',
+        data: data3,
+        options: {}
+    };
+
+    const config4 = {
+        type: 'line',
+        data: data4,
+        options: {}
+    };
+
+    const config5 = {
+        type: 'line',
+        data: data5,
+        options: {}
+    };
+
+    const config6 = {
+        type: 'line',
+        data: data6,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+
+    const myChart3 = new Chart(
+        document.getElementById('myChart3'),
+        config3
+    );
+
+    const myChart4 = new Chart(
+        document.getElementById('myChart4'),
+        config4
+    );
+
+    const myChart5 = new Chart(
+        document.getElementById('myChart5'),
+        config5
+    );
+
+    const myChart6 = new Chart(
+        document.getElementById('myChart6'),
+        config6
+    );
+
+    // MUDANDO DE PÁGINA 
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('carde3');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('carde4');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('carde5');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard(Alerta-Estufa1)-FungiTech.html';
+    });
+</script>
