@@ -19,10 +19,10 @@
     <title>FungiTech | Estufa 1-Alertas</title>
 </head>
 
-<body>
+<body class="alerta">
 
-     <!--Header-->
-     <header class="header">
+    <!--Header-->
+    <header class="header">
         <div>
             <div> <!--Logo da Empresa-->
                 <a href="HomePage-FungiTech.html"> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech">
@@ -48,55 +48,34 @@
     </header>
 
 
-    <main>
-        <aside>
-            <section class="dash">
-                <br>
-                <div class="head">
-                    <div class="estufa">
-                        <div class="estf">
-                            <div class="card3" id="carde3">
-                                <h2> Voltar </h2>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="head">
-                        <div class="estufa">
-                            <div class="estf">
-                                <div class="card3" id="carde4">
-                                    <h2> Visão geral da estufa </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!--Barra Lateral-->
+    <div class="tela">
+        <div class="barraLateral">
 
-                    <div class="head">
-                        <div class="estufa">
-                            <div class="estf">
-                                <div class="card3" id="carde5">
-                                    <h2> Alertas </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-        </aside>
-        <!--------------------END OF ASIDE------------------->
-
-        <section class="middle">
-                <div style="display: flex;">
-                    <div style=" width: 80%; padding-right: 90px;">
-                        <h2> Alerta Semanal </h2> 
-                        <canvas id="myChart" style="position: relative; height: 40vh; width: 40vw;"></canvas>
-                      </div>
-                </div>
-
-        </section>
+            <div class="botao" id="card3">
+                <h2> Voltar </h2>
+            </div>
 
 
-        </section>
-    </main>
+            <div class="botao" id="card4">
+                <h2> Visão geral da estufa </h2>
+            </div>
+
+
+            <div class="botao" id="card5">
+                <h2> Alertas </h2>
+            </div>
+
+        </div>
+
+
+    <!-- Grafico -->
+        <div class="grafico">
+            <h2> Alerta Semanal </h2>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
 
 
 
@@ -111,155 +90,66 @@
 
 </html>
 
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Poppins, sans-serif;
-            background-color: rgb(255, 255, 255);
-            color: black;
-        }
-
-        /* ---- Código de divisão da tela  ---- */
-        main {
-            display: grid;
-            grid-template-columns: 20rem auto;
-            gap: 60px;
-            width: 100%;
-            font-size: small;
-            padding-top: 5%;
-        }
-
-        main h1{
-            text-align: center;
-            font-weight: bold;
-            font-size: x-large;
-        }
-
-        main h2 {
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /*Card Ver informações*/
-
-        section.middle .estf h2 {
-            color: #F2C197;
-            text-align: center;
-            font-size: small;
-        }
-
-        section.middle .estufa .estf {
-            justify-content: space-around;
-            display: flex;
-        }
-
-        section.middle .estufa .card1 {
-            background-color: #8D431E;
-            width: 100%;
-            height: 20%;
-            margin: 10%;
-            border-radius: 15px;
-            border: 5px solid #80350F;
-        }
-
-        /* Div Cards Laterais */
-
-        section.dash .card {
-            display: grid;
-        }
-
-        section.dash .estf h2 {
-            color: #F2C197;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        section.dash .head h1 {
-            text-align: center;
-            margin: 5px;
-        }
-
-        section.dash .estufa {
-            color: white;
-        }
-
-        section.dash .estufa .estf {
-            justify-content: space-around;
-            display: flex;
-        }
-
-        section.dash .estufa .card3 {
-            background-color: #9C2F20;
-            width: 100%;
-            height: 100%;
-            margin: 3%;
-            border-radius: 15px;
-            border: 5px solid #860000;
-        }
-
-    </style>
 
 <script>
-const labels = [
-    'Segunda', 
-    'Terça', 
-    'Quarta', 
-    'Quinta', 
-    'Sexta',
-    'Sabádo',
-    'Domingo',  
-  ];
+    const labels = [
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sabádo',
+        'Domingo',
+    ];
 
-  const data = {
-    labels: labels,
-    datasets: [{
-        label: 'Alerta diário',
-        backgroundColor: '#860000',
-        borderColor: '#860000',
-        data: [2, 5, 4, 1, 6, 3, 2, 1],
-    }]
-  };
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Alerta diário',
+            backgroundColor: '#860000',
+            borderColor: '#860000',
+            data: [2, 5, 4, 1, 6, 3, 2, 1],
+        }]
+    };
 
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {}
-  };
-
-
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
 
 
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 
-// MUDANDO DE PÁGINA 
-         // Obtém o elemento do card pelo ID
-         var card2 = document.getElementById('carde3');
-    
+
+
+    // MUDANDO DE PÁGINA 
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card3');
+
     // Adiciona um ouvinte de evento de clique ao card
-    card2.addEventListener('click', function() {
+    card2.addEventListener('click', function () {
         // Redireciona para a página desejada
         window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html';
     });
 
-     // Obtém o elemento do card pelo ID
-     var card2 = document.getElementById('carde4');
-    
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card4');
+
     // Adiciona um ouvinte de evento de clique ao card
-    card2.addEventListener('click', function() {
+    card2.addEventListener('click', function () {
         // Redireciona para a página desejada
         window.location.href = 'Dashboard-FungiTech.html';
     });
 
-     // Obtém o elemento do card pelo ID
-     var card2 = document.getElementById('carde5');
-    
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card5');
+
     // Adiciona um ouvinte de evento de clique ao card
-    card2.addEventListener('click', function() {
+    card2.addEventListener('click', function () {
         // Redireciona para a página desejada
         window.location.href = 'Dashboard(Alerta-Estufa1)-FungiTech.html';
     });

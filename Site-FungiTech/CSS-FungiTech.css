@@ -20,7 +20,8 @@
     font-family: poppins, sans-serif;
 }
 
-.header div div a { /*Mudança de cor nos links do Header*/
+.header div div a {
+    /*Mudança de cor nos links do Header*/
     color: black;
     text-decoration: none;
     font-weight: bold;
@@ -28,7 +29,8 @@
     transition: 0.5s;
 }
 
-.header div div a:hover { /*Mudança de cor nos links do Header*/
+.header div div a:hover {
+    /*Mudança de cor nos links do Header*/
     color: #860000;
     text-decoration: none;
     font-weight: bold;
@@ -59,6 +61,29 @@
     text-align: center;
     padding-bottom: 3px;
     padding-top: 2px;
+}
+
+
+
+/* Barra de navegação lateral das Dashboards */
+.barraLateral {
+    padding-top: 15px;
+}
+
+.barraLateral .botao {
+    background-color: #9C2F20;
+    border: 5px solid #860000;
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.barraLateral h2 {
+    font-weight: bold;
+    text-align: center;
+    color: #F2C197;
+    font-size: 16px;
 }
 
 
@@ -309,7 +334,7 @@
     border-bottom: 1px solid #F2C197;
 }
 
-.dashboard .textoAlerta{
+.dashboard .textoAlerta {
     color: #f0eff5;
 }
 
@@ -338,7 +363,7 @@
 }
 
 .dashboard .botaoAlerta {
-    text-decoration: none; 
+    text-decoration: none;
     color: #d5baa2;
 }
 
@@ -389,4 +414,360 @@
     margin: 3%;
     border-radius: 15px;
     border: 5px solid #135210;
+}
+
+
+
+/* Tela de Alertas */
+
+.alerta {
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+.alerta .tela {
+    display: grid;
+    grid-template-columns: 20rem auto;
+}
+
+.alerta h2 {
+    text-align: center;
+    color: #F2C197;
+    font-size: 16px;
+}
+
+
+.alerta .grafico {
+    display: flex;
+    flex-direction: column;
+    width: 810px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Tela da Média*/
+.media {
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+.media .tela {
+    display: grid;
+    grid-template-columns: 20rem auto;
+}
+
+.media h2 {
+    text-align: center;
+    color: #F2C197;
+    font-size: 16px;
+}
+
+.media .informacao {
+    background-color: #8D431E;
+    height: 50px;
+    margin: 0px;
+    margin-top: 50px;
+    margin-bottom: 36px;
+    border-radius: 15px;
+    border: 5px solid #80350F;
+}
+
+.media h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #e9c7a9;
+    width: 950px;
+}
+
+.media .card3 {
+    background-color: #9C2F20;
+    width: 100%;
+    height: 100%;
+    margin: 3%;
+    border-radius: 15px;
+    border: 5px solid #860000;
+}
+
+.media .grafico {
+    padding-right: 50px;
+    padding-left: 50px;
+    width: 423px;
+}
+
+.media .centro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+/* Tela da Temperatura */
+.temperatura {
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+.temperatura .tela {
+    display: grid;
+    grid-template-columns: 20rem auto;
+}
+
+.temperatura .tela h1 {
+    background-color: #fbf5ee;
+    width: 970px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.temperatura .linha {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-bottom: 22px;
+}
+
+.temperatura .grafico {
+    width: 252px;
+    padding-right: 80px;
+}
+
+.temperatura .grafico h2 {
+    text-align: center;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
+/* Tela da Umidade */
+.umidade {
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+.umidade .tela {
+    display: grid;
+    grid-template-columns: 20rem auto;
+}
+
+.umidade .tela h1 {
+    background-color: #fbf5ee;
+    width: 970px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.umidade .linha {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-bottom: 22px;
+}
+
+.umidade .grafico {
+    width: 252px;
+    padding-right: 80px;
+}
+
+.umidade .grafico h2 {
+    text-align: center;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
+/* Tela Home */
+
+.inicial {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.banner {
+    font-family: poppins, sans-serif;
+    padding: 40px 20px 30px 10px;
+    color: white;
+    height: 400px;
+    background-image: url(IMG/Banners.png);
+}
+
+.banner .container p {
+    margin-top: 10%;
+    margin-left: 50px;
+    font-size: 40px;
+    width: 50%;
+}
+
+.banner .container span {
+    color: #f78778;
+    font-weight: bold;
+    font-family: poppins, sans-serif;
+}
+
+.home h2 {
+    text-align: center;
+}
+
+.home .services {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.home .services .container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home .card {
+    width: 200px;
+    text-align: center;
+}
+
+.home .card img {
+    width: 120px;
+}
+
+.home .card h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #80350F;
+}
+
+.home .meet{
+    background-color: #f8f8f8;
+}
+
+.home .meet .wwa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home .meet .wwa img {
+    width: 40%;
+}
+
+.home .meet .txt {
+    width: 55%;
+    text-align: justify;
+    padding: 8px;
+}
+
+.home .meet.txt h3 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.home .values h2 {
+    text-align: center;
+    color: #282d32;
+}
+
+.home .values {
+    color: white;
+    padding: 40px 10px;
+}
+
+.home .values .vmv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home .values .card {
+    text-align: center;
+    background-image: url(img/2.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 80%;
+    margin: 3%;
+    border-radius: 15px;
+    border: 5px solid #361c1c;
+}
+
+.home .values .card h4 {
+    font-size: 18px;
+    color: white;
+}
+
+.home .values .card p {
+    text-align: justify;
+    margin: 12px;
+    font-size: medium;
+}
+
+.sec-title-style1 .title {
+    color: #98512B;
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact-form {
+    margin: 5%;
+    display: block;
+    background: #f2c1974f;
+    padding: 100px 60px 80px;
+    box-shadow: 0px 3px 8px 2px #8d431e40;
+}
+
+.contact-form .sec-title-style1 {
+    padding-bottom: 40px;
+}
+
+.contact-form form input[type="text"],
+.contact-form form input[type="email"],
+.contact-form form textarea {
+    background: #e6a56c8d;
+    border: 1px solid #eeeeee;
+    width: 95%;
+    height: 55px;
+    font-size: 16px;
+    padding-left: 19px;
+    padding-right: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.contact-form form textarea {
+    height: 130px;
+    padding-top: 14px;
+}
+
+.contact-form form button {
+    width: 98%;
+    background: #98512B;
+    border: 1px solid #98512B;
+    color: #F2C197;
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 600;
+    transition: all 200ms linear;
+    cursor: pointer;
+}
+
+.contact-form form button:hover {
+    color: #ffffff;
+    background: #80350F;
 }
