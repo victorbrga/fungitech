@@ -50,8 +50,7 @@
 .footer {
     margin: 0px;
     width: 100%;
-    border-top: #250F04 solid 2px;
-    background-color: #98512B;
+    
     color: #F8DFC9;
 }
 
@@ -59,8 +58,13 @@
     width: 100%;
     align-items: center;
     text-align: center;
-    padding-bottom: 3px;
-    padding-top: 2px;
+    padding-bottom: 1vh;
+    padding-top: 2vh;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    border-top: #250F04 solid 2px;
+    background-color: #98512B;
 }
 
 
