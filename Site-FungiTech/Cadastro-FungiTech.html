@@ -79,9 +79,9 @@
 
                     <br>
 
-                    <div class="campo">
+                    <div class="campoNumero">
                         <label>CNPJ:</label>
-                        <input type="text" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
+                        <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
                     </div>
 
                     <br>
@@ -93,9 +93,9 @@
 
                     <br>
 
-                    <div class="campo">
+                    <div class="campoNumero">
                         <label>CEP:</label>
-                        <input type="text" placeholder="Informe o CEP da região" id="inputCEP">
+                        <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
                     </div>
 
                     <button onclick="cadastrarEmpresa()">Cadastrar</button>
@@ -144,9 +144,9 @@
 
                 <br>
 
-                <div class="campo">
+                <div class="campoNumero">
                     <label>CNPJ:</label>
-                    <input type="text" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
+                    <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
                 </div> 
 
                 <br>
@@ -158,9 +158,9 @@
 
                 <br>
 
-                <div class="campo">
+                <div class="campoNumero">
                     <label>CEP:</label>
-                    <input type="text" placeholder="Informe o CEP da região" id="inputCEP">
+                    <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
                 </div> 
 
             <button onclick="cadastrarEmpresa()">Cadastrar</button>
@@ -183,16 +183,16 @@
  
             <br>
 
-            <div class="campo">
+            <div class="campoNumero">
                 <label>CPF:</label>
                 <input type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
 
             <br>
 
-            <div class="campo">
+            <div class="campoNumero">
                 <label>CNPJ:</label>
-                <input type="text" placeholder="Informe o CNPJ da empresa" id="inputCNPJFuncionario">
+                <input type="number" placeholder="Informe o CNPJ da empresa" id="inputCNPJFuncionario">
             </div> 
 
             <br>
@@ -231,20 +231,49 @@
         var cep = inputCEP.value;
 
         // Criação de váriaveis para auxiliar as validações  
-        // Validação da Razão Social (entre 8 e 144 caracteres de acordo com a lei)
-        var tamanhoRazaoSocial = (razaoSocial.length >= 8) && (razaoSocial.length <= 144);
+        // Validação da Razão Social (até 144 caracteres de acordo com a lei)
+        var tamanhoRazaoSocial = (razaoSocial.length > 0) && (razaoSocial.length <= 144);
 
-        // Validação do Nome Fantasia (entre 8 e 60 caracteres de acordo com a lei)
-        var tamanhoNomeFantasia = (nomeFantasia.length >= 8) && (razaoSocial.length <= 60);
+        // Validação do Nome Fantasia (até 60 caracteres de acordo com a lei)
+        var tamanhoNomeFantasia = (nomeFantasia.length > 0) && (razaoSocial.length <= 60);
 
-        // Validar CNPJ (14 caracteres)
-        var tamanhoCNPJEmpresa = cnpjEmpresa.length == 14
+        // Validar CNPJ (14 caracteres, apenas numeros)
+        var cnpjEmpresaNumerico = (cnpjEmpresa.indexOf('.')  < 0) || (cnpjEmpresa.indexOf('-') < 0) || (cnpjEmpresa.indexOf('+') < 0) || (cnpjEmpresa.indexOf('e') < 0);
+        var tamanhoCNPJEmpresa = cnpjEmpresa.length == 14;
 
         // Validar Logradouro (campo não pode estar vazio)
         var tamanhoLogradouro = logradouro.length > 0
 
         // Validar CEP (8 caracteres, sem traço)
+        var cepNumerico = (cep.indexOf('.')  < 0) || (cep.indexOf('-') < 0) || (cep.indexOf('+') < 0) || (cep.indexOf('e') < 0);
         var tamanhoCEP = cep.length == 8;
+        
+
+        // Conferir se as validações são verdadeiras
+        // Validar Razão Social
+        if(tamanhoRazaoSocial == false){
+            alert(`Insira uma razão social válida`);
+        }
+
+        // Validar Nome Fantasia
+        if(tamanhoNomeFantasia == false){
+            alert(`Insira um nome fantasia válido`);
+        }
+
+        //Validar CNPJ
+        if (tamanhoCNPJEmpresa == false || cnpjEmpresaNumerico == false) {
+            alert(`O CNPJ está incorreto`)
+        }
+
+        // Validar Logradouro
+        if(tamanhoLogradouro == false){
+            alert(`O campo Logradouro é obrigatório`);
+        }
+
+        // Validar CEP
+        if(tamanhoCEP == false || cepNumerico == false){
+            alert(`Informe um CEP válido`);
+        }
     }
 
     function cadastrarFuncionario() {
@@ -261,7 +290,9 @@
         var tamanhoNome = nome.length >= 3;
         var nomeCompleto = nome.indexOf(' ') >= 0;
 
-        // Validações dos campos CPF e CNPJ (igual a 11 e 14 caracteres)
+        // Validações dos campos CPF e CNPJ (igual a 11 e 14 caracteres, apenas numeros)
+        var cnpjFuncionarioNumerico = (cnpjFuncionario.indexOf('.')  < 0) || (cnpjFuncionario.indexOf('-') < 0) || (cnpjFuncionario.indexOf('+') < 0) || (cnpjFuncionario.indexOf('e') < 0);
+        var cpfNumerico = (cpf.indexOf('.')  < 0) || (cpf.indexOf('-') < 0)|| (cpf.indexOf('+') < 0) || (cpf.indexOf('e') < 0);
         var tamanhoCPF = cpf.length == 11;
         var tamanhoCNPJFuncionario = cnpjFuncionario.length == 14;
 
@@ -452,14 +483,14 @@
         }
 
         // Validar o CPF
-        if (tamanhoCPF == false) {
+        if (tamanhoCPF == false || cpfNumerico == false) {
             alert(`O CPF está incorreto`)
         } else {
             validacaoCampos = validacaoCampos + 1;
         }
 
         // Validar o CNPJ
-        if (tamanhoCNPJFuncionario == false) {
+        if (tamanhoCNPJFuncionario == false || cnpjFuncionarioNumerico == false) {
             alert(`O CNPJ está incorreto`)
         } else {
             validacaoCampos = validacaoCampos + 1;
