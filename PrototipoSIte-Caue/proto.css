@@ -39,12 +39,14 @@ transform: rotate(45deg);
  display: flex;
  justify-content: start;
  flex-direction: column;
-
+background-color: blanchedalmond;
+border: red solid 2px;
+border-radius: 5%;
  
 
 
- width: 17cm;
- height: 20cm;
+ width: 19cm;
+ height: 18cm;
  
 
 
@@ -70,6 +72,8 @@ h3 {
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    background-color: red solid;
+    color: orange;
 
 }
 
