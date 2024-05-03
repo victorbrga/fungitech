@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>FungiTech | Login</title>
+    <title>FungiTech | Cadastre-se</title>
 </head>
 
 <body class="cadastro">
@@ -47,7 +47,6 @@
 
     <!--Conteúdo do Site-->
     <center>
-        <div class="tela">
             <div class="cartaoSelecao">
 
                 <h2>Bem-vindo!</h2>
@@ -62,46 +61,53 @@
             <div id="divFuncionario"></div>
 
             <div id="divEmpresa">
-            <div class="cartaoEmpresa">
-                <div class="formulario">
+                <div class="cartao">
+                    <div class="formulario">
 
-                    <div class="campo">
-                        <label>Razão Social:</label>
-                        <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
+                        <div class="campo">
+                            <label>Razão Social:</label>
+                            <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
+                        </div>
+                        <div id="avisoRazaoSocial" class="aviso"></div>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>Nome Fantasia:</label>
+                            <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
+                        </div>
+                        <div id="avisoNomeFantasia" class="aviso"></div>
+
+                        <br>
+
+                        <div class="campoNumero">
+                            <label>CNPJ:</label>
+                            <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
+                        </div>
+                        <div id="avisoCNPJempresa" class="aviso"></div>
+
+                        <br>
+
+                        <div class="campo">
+                            <label>Logradouro:</label>
+                            <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
+                        </div>
+                        <div id="avisoLogradouro" class="aviso"></div>
+
+                        <br>
+
+                        <div class="campoNumero">
+                            <label>CEP:</label>
+                            <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
+                        </div>
+                        <div id="avisoCEP" class="aviso"></div>
+
+                        <div id="botaoEmpresa"><button onclick="cadastrarEmpresa()">Cadastrar</button></div>
+
                     </div>
-
-                    <br>
-
-                    <div class="campo">
-                        <label>Nome Fantasia:</label>
-                        <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
-                    </div>
-
-                    <br>
-
-                    <div class="campoNumero">
-                        <label>CNPJ:</label>
-                        <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
-                    </div>
-
-                    <br>
-
-                    <div class="campo">
-                        <label>Logradouro:</label>
-                        <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
-                    </div>
-
-                    <br>
-
-                    <div class="campoNumero">
-                        <label>CEP:</label>
-                        <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
-                    </div>
-
-                    <button onclick="cadastrarEmpresa()">Cadastrar</button>
+                    <div id="avisoFinalEmpresa" class="final"></div>
                 </div>
             </div>
-        </div>
     </center>
 
 
@@ -127,44 +133,51 @@
         if (opcao == `empresa`) {
             divFuncionario.innerHTML = ``;
             divEmpresa.innerHTML = `
-        <div class="cartaoEmpresa">
-            <div class="formulario">
+    <div class="cartao">
+        <div class="formulario">
 
-                <div class="campo">
-                    <label>Razão Social:</label>
-                    <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
-                </div> 
-                
-                <br>
+            <div class="campo">
+                <label>Razão Social:</label>
+                <input type="text" placeholder="Informe a Razão Social" id="inputRazaoSocial">
+            </div>
+            <div id="avisoRazaoSocial" class="aviso"></div>
 
-                <div class="campo">
-                    <label>Nome Fantasia:</label>
-                    <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
-                </div> 
+            <br>
 
-                <br>
+            <div class="campo">
+                <label>Nome Fantasia:</label>
+                <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
+            </div>
+            <div id="avisoNomeFantasia" class="aviso"></div>
 
-                <div class="campoNumero">
-                    <label>CNPJ:</label>
-                    <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
-                </div> 
+            <br>
 
-                <br>
+            <div class="campoNumero">
+                <label>CNPJ:</label>
+                <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
+            </div>
+            <div id="avisoCNPJempresa" class="aviso"></div>
 
-                <div class="campo">
-                    <label>Logradouro:</label>
-                    <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
-                </div>
+            <br>
 
-                <br>
+            <div class="campo">
+                <label>Logradouro:</label>
+                <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
+            </div>
+            <div id="avisoLogradouro" class="aviso"></div>
 
-                <div class="campoNumero">
-                    <label>CEP:</label>
-                    <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
-                </div> 
+            <br>
 
-            <button onclick="cadastrarEmpresa()">Cadastrar</button>
-        </div>
+            <div class="campoNumero">
+                <label>CEP:</label>
+                <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
+            </div>
+            <div id="avisoCEP" class="aviso"></div>
+
+            <div id="botaoEmpresa"><button onclick="cadastrarEmpresa()">Cadastrar</button></div>
+            
+            </div>
+            <div id="avisoFinalEmpresa" class="final"></div>
     </div>`;
         }
 
@@ -173,13 +186,14 @@
         if (opcao == `funcionario`) {
             divEmpresa.innerHTML = ``;
             divFuncionario.innerHTML = `
-    <div class="cartaoFuncionario">
+    <div class="cartao">
         <div class="formulario">
             
             <div class="campo">
                 <label>Nome:</label>
                 <input type="text" placeholder="Informe seu nome completo" id="inputNome">
-            </div> 
+            </div>
+            <div id="avisoNome" class="aviso"></div>
  
             <br>
 
@@ -187,6 +201,7 @@
                 <label>CPF:</label>
                 <input type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
+            <div id="avisoCPF" class="aviso"></div>
 
             <br>
 
@@ -194,6 +209,7 @@
                 <label>CNPJ:</label>
                 <input type="number" placeholder="Informe o CNPJ da empresa" id="inputCNPJFuncionario">
             </div> 
+            <div id="avisoCNPJfuncionario" class="aviso"></div>
 
             <br>
 
@@ -201,6 +217,7 @@
                 <label>E-mail:</label>
                 <input type="text" placeholder="Informe seu e-mail" id="inputEmail">
             </div> 
+            <div id="avisoEmail" class="aviso"></div>
 
             <br>
 
@@ -208,6 +225,7 @@
                 <label>Senha:</label>
                 <input type="password" placeholder="Digite sua senha" id="inputSenha">
             </div> 
+            <div id="avisoSenha" class="aviso"></div>
 
             <br>
 
@@ -215,14 +233,25 @@
                 <label>Confirme sua Senha:</label>
                 <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             </div>
+            <div id="avisoConfirmacao" class="aviso"></div>
 
-            <button onclick="cadastrarFuncionario()">Cadastrar</button>
-        </div>
+            <div id="botaoFuncionario"><button onclick="cadastrarFuncionario()">Cadastrar</button></div>
+
+            </div>
+            <div id="avisoFinalFuncionario" class="final"></div>
     </div>`;
         }
     }
 
     function cadastrarEmpresa() {
+        // Limpeza dos avisos
+        avisoRazaoSocial.innerHTML = ``;
+        avisoNomeFantasia.innerHTML = ``;
+        avisoCNPJempresa.innerHTML = ``;
+        avisoLogradouro.innerHTML = ``;
+        avisoCEP.innerHTML = ``;
+        avisoFinalEmpresa.innerHTML = ``;
+
         // Declaração das variáveis das inputs
         var razaoSocial = inputRazaoSocial.value;
         var nomeFantasia = inputNomeFantasia.value;
@@ -232,51 +261,99 @@
 
         // Criação de váriaveis para auxiliar as validações  
         // Validação da Razão Social (até 144 caracteres de acordo com a lei)
-        var tamanhoRazaoSocial = (razaoSocial.length > 0) && (razaoSocial.length <= 144);
+        var tamanhoRazaoSocial = razaoSocial.length <= 144;
+        var cadastroRazaoSocial = false;
 
         // Validação do Nome Fantasia (até 60 caracteres de acordo com a lei)
-        var tamanhoNomeFantasia = (nomeFantasia.length > 0) && (razaoSocial.length <= 60);
+        var tamanhoNomeFantasia = (nomeFantasia.length <= 60);
+        var cadastroNomeFantasia = false;
 
         // Validar CNPJ (14 caracteres, apenas numeros)
-        var cnpjEmpresaNumerico = (cnpjEmpresa.indexOf('.')  < 0) || (cnpjEmpresa.indexOf('-') < 0) || (cnpjEmpresa.indexOf('+') < 0) || (cnpjEmpresa.indexOf('e') < 0);
         var tamanhoCNPJEmpresa = cnpjEmpresa.length == 14;
+        var cadastroCNPJempresa = false;
 
         // Validar Logradouro (campo não pode estar vazio)
-        var tamanhoLogradouro = logradouro.length > 0
+        var tamanhoLogradouro = logradouro.length > 0;
+        var cadastroLogradouro = false;
 
         // Validar CEP (8 caracteres, sem traço)
-        var cepNumerico = (cep.indexOf('.')  < 0) || (cep.indexOf('-') < 0) || (cep.indexOf('+') < 0) || (cep.indexOf('e') < 0);
         var tamanhoCEP = cep.length == 8;
-        
+        var cadastroCEP = false;
+
 
         // Conferir se as validações são verdadeiras
         // Validar Razão Social
-        if(tamanhoRazaoSocial == false){
-            alert(`Insira uma razão social válida`);
+        if (razaoSocial.length <= 0) {
+            avisoRazaoSocial.innerHTML = `Este campo é obrigatório!`;
+            cadastroRazaoSocial = false;
+        } else if (tamanhoRazaoSocial == false) {
+            avisoRazaoSocial.innerHTML = `Razão Social grande demais`;
+            cadastroRazaoSocial = false;
+        } else {
+            cadastroRazaoSocial = true;
         }
 
         // Validar Nome Fantasia
-        if(tamanhoNomeFantasia == false){
-            alert(`Insira um nome fantasia válido`);
+        if (nomeFantasia.length <= 0) {
+            avisoNomeFantasia.innerHTML = `Este campo é obrigatório!`;
+            cadastroNomeFantasia = false;
+        } else if (tamanhoNomeFantasia == false) {
+            avisoNomeFantasia.innerHTML = `Nome Fantasia grande demais`;
+            cadastroNomeFantasia = false;
+        } else {
+            cadastroNomeFantasia = true;
         }
 
         //Validar CNPJ
-        if (tamanhoCNPJEmpresa == false || cnpjEmpresaNumerico == false) {
-            alert(`O CNPJ está incorreto`)
+        if (cnpjEmpresa.length <= 0) {
+            avisoCNPJempresa.innerHTML = `Este campo é obrigatório!`;
+            cadastroCNPJempresa = false;
+        } else if (tamanhoCNPJEmpresa == false) {
+            avisoCNPJempresa.innerHTML = `Insira um CNPJ válido`;
+            cadastroCNPJempresa = false;
+        } else {
+            cadastroCNPJempresa = true;
         }
 
         // Validar Logradouro
-        if(tamanhoLogradouro == false){
-            alert(`O campo Logradouro é obrigatório`);
+        if (tamanhoLogradouro == false) {
+            avisoLogradouro.innerHTML = `Este campo é obrigatório!`;
+            cadastroLogradouro = false;
+        } else {
+            cadastroLogradouro = true;
         }
 
         // Validar CEP
-        if(tamanhoCEP == false || cepNumerico == false){
-            alert(`Informe um CEP válido`);
+        if (cep.length <= 0) {
+            avisoCEP.innerHTML = `Este campo é obrigatório!`;
+            cadastroCEP = false;
+        } else if (tamanhoCEP == false) {
+            avisoCEP.innerHTML = `Informe um CEP válido`;
+            cadastroCEP = false;
+        } else {
+            cadastroCEP = true;
+        }
+
+        if (cadastroRazaoSocial == true &&
+            cadastroNomeFantasia == true &&
+            cadastroCNPJempresa == true &&
+            cadastroLogradouro == true &&
+            cadastroCEP == true) {
+            avisoFinalEmpresa.innerHTML = `Cadastro da empresa concluído! <br> Agora, cadastre um funcionário para analisar os seus dados.`;
+            botaoEmpresa.innerHTML = ``;
         }
     }
 
     function cadastrarFuncionario() {
+        // Limpeza dos avisos
+        avisoNome.innerHTML = ``;
+        avisoCPF.innerHTML = ``;
+        avisoCNPJfuncionario.innerHTML = ``;
+        avisoEmail.innerHTML = ``;
+        avisoSenha.innerHTML = ``;
+        avisoConfirmacao.innerHTML = ``;
+        avisoFinalFuncionario.innerHTML = ``;
+
         // Declaração das variáveis das inputs
         var nome = inputNome.value;
         var cpf = inputCPF.value;
@@ -289,12 +366,13 @@
         // Validações do campo nome (Maior ou igual a 3 caracteres e com espaço)
         var tamanhoNome = nome.length >= 3;
         var nomeCompleto = nome.indexOf(' ') >= 0;
+        var cadastroNome = false;
 
         // Validações dos campos CPF e CNPJ (igual a 11 e 14 caracteres, apenas numeros)
-        var cnpjFuncionarioNumerico = (cnpjFuncionario.indexOf('.')  < 0) || (cnpjFuncionario.indexOf('-') < 0) || (cnpjFuncionario.indexOf('+') < 0) || (cnpjFuncionario.indexOf('e') < 0);
-        var cpfNumerico = (cpf.indexOf('.')  < 0) || (cpf.indexOf('-') < 0)|| (cpf.indexOf('+') < 0) || (cpf.indexOf('e') < 0);
         var tamanhoCPF = cpf.length == 11;
         var tamanhoCNPJFuncionario = cnpjFuncionario.length == 14;
+        var cadastroCPF = false;
+        var cadastroCNPJfuncionario = false;
 
         // Validação do email (precisa ter @ e ., maximo de 320 caracteres, sendo 64 antes e 255 depois do @)
         var emailValido = (email.indexOf('@') >= 0) && (email.indexOf('.') >= 0);
@@ -304,10 +382,12 @@
             var tamanhoAntes = posicaoArroba <= 64;
             var tamanhoDepois = (posicaoArroba - email.length) <= 254
         }
-
+        var cadastroEmail = false;
 
         // Validação da senha (Maior ou igual a 8, com uma maiuscula, minuscula, numero e caractere especial)
         var tamanhoSenha = senha.length >= 8;
+        var cadastroSenha = false;
+        var cadastroConfirmacao = false;
 
         var senhaEspecial = (senha.indexOf('!') >= 0) ||
             (senha.indexOf('@') >= 0) ||
@@ -473,83 +553,96 @@
             (senha.indexOf('Ë') < 0) &&
             (senha.indexOf(':') < 0);
 
-        // Conferir se as validações são verdadeiras
-        var validacaoCampos = 0
+
         // Validar o nome
-        if ((tamanhoNome && nomeCompleto) == false) {
-            alert(`O campo nome está incorreto, tente novamente`);
+        if (nome.length <= 0) {
+            avisoNome.innerHTML = `Este campo é obrigatório!`;
+        } else if (tamanhoNome == false) {
+            avisoNome.innerHTML = `Nome curto demais`;
+            cadastroNome = false;
+        } else if (nomeCompleto == false) {
+            avisoNome.innerHTML = `Insira seu nome e sobrenome`;
+            cadastroNome = false;
         } else {
-            validacaoCampos = validacaoCampos + 1;
+            cadastroNome = true;
         }
 
         // Validar o CPF
-        if (tamanhoCPF == false || cpfNumerico == false) {
-            alert(`O CPF está incorreto`)
+        if (cpf.length <= 0) {
+            avisoCPF.innerHTML = `Este campo é obrigatório!`;
+            cadastroCPF = false;
+        } else if (tamanhoCPF == false) {
+            avisoCPF.innerHTML = `Insira um CPF existente`;
+            cadastroCPF = false;
         } else {
-            validacaoCampos = validacaoCampos + 1;
+            cadastroCPF = true;
         }
 
         // Validar o CNPJ
-        if (tamanhoCNPJFuncionario == false || cnpjFuncionarioNumerico == false) {
-            alert(`O CNPJ está incorreto`)
+        if (cnpjFuncionario.length <= 0) {
+            avisoCNPJfuncionario.innerHTML = `Este campo é obrigatório!`;
+            cadastroCNPJfuncionario = false;
+        } else if (tamanhoCNPJFuncionario == false) {
+            avisoCNPJfuncionario.innerHTML = `Insira um CNPJ existente`;
+            cadastroCNPJfuncionario = false;
         } else {
-            validacaoCampos = validacaoCampos + 1;
+            cadastroCNPJfuncionario = true;
         }
 
         // Validar o Email
-        if (emailValido == false ||
-        tamanhoAntes == false ||
-        tamanhoDepois == false ||
-        tamanhoEmailTotal == false) {
-            alert(`Email incorreto, insira um email existente`)
+        if (email.length <= 0) {
+            avisoEmail.innerHTML = `Este campo é obrigatório`;
+            cadastroEmail = false;
+        } else if (emailValido == false ||
+            tamanhoAntes == false ||
+            tamanhoDepois == false ||
+            tamanhoEmailTotal == false) {
+            avisoEmail.innerHTML = `Insira um Email existente`;
+            cadastroEmail = false;
         } else {
-            validacaoCampos = validacaoCampos + 1;
+            cadastroEmail = true;
         }
 
-        //Validar a senha (Apenas se os outros campos estiverem corretos)
-        var validacaoSenha = 0
-
-        if (validacaoCampos == 4) {
-            if (tamanhoSenha == false) {
-                alert(`Sua senha é pequena demais`);
-            } else {
-                if (senhaEspecial == false) {
-                    alert(`Sua senha precisa ter no minimo um caracter especial`)
-                } else {
-                    validacao = validacao + 1
-                }
-
-                if (senhaMaiuscula == false) {
-                    alert(`Sua senha precisa ter no minimo uma letra maiuscula`)
-                } else {
-                    validacao = validacao + 1
-                }
-
-                if (senhaMinuscula == false) {
-                    alert(`Sua senha precisa ter no minimo uma letra minuscula`)
-                } else {
-                    validacao = validacao + 1
-                }
-
-                if (senhaNumeros == false) {
-                    alert(`Sua senha precisa ter no minimo um numero`)
-                } else {
-                    validacao = validacao + 1
-                }
-            }
+        // Validar a Senha
+        if (senha.length <= 0) {
+            avisoSenha.innerHTML = `Este campo é obrigatório!`;
+            cadastroSenha = false;
+        } else if (tamanhoSenha == false) {
+            avisoSenha.innerHTML = `Senha muito pequena!`;
+            cadastroSenha = false;
+        } else if (caracteresBloquados == false){
+            avisoSenha.innerHTML = `Senha inválida`;
+            cadastroSenha = false;
+        } else if (senhaEspecial == false ||
+            senhaMaiuscula == false ||
+            senhaMinuscula == false ||
+            senhaNumeros == false) {
+            avisoSenha.innerHTML = `Senha fraca demais`;
+            cadastroSenha = false;
+        } else {
+            cadastroSenha = true;
         }
 
-        // Validar a senha de confirmação (apenas após a senha inserida estar validada)
-        if (validacaoSenha == 4) {
-
-            if (confirmacao == senha) {
-                alert(`cadastro concluido`)
-            } else {
-                alert(`Sua senha de confirmação não é igual a senha informada`)
-            }
+        // Confirmar a Senha
+        if (confirmacao.length <= 0) {
+            avisoConfirmacao.innerHTML = `Este campo é obrigatório!`;
+            cadastroConfirmacao = false;
+        } else if (confirmacao != senha){
+            avisoConfirmacao.innerHTML = `As senhas são diferentes`;
+            cadastroConfirmacao = false;
+        } else {
+            cadastroConfirmacao = true;
         }
 
+        if (cadastroNome == true &&
+            cadastroCPF == true &&
+            cadastroCNPJfuncionario == true &&
+            cadastroEmail == true &&
+            cadastroSenha == true &&
+            cadastroConfirmacao == true) {
+            avisoFinalFuncionario.innerHTML = `Cadastro concluído! <br> Para acessar as informações dos sensores, faça o login`;
+            botaoFuncionario.innerHTML = ``;
+        }
     }
-</script>
 
-<!-- window.location.href = "https://www.google.com" -->
+</script>

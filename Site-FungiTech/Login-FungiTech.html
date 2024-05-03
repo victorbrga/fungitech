@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link para o CSS-->
+    <link rel="stylesheet" href="CSS-FungiTech.css">
+
+    <!--Link para a fonte importada da Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>FungiTech | Login</title>
+</head>
+
+<body class="login">
+
+    <!--Header-->
+    <header class="header">
+        <div>
+            <div> <!--Logo da Empresa-->
+                <a href=""> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech"> </a>
+            </div>
+
+            <div class="link"> <!--Ir para página inicial-->
+                <a href="Home-FungiTech.html">Voltar para a página inicial</a>
+            </div>
+
+            <div class="link"> <!--Ir para o simulador financeiro-->
+                <a href="Simulador-FungiTech.html">Simulador</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="Cadastro-FungiTech.html">Cadastre-se</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Login-->
+                <a href="Login-FungiTech.html">Entrar</a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!--Conteúdo do Site-->
+    <div class="tela">
+
+        <div class="cartao">
+
+            <h2>Olá de novo!</h2>
+
+            <div class="campoNumero">
+                <label>CPF:</label>
+                <input type="number" placeholder="Informe seu CPF" id="inputCPF">
+            </div>
+            <div id="avisoCPF" class="aviso"></div>
+
+            <br>
+
+            <div class="campo">
+                <label>Senha:</label>
+                <input type="password" placeholder="Informe sua senha" id="inputSenha">
+            </div>
+            <div id="avisoSenha" class="aviso"></div>
+
+            <button onclick="entrar()">ENTRAR</button>
+        </div>
+
+    </div>
+
+
+
+    <!--Footer-->
+    <footer class="footer">
+        <div>
+            <p>Copyright © 2024 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+    function entrar(){
+        // Limpeza dos avisos
+        avisoCPF.innerHTML = ``;
+        avisoSenha.innerHTML = ``;
+
+        // Declaração de variaveis das inputs 
+        var cpf = inputCPF.value;
+        var senha = inputSenha.value;
+
+        // Validações
+        // Validação do CPF
+        var loginCPF = false;
+        if (cpf.length <= 0) {
+            avisoCPF.innerHTML = `Este campo é obrigatório!`;
+            loginCPF = false;
+        } else if (cpf.length != 11) {
+            avisoCPF.innerHTML = `Insira um CPF existente`;
+            loginCPF = false;
+        } else if (cpf == `12345678901`){
+            loginCPF = true;
+        }
+
+        // Validação da Senha
+        var loginSenha = false;
+        if (senha.length <= 0) {
+            avisoSenha.innerHTML = `Este campo é obrigatório!`;
+            loginSenha = false;
+        } else if (senha == `Fung1#`){
+            loginSenha = true;
+        }
+
+        if (loginCPF == true && loginSenha == true) {
+            window.location.href = 'Dashboard-FungiTech.html'
+        }
+    }
+</script>
