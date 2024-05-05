@@ -5,7 +5,7 @@
     align-items: center;
     text-align: center;
     background-color: black;
-    background: linear-gradient(#DF8F68, 15%, #CE7C50);
+    background: linear-gradient(#f6d4b7, 35%, #f4efeff7);
 }
 
 .header div {
@@ -22,7 +22,7 @@
 
 .header div div a {
     /*Mudança de cor nos links do Header*/
-    color: black;
+    color: #98512B;
     text-decoration: none;
     font-weight: bold;
     font-family: Poppins, sans-serif;
@@ -30,8 +30,8 @@
 }
 
 .header div div a:hover {
-    /*Mudança de cor nos links do Header*/
-    color: #860000;
+    /*Mudança de cor quando passar o mouse em cima dos links do Header*/
+    color: #d7906a;
     text-decoration: none;
     font-weight: bold;
     font-family: Poppins, sans-serif;
@@ -212,30 +212,29 @@ input::-webkit-inner-spin-button {
 }
 
 
-
-
 /*Tela de Login*/
 .login {
     margin: 0;
     padding: 0;
     font-family: Poppins, sans-serif;
-    background-color: black;
-    color: black;
+    background-color: #f4efefee;
+    color: #7d482c;
+    /*
     background-image: url(img/fundoCogumelo.png);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100%; */
 }
 
 .login .tela{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 479px;
+    height: 566px;
     margin: 0px;
 }
 
 .login .cartao {
-    background-color: #e6a56ccd;
+    background-color: #f2c1976a;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -248,7 +247,7 @@ input::-webkit-inner-spin-button {
 }
 
 .login .cartao h2 {
-    color: #9C2F20;
+    color: #7d482c;
     margin: 10px;
 }
 
@@ -257,7 +256,8 @@ input::-webkit-inner-spin-button {
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 10px 20px;
-    background-color: #9C2F20;
+    background: #98512B;
+    border: 1px solid #98512B;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -265,20 +265,25 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+.login .cartao button:hover{
+    color: #ffffff;
+    background-color: #80350F;
+}
+
 .login .campo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #9C2F20;
+    color: #7d482c;
     font-weight: bold;
     align-items: flex-start;
 }
 
 .login .campo input {
     width: 200px;
-    padding: 10px 0px;
-    border: 2px solid #80350F;
-    background-color: #F6D4B7;
+    padding: 10px 0px;    
+    background: #e6a56c8d;
+    border: 2px solid #e6a56c8d;
     font-size: 15px;
     border-radius: 10px;
     text-align: center;
@@ -288,7 +293,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #9C2F20;
+    color: #7d482c;
     font-weight: bold;
     align-items: flex-start;
 }
@@ -301,8 +306,8 @@ input::-webkit-inner-spin-button {
 .login .campoNumero input {
     width: 200px;
     padding: 10px 0px;
-    border: 2px solid #80350F;
-    background-color: #F6D4B7;
+    background: #e6a56c8d;
+    border: 2px solid #e6a56c8d;
     font-size: 15px;
     border-radius: 10px;
     text-align: center;
@@ -319,20 +324,21 @@ input::-webkit-inner-spin-button {
 
 
 
+
 /*Tela de Simulador*/
 .simulador {
     margin: 0px;
     padding: 0px;
     font-family: Poppins, sans-serif;
-    background-color: white;
-    color: black;
+    background-color: #f4efefee;
+    color: #7d482c;
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .simulador .calculadora {
     max-width: 600px;
-    margin-top: 130px;
+    margin-top: 10px;
     padding: 20px;
     text-align: center;
 }
@@ -344,52 +350,109 @@ input::-webkit-inner-spin-button {
 }
 
 .simulador .calculadora h1 {
-    color: #c92026;
+    color: #7d482c;
 }
 
 .simulador .calculadora input {
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    background: #e6a56c8d;
+    border: 1px solid #e6a56c8d;
 }
 
 .simulador .calculadora button {
-    background-color: #c92026;
-    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background: #98512B;
+    border: 1px solid #98512B;
+    color: #F2C197;
+    font-size: 16px;
+    transition: all 200ms linear;
+    cursor: pointer;
+}
+
+.simulador .calculadora button:hover{
+    color: #ffffff;
+    background: #80350F;
+}
+
+.simulador .calculadora ::placeholder{
+    font-family: poppins, sans-serif;
+    color: #8e5c42;
 }
 
 .simulador .mensagem {
-    max-width: 1200px;
-    margin: 0px;
-    padding: 20px;
+    max-width: 80%;
+    margin: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.simulador .resultado {
-    margin-top: 20px;
-    display: none;
-    padding: 10px;
-    border: 1px solid #ccc;
+.simulador .mensagem h3{
+    text-align: center;
+    color: #7d482c;
+}
+
+.simulador .mensagem .msg1{
+    background-color: #f2c19734;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    width: 250px;
+    text-align: center;
+    padding-left: 10px;
+    color: #8e5c42;
+    font-size: 16px;
+}
+
+.simulador .mensagem .msg2{
+    background-color: #f2c19734;
+    border-radius: 5px;
+    width: 220px;
+    font-size: medium;
+    text-align: center;
+    color: #8e5c42;
+}
+
+.simulador .mensagem .msg3{
+    background-color: #f2c19734;
+    border-radius: 5px;
+    width: 250px;
+    font-size: medium;
+    text-align: center;
+    color: #8e5c42;
+    padding-left: 10px;
+}
+
+.simulador .mensagem .msg4{
+    background-color: #f2c19734;
+    border-radius: 5px;
+    width: 250px;
+    font-size: medium;
+    text-align: center;
+    color: #8e5c42;
+    padding-left: 10px;
+}
+
+.simulador .resultado {
+    margin-top: -55px;
+    display: none;
+    border: 1px solid #f2c1976a;
+    border-radius: 5px;
+    background-color: #f2c1974f;
     align-items: center;
-    margin-left: 10px;
     padding: 20px;
 
 }
 
 .simulador .positivo {
-    color: green
+    color: #458e44;
 }
 
 .simulador .negativo {
-    color: red;
+    color: #ca311c;
 }
 
 
@@ -400,8 +463,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
     padding: 0;
     font-family: Poppins, sans-serif;
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: #f4efefee;
+    color: #7d482c;
 }
 
 .dashboard .tela {
@@ -414,19 +477,20 @@ input::-webkit-inner-spin-button {
 
 /* Barra de Alertas Lateral das dashboards*/
 .dashboard .lateral {
-    background-color: #860000;
-    height: 436px;
+    background-color: #9d471c;
+    height: 100%;
+    width: 105%;
     margin-bottom: 0px;
 }
 
 .dashboard .lateral img {
-    width: 73px;
+    width: 80px;
     margin-right: 8px;
 }
 
 .dashboard .tituloAlerta {
     padding: 1px;
-    color: black;
+    color: #f2c7b2;
     border-bottom: 1px solid #F2C197;
 }
 
@@ -438,11 +502,11 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 3px;
+    padding: 8px;
     border-bottom: 1px solid #f0eff5;
     border-top: 1px solid #f0eff5;
     transition: all 300ms ease;
-    background-color: #860000;
+    background-color: #80350F;
 }
 
 .dashboard .ultimoAlerta {
@@ -452,29 +516,29 @@ input::-webkit-inner-spin-button {
     padding: 0px;
     border-top: 1px solid #f0eff5;
     transition: all 300ms ease;
-    background-color: #860000;
+    background-color: #5d2205;
 }
 
 .dashboard .alerta:hover {
-    background-color: rgb(167, 54, 54);
+    background-color:#b56239;
     cursor: pointer;
 }
 
 .dashboard .ultimoAlerta:hover {
-    background-color: rgb(167, 54, 54);
+    background-color:#b56239;
     cursor: pointer;
 }
 
 .dashboard .botaoAlerta {
     text-decoration: none;
-    color: #d5baa2;
+    color: #f2c7b2;
 }
 
 /* Centro da tela de dashboards */
 .dashboard .tituloPrincipal h1 {
     text-align: center;
     margin: 0px;
-    height: 15px;
+    height: 40px;
 }
 
 .dashboard .linha {
@@ -1104,7 +1168,7 @@ footer .home_footer p {
 .footer {
     margin: 0px;
     width: 100%;
-    color: #F8DFC9;
+    color: #56260c;
 }
 
 .footer div {
@@ -1112,7 +1176,6 @@ footer .home_footer p {
     text-align: center;
     padding-top: 10px;
     height: 70px;
-    border-top: #250F04 solid 2px;
-    background-color: #98512B;
+    background: linear-gradient(#f6d4b7, 80%, #c7a689);
 }
 
