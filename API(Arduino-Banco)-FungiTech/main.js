@@ -29,7 +29,7 @@ const serial = async (
             host: 'localhost',
             user: 'aluno',
             password: 'Sptech#2024',
-            database: 'teste2',
+            database: 'fungitech',
             port: 3307
         }
     ).promise();
@@ -70,9 +70,9 @@ const serial = async (
         if (HABILITAR_OPERACAO_INSERIR) {
 
             // altere!
-            // Este insert irá inserir os dados na tabela "medida"
+            // Este insert irá inserir os dados na tabela "dadosSensor"
             await poolBancoDados.execute(
-                'INSERT INTO medida (dht11_temperatura, dht11_umidade) VALUES (?, ?)',
+                'INSERT INTO dadosSensor (dht11_temperatura, dht11_umidade) VALUES (?, ?)',
                 [dht11Umidade, dht11Temperatura]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura )
