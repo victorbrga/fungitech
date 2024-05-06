@@ -142,3 +142,15 @@ concat(dht11_temperatura, '°C') as 'Temperatura',
 concat(dht11_umidade, '%') as 'Umidade',
 dtHora as 'Horário'
 from dadosSensor;
+
+CREATE TABLE alerta(
+idAlerta INT PRIMARY KEY auto_increment,
+qtdAlerta INT,
+dtAlerta datetime
+);
+
+INSERT INTO alerta VALUES
+(null, 2, '2024-02-21 21:45:29'),
+(null, 10, '2024-03-01 19:20:59'),
+(null, 9, '2024-01-29 10:19:24'),
+(null, 12, '2024-04-06 09:10:02');

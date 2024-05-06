@@ -18,16 +18,16 @@
 
 <body class="simulador">
 
-     <!--Header-->
-     <header class="header">
+    <!--Header-->
+    <header class="header">
         <div>
             <div> <!--Logo da Empresa-->
-                <a href="HomePage-FungiTech.html"> <img class="logo" src="img/LogoFungiTech.png" alt="Logo FungiTech">
+                <a href="HomePage-FungiTech.html"> <img class="logo" src="img/LogoFungiTech3.png" alt="Logo FungiTech">
                 </a>
             </div>
 
             <div class="link"> <!--Ir para página inicial-->
-                <a href="HomePage-FungiTech.html">Voltar para a página inicial</a>
+                <a href="HomePage-FungiTech.html">Inicio</a>
             </div>
 
             <div class="link"> <!--Ir para o simulador financeiro-->
@@ -44,36 +44,34 @@
         </div>
     </header>
 
-
-
-
     <!--Conteúdo do Site-->
     <center>
         <div class="calculadora">
             <h1>Simulador Financeiro FungiTech</h1>
-                Qual é a produção mensal:<input type="number" id="inputProducao" placeholder="Produção mensal (em kg)">
-                <br>
-                Qual é o preço vendido por Kilo: <input type="number" id="inputPreco" placeholder="Preço por (Kg)"> <br>
-                Qual é o valor investido na produção: <input type="number" id="inputInvestimento"
-                    placeholder="Valor Investido mensalmente (R$)"> <br>
-                Qual é a perda percentual da produção: <input type="number" id="inputPerda"
-                    placeholder="Perda Percentual mensal (%)"><br>
+            Qual é a produção mensal:<input type="number" id="inputProducao" placeholder="Produção mensal (em kg)">
+            <br>
+            Qual é o preço vendido por Kilo: <input type="number" id="inputPreco" placeholder="Preço por (Kg)"> <br>
+            Qual é o valor investido na produção: <input type="number" id="inputInvestimento"
+                placeholder="Valor Investido mensalmente (R$)"> <br>
+            Qual é a perda percentual da produção: <input type="number" id="inputPerda"
+                placeholder="Perda Percentual mensal (%)"><br>
 
-            <button onclick="calcular()">Calcular</button><br>
+            <button onclick="calcular()">Calcular</button>
         </div>
         <div class="mensagem">
-            <div id="mensagemMercado" class="resultado"></div>
-            <div id="mensagemCliente" class="resultado"></div>
-            <div id="mensagemComparacao" class="resultado"></div>
+            <div class="msg1" id="mensagemMercado" class="resultado"></div>
+            <div class="msg2" id="mensagemCliente" class="resultado"></div>
+            <div class="msg3" id="mensagemComparacao" class="resultado"></div>
+            <div class="msg4" id="mensagemBimestral" class="resultado"></div>
         </div>
     </center>
 
 
 
     <!--Footer-->
-    <footer class="footer">
-        <div>
-            <p>Copyright © 2024 - Todos os direitos reservados</p>
+    <footer>
+        <div class="home_footer">
+            <p> © Copyright FungiTech - 2024. Todos os direitos reservados</p>
         </div>
     </footer>
 
@@ -88,59 +86,88 @@
         var investimento = Number(inputInvestimento.value); // Valor investido na produção 
         var perda = Number(inputPerda.value); // Perda percentual do produtor
 
-        // valores do mercado
-        var precoMercado = 27; // Preço do kilo do cogumelo no mercado 
-        var perdaMercado = 0.2; // O produtor perde 20% da produção em kg
-        var totalVendido = producao * (1 - perdaMercado); // Lucro de apenas 80% da produção total em kg
-        var lucroSemPerda = producao * precoMercado; // Lucro da produção total em R$
-        var lucroComPerda = totalVendido * precoMercado; // Lucro de apenas 80% da produção total em R$
-        var perdaMensal = (producao * perdaMercado) * 27; // Perda de dinheiro mensal
-        var perdaAnual = perdaMensal * 12; // Perda de dinheiro anual
-        var lucroTotal = lucroSemPerda - investimento; // 
-
-        // valores do cliente
-        var perdaCliente = perda / 100; // Transformar a perda em porcentagem 
-        var vendaTotal = producao * (1 - perdaCliente); // Lucro da produção que não foi perdida em kg 
-        var lucroPerdaCliente = vendaTotal * precoVenda; // Lucro da produção se o produtor vender o kg de acordo com o seu preço
-        var perdaMensalP = (producao * perdaCliente) * precoVenda; // Perda de dinheiro mensal
-        var perdaAnualP = perdaMensalP * 12; // Perda de dinheiro anual
-        var lucroCliente = producao * precoVenda; // Para saber o lucro do cliente com o preço vendido por kilo
-        var lucroLiq = (lucroCliente - investimento); // 
-
-        mensagemMercado.style.display = "block";
-        mensagemCliente.style.display = "block";
-        mensagemComparacao.style.display = "block";
-
-        // Valores do mercado
-        mensagemMercado.innerHTML = `<h3>Valores do Mercado:</h3>` +
-            `<p>Preço por Kilo: <b>R$${precoMercado}</b></p>` +
-            `<p>Perda Percentual: <b>` + (perdaMercado * 100) + `%</b></p>` +
-            `<p>Lucro Mensal sem Perda: <b>R$${lucroSemPerda}</b></p>` +
-            `<p>Lucro Mensal com Perda: <b>R$${lucroComPerda}</b></p>` +
-            `<p>Perda Mensal: <b>R$${perdaMensal}</b></p>` +
-            `<p>Perda Anual: <b>R$${perdaAnual}</b></p>`;
-
-        // Valores do cliente
-        mensagemCliente.innerHTML = `<h3>Valores do Cliente:</h3>` +
-            `<p>Lucro Mensal: <b class="positivo">R$${lucroPerdaCliente}</b></p>` +
-            `<p>Perda Mensal: <b class="negativo">R$${perdaMensalP}</b></p>` +
-            `<p>Perda Anual: <b class="negativo">R$${perdaAnualP}</b></p>` +
-            `<p>Lucro Líquido: <b class="positivo">R$${lucroLiq}</b></p>`;
-
-        // Comparação
-        var comparacao = (perdaMensal - perdaMensalP) / 100
-        var comparacao2 = (perdaMensalP - perdaMensal) / 100
-        var comparacao3 = (lucroTotal - lucroLiq) / 100
-        var comparacao4 = (lucroLiq - lucroTotal) / 100
-        if (perdaMensal > perdaMensalP) {
-            mensagemComparacao.innerHTML = `<h4 class="positivo">Sua perda foi menor que a do mercado em ${comparacao}%</h4>`;
+        if (producao <= 0 || precoVenda <= 0 || investimento <= 0 || perda == 0) {
+            alert('Por Favor, preencha todos os campos com valores válidos para continuar!')
         } else {
-            mensagemComparacao.innerHTML = `<h4 class="negativo">Sua perda foi maior que a do mercado em ${comparacao2}%</h4>`;
+            // valores do mercado
+            var precoMercado = 27; // Preço do kilo do cogumelo no mercado 
+            var perdaMercado = 0.2; // O produtor perde 20% da produção em kg
+            var totalVendido = producao * (1 - perdaMercado); // Lucro de apenas 80% da produção total em kg
+            var lucroSemPerda = producao * precoMercado; // Lucro da produção total em R$
+            var lucroComPerda = totalVendido * precoMercado; // Lucro de apenas 80% da produção total em R$
+            var perdaMensal = (producao * perdaMercado) * 27; // Perda de dinheiro mensal
+            var perdaAnual = perdaMensal * 12; // Perda de dinheiro anual
+            var lucroTotal = lucroSemPerda - investimento; // 
+
+            // valores do cliente
+            var perdaCliente = perda / 100; // Transformar a perda em porcentagem 
+            var vendaTotal = producao * (1 - perdaCliente); // Lucro da produção que não foi perdida em kg 
+            var lucroPerdaCliente = vendaTotal * precoVenda; // Lucro da produção se o produtor vender o kg de acordo com o seu preço
+            var perdaMensalP = (producao * perdaCliente) * precoVenda; // Perda de dinheiro mensal
+            var perdaAnualP = perdaMensalP * 12; // Perda de dinheiro anual
+            var lucroCliente = producao * precoVenda; // Para saber o lucro do cliente com o preço vendido por kilo
+            var lucroLiq = (lucroCliente - investimento); // 
+
+            mensagemMercado.style.display = "block";
+            mensagemCliente.style.display = "block";
+            mensagemBimestral.style.display = "block";
+            mensagemComparacao.style.display = "block";
+
+            // Valores do mercado
+            mensagemMercado.innerHTML = `<h3>Valores do Mercado:</h3>` +
+                `<p>Preço por Kilo: <b>R$${precoMercado}</b></p>` +
+                `<p>Perda Percentual: <b>` + (perdaMercado * 100) + `%</b></p>` +
+                `<p>Lucro Mensal sem Perda: <b>R$${lucroSemPerda}</b></p>` +
+                `<p>Lucro Mensal com Perda: <b>R$${lucroComPerda}</b></p>` +
+                `<p>Perda Mensal: <b>R$${perdaMensal}</b></p>` +
+                `<p>Perda Anual: <b>R$${perdaAnual}</b></p>`;
+
+            // Valores do cliente
+            mensagemCliente.innerHTML = `<h3>Valores do Cliente:</h3>` +
+                `<p>Lucro Mensal: <b class="positivo">R$${lucroPerdaCliente}</b></p>` +
+                `<p>Perda Mensal: <b class="negativo">R$${perdaMensalP}</b></p>` +
+                `<p>Perda Anual: <b class="negativo">R$${perdaAnualP}</b></p>` +
+                `<p>Lucro Líquido: <b class="positivo">R$${lucroLiq}</b></p>`;
+
+            // Comparação
+            mensagemComparacao.innerHTML = `<h3> Comparação ao Mercado: </h3>`;
+            var comparacao = (perdaMensal - perdaMensalP) / 100;
+            var comparacao2 = (perdaMensalP - perdaMensal) / 100;
+            var comparacao3 = (lucroTotal - lucroLiq) / 100;
+            var comparacao4 = (lucroLiq - lucroTotal) / 100;
+
+            var mensagemComparativa = ""; // Inicializa a string da mensagem comparativa
+
+            if (perdaMensal > perdaMensalP) {
+                mensagemComparativa += `<h4 class="positivo">Sua perda foi menor que <br> a do mercado em ${comparacao}%</h4>`;
+            } else {
+                mensagemComparativa += `<h4 class="negativo">Sua perda foi maior que <br> a do mercado em ${comparacao2}%</h4>`;
+            }
+
+            if (lucroTotal > lucroLiq) {
+                mensagemComparativa += `<br> <h4 class="negativo">Seu lucro foi inferior <br> ao do mercado em ${comparacao3}%</h4>`;
+            } else {
+                mensagemComparativa += `<br><h4 class="positivo"> Seu lucro foi superior <br> ao do <br> mercado em ${comparacao4}%</h4>`;
+            }
+
+            // Define o conteúdo da mensagem comparativa
+            mensagemComparacao.innerHTML += mensagemComparativa;
+
+
+            //Calculo Bimestral
+            mensagemBimestral.innerHTML = `<h3> Valor Bimestral: </h3>`;
+            perdaTotal = 0;
+            gastoInicial = producao; // gasto ao primeiro bimestre valor estipulado
+            incrementoGasto = gastoInicial * 0.40; // incremento de 20% de perda a cada bimestre
+
+            for (var bim = 1; bim <= 4; bim++) {
+                var gastoBimestral = gastoInicial + (bim - 1) * incrementoGasto; // calcula o gasto do bimestre atual
+                perdaTotal += producao * perda / 100; //calcula a perda bimestral e soma a perda total
+                mensagemBimestral.innerHTML += `<p> Ao <b>${bim}º bimestre </b> o gasto <br> foi de <b>R$${gastoBimestral}</b> <br></p>`;
+            }
+
+            mensagemBimestral.innerHTML += `<p>Totalizando uma <br> <b>perda anual de R$${perdaTotal}</b>! </p>`;
         }
-        if (lucroTotal > lucroLiq) {
-            mensagemComparacao.innerHTML += `<br> <h4 class="negativo">Seu lucro foi inferior ao do mercado em ${comparacao3}%</h4>`;
-        } else {
-            mensagemComparacao.innerHTML += `<br><h4 class="positivo"> Seu lucro foi superior ao do mercado em ${comparacao4}%</h4>`;
-        }
+
     }
 </script>
