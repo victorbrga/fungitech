@@ -18,6 +18,7 @@ INSERT INTO empresa values
 ('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000','Rua Victor Navios');
 
 select cnpj as 'ID',
+logradouro as 'Logradouro',
 cep,
 nomeFantasia as 'Nome da empresa',
 razaoSocial as 'Razão Social'
