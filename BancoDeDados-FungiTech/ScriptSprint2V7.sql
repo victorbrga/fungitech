@@ -6,19 +6,18 @@ create table empresa(
 cnpj char(14) primary key,
 nomeFantasia varchar(45),
 razaoSocial varchar(45),
-logradouro varchar(45),
-cep char(9)
+cep char(9),
+logradouro varchar(45)
 );
 
 INSERT INTO empresa values
-('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', 'Rua das Laranjeiras', '00000-000'),
-('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', 'Alameda Mandaguaia','00000-000'),
-('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', 'Rua Alexandrino', '00000-000'),
-('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', 'Avenida Nuggets', '00000-000'),
-('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', 'Rua Dom Pixote', '00000-000');
+('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', '00000-000','Rua Pedro Motos'),
+('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', '00000-000','Rua Matheus Carros'),
+('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', '00000-000','Rua Luiza Aviões'),
+('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', '00000-000','Rua Fernando Dias'),
+('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000','Rua Victor Navios');
 
 select cnpj as 'ID',
-logradouro as 'Rua',
 cep,
 nomeFantasia as 'Nome da empresa',
 razaoSocial as 'Razão Social'
@@ -29,13 +28,13 @@ from empresa;
 create table usuario(
 cpf char(11) primary key,
 email varchar(45),
-nome varchar(45),
+nomeUsuario varchar(45),
 senha varchar(45),
 fkCnpj char(14),
 constraint fkEmpresaUsuario foreign key (fkCnpj) references empresa(cnpj)
 );
 
-INSERT INTO usuario(cpf, email, nome, senha, fkCnpj) values
+INSERT INTO usuario(cpf, email, nomeUsuario, senha, fkCnpj) values
 ('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
 ('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
 ('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
@@ -44,7 +43,7 @@ INSERT INTO usuario(cpf, email, nome, senha, fkCnpj) values
 
 select cpf as 'CPF',
 email as 'E-mail',
-nome as 'Nome do Usuário',
+nomeUsuario as 'Nome do Usuário',
 senha as 'Senha'
 from usuario;
 desc usuario;
@@ -124,13 +123,14 @@ create table dadosSensor(
 idDado int primary key auto_increment,
 dht11_temperatura decimal(4, 2),
 dht11_umidade decimal(4, 2),
-dtHora datetime default current_timestamp
+dtHora datetime default current_timestamp,
+fkSensor int
 ); 
 
 INSERT INTO dadosSensor values
-(null, 25.22, 75.87, default),
-(null, 20.75, 65.11, default),
-(null, 21.00, 95.10, default);
+(null, 25.22, 75.87, default,1),
+(null, 20.75, 65.11, default,2),
+(null, 21.00, 95.10, default,3);
 
 select s.nomeSensor as 'Nome do Sensor',
  (dht11_temperatura * s.fator) as 'Temperatura',
@@ -148,12 +148,12 @@ from dadosSensor;
 CREATE TABLE alerta(
 idAlerta INT PRIMARY KEY auto_increment,
 qtdAlerta INT,
-dtAlerta datetime
+dtAlerta datetime,
+fkSensor int
 );
 
 INSERT INTO alerta VALUES
-(null, 2, '2024-02-21 21:45:29'),
-(null, 10, '2024-03-01 19:20:59'),
-(null, 9, '2024-01-29 10:19:24'),
-(null, 12, '2024-04-06 09:10:02');
-
+(null, 2, '2024-02-21 21:45:29',1),
+(null, 10, '2024-03-01 19:20:59',2),
+(null, 9, '2024-01-29 10:19:24',3),
+(null, 12, '2024-04-06 09:10:02',1);
