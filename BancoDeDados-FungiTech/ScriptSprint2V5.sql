@@ -6,17 +6,19 @@ create table empresa(
 cnpj char(14) primary key,
 nomeFantasia varchar(45),
 razaoSocial varchar(45),
+logradouro varchar(45),
 cep char(9)
 );
 
 INSERT INTO empresa values
-('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', '00000-000'),
-('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', '00000-000'),
-('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', '00000-000'),
-('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', '00000-000'),
-('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000');
+('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', 'Rua das Laranjeiras', '00000-000'),
+('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', 'Alameda Mandaguaia','00000-000'),
+('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', 'Rua Alexandrino', '00000-000'),
+('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', 'Avenida Nuggets', '00000-000'),
+('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', 'Rua Dom Pixote', '00000-000');
 
 select cnpj as 'ID',
+logradouro as 'Rua',
 cep,
 nomeFantasia as 'Nome da empresa',
 razaoSocial as 'Razão Social'
@@ -154,3 +156,4 @@ INSERT INTO alerta VALUES
 (null, 10, '2024-03-01 19:20:59'),
 (null, 9, '2024-01-29 10:19:24'),
 (null, 12, '2024-04-06 09:10:02');
+
