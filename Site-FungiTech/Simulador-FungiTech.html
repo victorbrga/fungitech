@@ -48,7 +48,7 @@
     <center>
         <div class="calculadora">
             <h1>Simulador Financeiro FungiTech</h1>
-            Qual é a produção mensal:<input type="number" id="inputProducao" placeholder="Produção mensal (em kg)">
+           Kilos mensais produzidos:<input type="number" id="inputProducao" placeholder="Produção mensal (em kg)">
             <br>
             Qual é o preço vendido por Kilo: <input type="number" id="inputPreco" placeholder="Preço por (Kg)"> <br>
             Qual é o valor investido na produção: <input type="number" id="inputInvestimento"
@@ -162,7 +162,7 @@
 
             for (var bim = 1; bim <= 4; bim++) {
                 var gastoBimestral = gastoInicial + (bim - 1) * incrementoGasto; // calcula o gasto do bimestre atual
-                perdaTotal += producao * perda / 100; //calcula a perda bimestral e soma a perda total
+                perdaTotal += producao * (perda / 100); //calcula a perda bimestral e soma a perda total
                 mensagemBimestral.innerHTML += `<p> Ao <b>${bim}º bimestre </b> o gasto <br> foi de <b>R$${gastoBimestral}</b> <br></p>`;
             }
 

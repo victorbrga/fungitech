@@ -938,7 +938,7 @@ input::-webkit-inner-spin-button {
 /*Banner*/
 .banner {
     padding: 40px 20px 30px 10px;
-    color: #f6d4b7;
+    color: #ecbc92;
     height: 400px;
     background-color: #000000;
     background-image: url("https://www.otamotfoods.com/cdn/shop/articles/mushroom_feature_2048x.jpg?v=1632846469");
@@ -952,6 +952,7 @@ input::-webkit-inner-spin-button {
     margin-left: 50px;
     font-size: 40px;
     width: 40%;
+    
 }
 
 .banner .container span {
@@ -1069,7 +1070,7 @@ input::-webkit-inner-spin-button {
 
 .home .qsm .empresa p{
     padding-bottom: 10%;
-    color: #fef6e4;
+    color: #56260c;
     font-size: medium;
     font-weight: bold;
     margin-top: -8%;
@@ -1099,12 +1100,12 @@ input::-webkit-inner-spin-button {
     width: 50%;
     text-align: justify;
     padding: 4%;
-    color: #fef6e4;
+    color: #98512B;
     font-weight: 600;
 }
 
 .home .qsm .projeto .text b{
-    color: #98512B;
+    color:  #56260c;
     font-weight: 600;
 }
 
@@ -1135,7 +1136,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
     width: 90%;
     margin: 8px;
-    border: 2px solid #f4efef;
+    border: 2px solid #56260c;
     background-color: #dcb9958f;
 }
 
