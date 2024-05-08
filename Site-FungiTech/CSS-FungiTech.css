@@ -938,16 +938,19 @@ input::-webkit-inner-spin-button {
 /*Banner*/
 .banner {
     padding: 40px 20px 30px 10px;
-    color: #ecbc92;
+    color: white;
     height: 400px;
     background-color: #000000;
     background-image: url("https://www.otamotfoods.com/cdn/shop/articles/mushroom_feature_2048x.jpg?v=1632846469");
     background-repeat: no-repeat;
     background-size: 100%;
+    -webkit-text-stroke-width: 1.4px;
+  -webkit-text-stroke-color: #f1984b;
+    
 }
 
 .banner .container p {
-    font-weight: 400;
+    font-weight: 1000;
     margin-top: 10%;
     margin-left: 50px;
     font-size: 40px;
@@ -958,6 +961,8 @@ input::-webkit-inner-spin-button {
 .banner .container span {
     color: #c8864d;
     font-weight: bold;
+    -webkit-text-stroke-width: 1.4px;
+  -webkit-text-stroke-color: white;
 }
 
 .home h1 {
@@ -1019,7 +1024,7 @@ input::-webkit-inner-spin-button {
 .home .simul h3 {
     font-weight: lighter; 
     font-size: larger;
-    color: #98512B;
+    color: #371200;
 }
 
 .home .simul .container {
@@ -1052,9 +1057,10 @@ input::-webkit-inner-spin-button {
 }
 
 .home .qsm .empresa{
-    background-color: #DCB895;
+    background-color: #e6c7a7;
     width: 100%;
     height: 560px;
+    
 }
 
 .home .qsm .empresa img{
@@ -1084,7 +1090,7 @@ input::-webkit-inner-spin-button {
 
 /*Informações do projeto*/
 .home .qsm .projeto {
-    background: linear-gradient(#ae835ee2, 60%, #DCB895);
+    background: linear-gradient(#e6b48ae2, 60%, #DCB895);
 }
 
 .home .qsm .projeto .wwa {
@@ -1100,12 +1106,12 @@ input::-webkit-inner-spin-button {
     width: 50%;
     text-align: justify;
     padding: 4%;
-    color: #98512B;
+    color: #9f4311;
     font-weight: 600;
 }
 
 .home .qsm .projeto .text b{
-    color:  #56260c;
+    color: #561e00;
     font-weight: 600;
 }
 
@@ -1137,12 +1143,12 @@ input::-webkit-inner-spin-button {
     width: 90%;
     margin: 8px;
     border: 2px solid #56260c;
-    background-color: #dcb9958f;
+    background-color: #ecb680ce;
 }
 
 .home .valores .values .vmv .card:hover {
     border: 3px solid #f4efef;
-    background-color: #DCB895;
+    background-color: #f0be8cc0;
     width: 100%;
     transition: 0.2s;
 }
@@ -1156,11 +1162,11 @@ input::-webkit-inner-spin-button {
     font-size: 15px;
     padding: 8px;
     font-weight: bold;
-    color: #8e5c42;
+    color: #51301e;
 }
 
 .home .valores .values .vmv .card b {
-    color: #98512B;
+    color: #aa5223;
 }
 
 
