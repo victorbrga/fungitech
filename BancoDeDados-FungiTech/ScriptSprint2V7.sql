@@ -17,12 +17,14 @@ INSERT INTO empresa values
 ('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', '00000-000','Rua Fernando Dias'),
 ('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000','Rua Victor Navios');
 
-select cnpj as 'ID',
+create view Empresa as (select cnpj as 'ID',
 logradouro as 'Logradouro',
 cep,
 nomeFantasia as 'Nome da empresa',
 razaoSocial as 'Razão Social'
-from empresa;
+from empresa)
+;
+select * from Empresa;
 
 --
 
@@ -42,13 +44,13 @@ INSERT INTO usuario(cpf, email, nomeUsuario, senha, fkCnpj) values
 ('11124742898', 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', '11807060034612'),
 ('10458256422', 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', '92105302450241');
 
-select cpf as 'CPF',
+create view Usuario as (select cpf as 'CPF',
 email as 'E-mail',
 nomeUsuario as 'Nome do Usuário',
 senha as 'Senha'
-from usuario;
-desc usuario;
-
+from usuario
+ usuario);
+select * from Usuario;
 select * from usuario join empresa on cnpj = fkCnpj;
 
 
@@ -124,8 +126,7 @@ create table dadosSensor(
 idDado int primary key auto_increment,
 dht11_temperatura decimal(4, 2),
 dht11_umidade decimal(4, 2),
-dtHora datetime default current_timestamp,
-fkSensor int
+dtHora datetime default current_timestamp
 ); 
 
 INSERT INTO dadosSensor values
@@ -133,12 +134,12 @@ INSERT INTO dadosSensor values
 (null, 20.75, 65.11, default,2),
 (null, 21.00, 95.10, default,3);
 
-select s.nomeSensor as 'Nome do Sensor',
+create view Monitoramento as(select s.nomeSensor as 'Nome do Sensor',
  (dht11_temperatura * s.fator) as 'Temperatura',
  (dht11_umidade * s.fator) as 'Umidade',
  d.dtHora as 'Hora' 
  from sensor as s, 
- dadosSensor as d;
+ dadosSensor as d);
 
 select idDado as 'ID',
 concat(dht11_temperatura, '°C') as 'Temperatura',
@@ -158,3 +159,4 @@ INSERT INTO alerta VALUES
 (null, 10, '2024-03-01 19:20:59',2),
 (null, 9, '2024-01-29 10:19:24',3),
 (null, 12, '2024-04-06 09:10:02',1);
+

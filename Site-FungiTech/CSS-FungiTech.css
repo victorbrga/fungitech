@@ -1079,7 +1079,7 @@ input::-webkit-inner-spin-button {
     color: #56260c;
     font-size: medium;
     font-weight: bold;
-    margin-top: -8%;
+    margin-top: -10%;
     padding: 9%;
 }
 
@@ -1277,23 +1277,17 @@ input::-webkit-inner-spin-button {
 
 /*HOME FOOTER*/
 footer .home_footer{
-    padding-top: 1%;
     position: absolute;
     width: 100%;
-    height: 20%;
+    height: 10%;
     border-top: #250f0431 solid 2px;
     background-color: #98512B;
     color: #F8DFC9;
     }
 
-footer .home_footer {
-    width: 100%;
-    }
-
 footer .home_footer p {
     align-items: center;
     text-align: center;
-    margin-top: 4%;
 }
 
 /*DASH FOOTER*/
