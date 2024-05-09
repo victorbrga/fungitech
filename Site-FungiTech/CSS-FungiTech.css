@@ -558,26 +558,29 @@ input::-webkit-inner-spin-button {
 .simulador .mensagem .msg1{
     background-color: #f2c19734;
     border-radius: 5px;
-    width: 250px;
+    width: 280px;
     text-align: center;
     padding-left: 10px;
     color: #8e5c42;
     font-size: 16px;
+    border: rgb(53, 19, 1) 2px solid;
 }
 
 .simulador .mensagem .msg2{
     background-color: #f2c19734;
     border-radius: 5px;
-    width: 220px;
+    width: 280px;
     font-size: medium;
     text-align: center;
     color: #8e5c42;
+    border: rgb(53, 19, 1) 2px solid;
 }
 
 .simulador .mensagem .msg3{
     background-color: #f2c19734;
     border-radius: 5px;
-    width: 250px;
+    border: rgb(53, 19, 1) 2px solid;
+    width: 280px;
     font-size: medium;
     text-align: center;
     color: #8e5c42;
@@ -587,11 +590,12 @@ input::-webkit-inner-spin-button {
 .simulador .mensagem .msg4{
     background-color: #f2c19734;
     border-radius: 5px;
-    width: 250px;
+    width: 280px;
     font-size: medium;
     text-align: center;
     color: #8e5c42;
     padding-left: 10px;
+    border: rgb(53, 19, 1) 2px solid;
 }
 
 .simulador .resultado {
