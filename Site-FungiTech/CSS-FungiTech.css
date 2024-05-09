@@ -625,13 +625,13 @@ input::-webkit-inner-spin-button {
     margin: 0;
     padding: 0;
     font-family: Poppins, sans-serif;
-    background: #e8baa170;
+    background: #e8baa11d;
     color: #7d482c;
 }
 
 .dashboard .tela {
     display: grid;
-    grid-template-columns: 15rem auto;
+    grid-template-columns: 20rem auto;
     width: 100%;
     font-size: small;
     padding: 0px;
@@ -704,8 +704,8 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard .linha {
-    justify-content: space-around;
     display: flex;
+    justify-content: space-around;
 }
 
 .dashboard .linha h2 {
@@ -757,7 +757,8 @@ input::-webkit-inner-spin-button {
 
 .alerta .tela {
     display: grid;
-    grid-template-columns: 18rem auto;
+    grid-template-columns: 22rem auto;
+    height: 556px;
 }
 
 .alerta h2 {
@@ -778,7 +779,7 @@ input::-webkit-inner-spin-button {
     width: 810px;
     margin: 0px;
     margin-top: 1px;
-    margin-left: 120px;
+    margin-left: 150px;
     margin-bottom: 20px;
 }
 
@@ -793,7 +794,8 @@ input::-webkit-inner-spin-button {
 
 .media .tela {
     display: grid;
-    grid-template-columns: 18rem auto;
+    grid-template-columns: 22rem auto;
+    height: 556px;
 }
 
 .media h2 {
@@ -860,7 +862,8 @@ input::-webkit-inner-spin-button {
 
 .temperatura .tela {
     display: grid;
-    grid-template-columns: 18rem auto;
+    grid-template-columns: 22rem auto;
+    height: 556px;
 }
 
 .temperatura .tela h1 {
@@ -876,7 +879,7 @@ input::-webkit-inner-spin-button {
 .temperatura .linha {
     display: flex;
     flex-direction: row;
-    margin-left: 50px;
+    margin-left: 100px;
     margin-bottom: 22px;
 }
 
@@ -903,7 +906,8 @@ input::-webkit-inner-spin-button {
 
 .umidade .tela {
     display: grid;
-    grid-template-columns: 18rem auto;
+    grid-template-columns: 22rem auto;
+    height: 556px;
 }
 
 .umidade .tela h1 {
@@ -919,7 +923,7 @@ input::-webkit-inner-spin-button {
 .umidade .linha {
     display: flex;
     flex-direction: row;
-    margin-left: 50px;
+    margin-left: 100px;
     margin-bottom: 22px;
 }
 
@@ -1054,8 +1058,8 @@ input::-webkit-inner-spin-button {
 
 /* Sobre nós */
 .home .qsm{
-    padding: 10%;
-    margin-top: -7%;
+    padding: 15%;
+    margin-top: -2%;
     text-align: justify;
     color: #282d32;
 }
@@ -1083,7 +1087,7 @@ input::-webkit-inner-spin-button {
     color: #56260c;
     font-size: medium;
     font-weight: bold;
-    margin-top: -10%;
+    margin-top: -8%;
     padding: 9%;
 }
 
@@ -1146,7 +1150,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
     width: 90%;
     margin: 8px;
-    border: 2px solid #56260c;
+    border: 3px solid #f4efef;
     background-color: #ecb680ce;
 }
 
@@ -1281,17 +1285,47 @@ input::-webkit-inner-spin-button {
 
 /*HOME FOOTER*/
 footer .home_footer{
+    padding-top: 1%;
     position: absolute;
     width: 100%;
-    height: 10%;
+    height: 20%;
     border-top: #250f0431 solid 2px;
     background-color: #98512B;
     color: #F8DFC9;
     }
 
+footer .home_footer {
+    width: 100%;
+    }
+
 footer .home_footer p {
     align-items: center;
     text-align: center;
+    margin-top: 4%;
+}
+
+/*LOGIN FOOTER*/
+footer .log_footer{
+    position: absolute;
+    width: 100%;
+    height: 14.6%;
+    border-top: #250f0431 solid 2px;
+    background-color: #98512B;
+    color: #F8DFC9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9%;
+    }
+
+footer .log_footer {
+    width: 100%;
+    }
+
+footer .log_footer p {
+    align-items: center;
+    text-align: center;
+    margin-top: 4%;
 }
 
 /*DASH FOOTER*/
@@ -1305,7 +1339,7 @@ footer .dash_footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 0%;
     }
 
 footer .dash_footer {

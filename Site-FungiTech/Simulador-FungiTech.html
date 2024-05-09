@@ -130,21 +130,23 @@
             var mensagemPerda = ``;
             var mensagemLucro = ``;
 
+            mensagemComparacao.innerHTML = "";
+
             if(percentualPerdaCliente < percentualPerdaMercado){
                 mensagemPerda += ` <h4 class="positivo">Sua perda foi menor que a do mercado em ${(perda * 100).toFixed(2)}%</h4><br><br><br>`
             } else if (percentualPerdaCliente > percentualPerdaMercado){
                 mensagemPerda += ` <h4 class="negativo">Sua perda foi maior que a do mercado em ${(perda * 100).toFixed(2)}%</h4><br><br><br>`
             } else {
-                mensagemPerda = `<b>igual a</b>`
+                mensagemPerda = `<h3><b>Sua perda é igual igual a do mercado em  ${(perda * 100).toFixed(2)}%</b></h3><br><br><br>`
             }
             mensagemComparacao.innerHTML += `<h3>Comparação ao Mercado </h3> <br><br><br>${mensagemPerda}`
             
             if(lucroLiquidoMensalCliente < lucroLiquidoMensalMercado){
-                mensagemLucro = ` <h4 class="positivo">Seu lucro foi menor que o do mercado em ${(lucro * 100).toFixed(2)}%</h4><br><br><br>`
+                mensagemLucro = ` <h4 class="negativo">Seu lucro foi menor que o do mercado em ${(lucro * 100).toFixed(2)}%</h4><br><br><br>`
             } else if (lucroLiquidoMensalCliente > lucroLiquidoMensalMercado){
-                mensagemLucro = ` <h4 class="negativo">Seu lucro foi maior que o do mercado em ${(lucro * 100).toFixed(2)}%</h4><br><br><br>`
+                mensagemLucro = ` <h4 class="positivo">Seu lucro foi maior que o do mercado em ${(lucro * 100).toFixed(2)}%</h4><br><br><br>`
             } else {
-                mensagemLucro = `<b>igual a</b>`
+                mensagemLucro = `<h3><b>Seu lucro é igual ao do mercado em  ${(lucro * 100).toFixed(2)}%</b></h3><br><br>`
             }
             mensagemComparacao.innerHTML += `${mensagemLucro}`
 

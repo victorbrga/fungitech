@@ -66,7 +66,8 @@
             </div>
             <div id="avisoSenha" class="aviso"></div>
 
-            <button onclick="entrar()">ENTRAR</button>
+           <button onclick="entrar()">ENTRAR</button> </a>
+           <div id="avisoErro" class="aviso"></div>
         </div>
 
     </div>
@@ -75,7 +76,7 @@
 
     <!--Footer-->
     <footer>
-        <div class="home_footer">
+        <div class="log_footer">
             <p> © Copyright FungiTech - 2024. Todos os direitos reservados</p>
         </div>
     </footer>
@@ -100,11 +101,13 @@
         if (cpf.length <= 0) {
             avisoCPF.innerHTML = `Este campo é obrigatório!`;
             loginCPF = false;
+            
         } else if (cpf.length != 11) {
             avisoCPF.innerHTML = `Insira um CPF existente`;
             loginCPF = false;
         } else if (cpf == `12345678901`){
             loginCPF = true;
+            avisoErro.innerHTML = `CPF ou senha inválidos`
         }
 
         // Validação da Senha
@@ -114,6 +117,7 @@
             loginSenha = false;
         } else if (senha == `Fung1#`){
             loginSenha = true;
+            avisoErro.innerHTML = `CPF ou senha inválidos`
         }
 
         if (loginCPF == true && loginSenha == true) {
