@@ -28,30 +28,30 @@ select * from Empresa;
 
 --
 
-create table usuario(
+create table funcionario(
 cpf char(11) primary key,
 email varchar(45),
 nomeUsuario varchar(45),
 senha varchar(45),
 fkCnpj char(14),
-constraint fkEmpresaUsuario foreign key (fkCnpj) references empresa(cnpj)
+constraint fkEmpresaFuncionario foreign key (fkCnpj) references empresa(cnpj)
 );
 
-INSERT INTO usuario(cpf, email, nomeUsuario, senha, fkCnpj) values
+INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkCnpj) values
 ('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
 ('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
 ('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
 ('11124742898', 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', '11807060034612'),
 ('10458256422', 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', '92105302450241');
 
-create view Usuario as (select cpf as 'CPF',
+create view funcionario as (select cpf as 'CPF',
 email as 'E-mail',
 nomeUsuario as 'Nome do Usuário',
 senha as 'Senha'
-from usuario
- usuario);
-select * from Usuario;
-select * from usuario join empresa on cnpj = fkCnpj;
+from funcionario
+ );
+select * from funcionario;
+select * from funcionario join empresa on cnpj = fkCnpj;
 
 
 create table metrica(
@@ -63,16 +63,16 @@ umidMax decimal(4, 2)
 );
 
 INSERT INTO metrica values
-(null, 20.75, 25.12, 75.87, 95.22);
+(null, 20, 25, 75, 95);
 
 SELECT * FROM metrica;
 
-select idMetrica as 'ID',
+create view MetricaFormatada as(select idMetrica as 'ID',
 concat(tempMin, '°C') as 'Temperatura Mínima',
 concat(tempMax, '°C') as 'Temperatura Máxima',
 concat(umidMin, '%') as 'Umidade Mínima',
 concat(umidMax, '%') as 'Umidade Máxima'
-from metrica;
+from metrica);
 
 
 create table estufa(
@@ -80,7 +80,7 @@ idEstufa int primary key auto_increment,
 qtdToras int,
 fkCpf char(11),
 fkMetrica int,
-constraint fkUsuarioEstufa foreign key (fkCpf) references usuario(cpf),
+constraint fkFuncionarioEstufa foreign key (fkCpf) references funcionario(cpf),
 constraint fkMetricasEstufa foreign key (fkMetrica) references metrica(idMetrica)
 );
 
@@ -130,9 +130,9 @@ dtHora datetime default current_timestamp
 ); 
 
 INSERT INTO dadosSensor values
-(null, 25.22, 75.87, default,1),
-(null, 20.75, 65.11, default,2),
-(null, 21.00, 95.10, default,3);
+(null, 25.22, 75.87, default),
+(null, 20.75, 65.11, default),
+(null, 21.00, 95.10, default);
 
 create view Monitoramento as(select s.nomeSensor as 'Nome do Sensor',
  (dht11_temperatura * s.fator) as 'Temperatura',
@@ -140,6 +140,8 @@ create view Monitoramento as(select s.nomeSensor as 'Nome do Sensor',
  d.dtHora as 'Hora' 
  from sensor as s, 
  dadosSensor as d);
+ 
+ select * from Monitoramento;
 
 select idDado as 'ID',
 concat(dht11_temperatura, '°C') as 'Temperatura',
@@ -159,4 +161,6 @@ INSERT INTO alerta VALUES
 (null, 10, '2024-03-01 19:20:59',2),
 (null, 9, '2024-01-29 10:19:24',3),
 (null, 12, '2024-04-06 09:10:02',1);
+
+select * from alerta;
 
