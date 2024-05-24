@@ -7,7 +7,7 @@
 
     <!--Link para o CSS-->
     <link rel="stylesheet" href="css/CSS-FungiTech.css">
-    <link rel="stylesheet" href="css/"
+    <link rel="stylesheet" href="css/dashboards.css"
 
     <!--Link para a fonte importada da Google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,19 +139,79 @@
 
   function cadastrar() {
     aguardar();
-
+    var cadastro = selectCadastro.value;
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
 
     // cadastro empresa
-    var cadastro = selectCadastro.value;
+
+    if(cadastro == 'empresa'){
     var razaoSocialVar = inputRazaoSocial.value;
     var nomeFantasiaVar = inputNomeFantasia.value;
     var CNPJEmpresaVar = inputCNPJEmpresa.value;
     var logradouroVar = inputLogradouro.value;
     var CEPVar = inputCEP.value;
- 
-    //cadastro usuario
+
+    if (
+        razaoSocialVar == '' ||
+        nomeFantasiaVar == '' ||
+        CNPJEmpresaVar == '' ||
+        logradouroVar == '' ||
+        CEPVar == ''
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } 
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        razaoSocialServer : razaoSocialVar,
+        nomeFantasiaServer : nomeFantasiaVar, 
+        CNPJEmpresaServer : CNPJEmpresaVar,
+        logradouroServer : logradouroVar,
+        CEPServer : CEPVar 
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+
+
+    }
+    else{
     var nomeVar = inputNome.value;
      var cpfVar = inputCPF.value;
      var CNPJFuncionarioVar = inputCNPJFuncionario.value;
@@ -159,12 +219,8 @@
      var senhaVar = inputSenha.value;
      var confirmacaoVar = inputConfirmacao.value;
 
-    if (
-            razaoSocialVar == '' ||
-            nomeFantasiaVar == '' ||
+     if (
             CNPJEmpresaVar == '' ||
-            logradouroVar == '' ||
-            CEPVar == '' ||
             nomeVar == '' ||
             cpfVar == '' ||
             CNPJFuncionarioVar == '' ||
@@ -178,9 +234,7 @@
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+    } 
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -191,11 +245,7 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        razaoSocialServer: razaoSocialVar,
-        nomeFantasiaServer: nomeFantasiaVar,
        CNPJEmpresaServer: CNPJEmpresaVar,
-        logradouroServer: logradouroVar,
-        CEPServer: CEPVar,
         nomeServer: nomeVar,
         cpfServer: cpfVar,
         emailServer: emailVar,
@@ -228,27 +278,14 @@
       });
 
     return false;
+
+    }
+    //cadastro usuario
+ 
+   
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+ 
 
   // FIM WEB-DATA-VIZ
 
