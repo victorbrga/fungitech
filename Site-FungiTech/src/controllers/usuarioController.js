@@ -26,7 +26,7 @@ function autenticar(req, res) {
                                         nome: resultadoAutenticar[0].nome,
                                         email: resultadoAutenticar[0].email,
                                         senha: resultadoAutenticar[0].senha,
-                                        CNPJEmpresa: resultadoAutenticar[0].CNPJEmpresa
+                                        cnpj: resultadoAutenticar[0].cnpj
                                         
                                     });
                                 } else if (resultadoAutenticar.length == 0) {
@@ -48,7 +48,15 @@ function cadastrar(req, res) {
     var cpf = req.body.cpfServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var CNPJEmpresa = req.body.CNPJEmpresaServer;
+    var cnpj = req.body.CNPJFuncionarioServer;
+
+
+    console.log("nome:: ", nome)
+    console.log("cpf:: ", cpf)
+    console.log("email:: ", email)
+    console.log("senha:: ", senha)
+    console.log("cnpj:: ", cnpj)
+
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -59,12 +67,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (CNPJEmpresa == undefined) {
+    } else if (cnpj == undefined) {
         res.status(400).send("Sua empresa está undefined!");
     }  else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, cpf, email, senha, CNPJEmpresa)
+        usuarioModel.cadastrar(nome, cpf, email, senha, cnpj)
             .then(
                 function (resultado) {
                     res.json(resultado);

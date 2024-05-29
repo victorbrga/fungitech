@@ -220,7 +220,6 @@
      var confirmacaoVar = inputConfirmacao.value;
 
      if (
-            CNPJEmpresaVar == '' ||
             nomeVar == '' ||
             cpfVar == '' ||
             CNPJFuncionarioVar == '' ||
@@ -245,12 +244,11 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-       CNPJEmpresaServer: CNPJEmpresaVar,
+       CNPJFuncionarioServer: CNPJFuncionarioVar,
         nomeServer: nomeVar,
         cpfServer: cpfVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        confirmacaoServer: confirmacaoVar
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
