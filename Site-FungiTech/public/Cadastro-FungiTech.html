@@ -101,11 +101,11 @@
 
                         <div class="campoNumero">
                             <label>CEP:</label>
-                            <input type="number" placeholder="Informe o CEP da região" id="inputCEP">
+                            <input type="text" placeholder="Informe o CEP da região" id="inputCEP">
                         </div>
                         <div id="avisoCEP" class="aviso"></div>
 
-                        <div id="botaoEmpresa"><button onclick="cadastrarEmpresa()">Cadastrar</button></div>
+                        <div id="botaoEmpresa"><button onclick="cadastrar()">Cadastrar</button></div>
 
                     </div>
                     <div id="avisoFinalEmpresa" class="final"></div><div id="div_aguardar" class="loading-div">
@@ -151,24 +151,21 @@
     var CNPJEmpresaVar = inputCNPJEmpresa.value;
     var logradouroVar = inputLogradouro.value;
     var CEPVar = inputCEP.value;
-
+        console.log('cheguei aqui!')
     if (
-        razaoSocialVar == '' ||
-        nomeFantasiaVar == '' ||
-        CNPJEmpresaVar == '' ||
-        logradouroVar == '' ||
+        razaoSocialVar == ''||
+        nomeFantasiaVar == ''|| 
+        CNPJEmpresaVar == ''|| 
+        logradouroVar == ''|| 
         CEPVar == ''
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+    console.log('ta errado!')
       finalizarAguardar();
       return false;
-    } 
-
+    }else{ 
+        console.log('chegou no fetch!')
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuarios/cadastrar_empresa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -187,15 +184,6 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
           limparFormulario();
           finalizarAguardar();
         } else {
@@ -208,9 +196,10 @@
       });
 
     return false;
-
+    }
 
     }
+
     else{
     var nomeVar = inputNome.value;
      var cpfVar = inputCPF.value;
@@ -227,16 +216,12 @@
             senhaVar == '' ||
             confirmacaoVar == ''
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
       finalizarAguardar();
       return false;
     } 
-
+    console.log(`cadastro: cpf ${cpfVar}, nome ${nomeVar}, email${emailVar}`)
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuarios/cadastrar_funcionario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -244,24 +229,20 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-       CNPJFuncionarioServer: CNPJFuncionarioVar,
-        nomeServer: nomeVar,
         cpfServer: cpfVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        nomeServer: nomeVar,
+        senhaServer: senhaVar,
+        CNPJFuncionarioServer: CNPJFuncionarioVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+    
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "Login-FungiTech.html";
           }, "2000");
 
           limparFormulario();
@@ -337,7 +318,7 @@
             </div>
             <div id="avisoCEP" class="aviso"></div>
 
-            <div id="botaoEmpresa"><button onclick="cadastrarEmpresa()">Cadastrar</button></div>
+            <div id="botaoEmpresa"><button onclick="cadastrar()">Cadastrar</button></div>
             
             </div>
             <div id="avisoFinalEmpresa" class="final"></div>

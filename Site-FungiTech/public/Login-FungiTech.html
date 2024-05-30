@@ -91,7 +91,7 @@
 // login web-data-viz
 
 function entrar() {
-        aguardar();
+ 
 
         var cpfVar = inputCPF.value;
         var senhaVar = inputSenha.value;
@@ -102,10 +102,7 @@ function entrar() {
             finalizarAguardar();
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
+       
         console.log("FORM LOGIN: ", cpfVar);
         console.log("FORM SENHA: ", senhaVar);
 
@@ -129,11 +126,10 @@ function entrar() {
                     console.log(JSON.stringify(json));
                     sessionStorage.CPF = json.cpf;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.EMAIL_USUARIO = json.email;
 
                     setTimeout(function () {
-                        window.location = "Dashboard-FungiTech.html";
+                        window.location = "./afterlogin/Dashboard-FungiTech.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -144,7 +140,6 @@ function entrar() {
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
@@ -153,10 +148,6 @@ function entrar() {
         })
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 
     // fim login web-data-viz

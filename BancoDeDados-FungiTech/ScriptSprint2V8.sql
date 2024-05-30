@@ -164,3 +164,9 @@ INSERT INTO alerta VALUES
 
 select * from alerta;
 
+select * from empresa;
+select * from funcionario;
+desc funcionario;
+desc empresa;
+
+delete from funcionario where cpf = 'teste';

@@ -21,12 +21,11 @@ function autenticar(req, res) {
 
                         
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
                                         cpf: resultadoAutenticar[0].cpf,
-                                        nome: resultadoAutenticar[0].nome,
+                                        nome: resultadoAutenticar[0].nomeUsuario,
                                         email: resultadoAutenticar[0].email,
                                         senha: resultadoAutenticar[0].senha,
-                                        cnpj: resultadoAutenticar[0].cnpj
+                                        cnpj: resultadoAutenticar[0].fkcnpj
                                         
                                     });
                                 } else if (resultadoAutenticar.length == 0) {
@@ -42,15 +41,15 @@ function autenticar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrar_funcionario(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
     var cpf = req.body.cpfServer;
     var email = req.body.emailServer;
+    var nome = req.body.nomeServer;
     var senha = req.body.senhaServer;
     var cnpj = req.body.CNPJFuncionarioServer;
 
-
+    console.log(`controller1: cpf ${cpf}, nome ${nome}, email${email}`)
     console.log("nome:: ", nome)
     console.log("cpf:: ", cpf)
     console.log("email:: ", email)
@@ -72,10 +71,11 @@ function cadastrar(req, res) {
     }  else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, cpf, email, senha, cnpj)
+        usuarioModel.cadastrar_funcionario(cpf, email, nome, senha, cnpj)
             .then(
                 function (resultado) {
                     res.json(resultado);
+                    console.log(`COntroller2: cpf ${cpf}, nome ${nome}, email${email}`)
                 }
             ).catch(
                 function (erro) {
@@ -90,7 +90,36 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrar_empresa(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var razaoSocial = req.body.razaoSocialServer;
+    var nomeFantasia = req.body.nomeFantasiaServer; 
+    var CNPJEmpresa = req.body.CNPJEmpresaServer;
+    var logradouro = req.body.logradouroServer;
+    var CEP = req.body.CEPServer;
+    console.log('cheguei aqui 2!')
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrar_empresa(razaoSocial, nomeFantasia, CNPJEmpresa, logradouro, CEP)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar_funcionario,
+    cadastrar_empresa
 }
