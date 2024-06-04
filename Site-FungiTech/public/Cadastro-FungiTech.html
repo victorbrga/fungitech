@@ -134,10 +134,23 @@
 
 <script>
 
+    function aguardar(){
+        var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "flex";
+    }
+
+    function finalizarAguardar(texto){
+        var divAguardar = document.getElementById("div_aguardar");
+        divAguardar.style.display = "none";
+    }
+
+
+
 
   // CADASTRO WEB-DATA-VIZ
 
   function cadastrar() {
+
     aguardar();
     var cadastro = selectCadastro.value;
     //Recupere o valor da nova input pelo nome do id
@@ -151,6 +164,9 @@
     var CNPJEmpresaVar = inputCNPJEmpresa.value;
     var logradouroVar = inputLogradouro.value;
     var CEPVar = inputCEP.value;
+
+
+    
         console.log('cheguei aqui!')
     if (
         razaoSocialVar == ''||
@@ -399,6 +415,8 @@
 
     function cadastrarEmpresa() {
         // Limpeza dos avisos
+
+
         avisoRazaoSocial.innerHTML = ``;
         avisoNomeFantasia.innerHTML = ``;
         avisoCNPJempresa.innerHTML = ``;

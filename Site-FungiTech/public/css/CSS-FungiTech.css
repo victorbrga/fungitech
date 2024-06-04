@@ -1352,6 +1352,12 @@ footer .dash_footer p {
     margin-top: 1%;
 }
 
+.loading-div{
+    width: 50px;
+    margin: auto;
+    display: none;
+}
+
 
 /* FOOTER
 .footer {

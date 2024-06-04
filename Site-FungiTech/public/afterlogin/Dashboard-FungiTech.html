@@ -59,8 +59,8 @@
             </div>
 
 
-            <div class="ultimoAlerta"> <!-- Alerta -->
-                <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
+            <div class="ultimoAlerta" id="ultimo"> <!-- Alerta -->
+                <img src="../img/" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 3</h4>
@@ -68,7 +68,7 @@
 
                 <div class="textoAlerta">
                     <p> Situação: </p>
-                    <small>8 alertas</small>
+                    <small> alertas</small>
                 </div>
             </div>
 
@@ -200,6 +200,10 @@
 
 <script>
 
+    window.onload = verificar();
+
+    var cpfUsuario = sessionStorage.CPF_USUARIO;
+
     // Botão 1
     var card1 = document.getElementById('divCard1'); // Transforma o id do botão (card) em váriavel
     card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
@@ -245,4 +249,37 @@
     card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
         window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
     });
+
+
+    function verificar(){
+        console.log(cpfUsuario + 'estou na dash')
+        fetch("/alerta/verificar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cpfUsuarioServer : cpfUsuario
+            })
+        }).then(resposta => {
+            if (resposta.status == 200){
+                resposta.json().then(resposta => {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    var estufa = (json.resultado_verificar_alertas[0]).estufa;
+                    var alerta = (json.resultado_verificar_alertas[0]).alertas;
+
+                });
+
+
+            }
+        });
+
+        for (v = 0; v => alerta; v++){
+
+        }
+
+        
+    }
 </script>
