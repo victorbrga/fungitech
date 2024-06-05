@@ -1,6 +1,10 @@
 var database = require("../database/config")
 
 function verificar(CPFUsuario) {
+
+    console.log('chegou aqui', CPFUsuario);
+
+    CPFUsuario = "10458256422"
     
     var instrucaoSql = `
     select  estufa.idEstufa as estufa, sum(fkSensor) as alertas from alerta 

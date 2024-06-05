@@ -55,7 +55,7 @@
 
             <div class="campoNumero">
                 <label>CPF:</label>
-                <input type="number" placeholder="Informe seu CPF" id="inputCPF">
+                <input value="44159198805" type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
             <div id="avisoCPF" class="aviso"></div>
 
@@ -63,7 +63,7 @@
 
             <div class="campo">
                 <label>Senha:</label>
-                <input type="password" placeholder="Informe sua senha" id="inputSenha">
+                <input value="020312" type="password" placeholder="Informe sua senha" id="inputSenha">
             </div>
             <div id="avisoSenha" class="aviso"></div>
 
@@ -92,7 +92,6 @@
 
 function entrar() {
  
-
         var cpfVar = inputCPF.value;
         var senhaVar = inputSenha.value;
 
@@ -122,16 +121,21 @@ function entrar() {
                 console.log(resposta);
 
                 resposta.json().then(json => {
+                    console.log("caiu aqui dentro", json)
                     console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.CPF = json.cpf;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.CPF_USUARIO = json.cpf;
+                    console.log("json.string", JSON.stringify(json));
+
+                    localStorage.setItem("NOME_USUARIO", json.nome);
+                    localStorage.setItem("EMAIL_USUARIO", json.email);
+                    localStorage.setItem("CPF", json.cpf);
+
+                    sessionStorage.setItem("NOME_USUARIO", json.nome);
+                    sessionStorage.setItem("EMAIL_USUARIO", json.email);
+                    sessionStorage.setItem("CPF", json.cpf);
 
                     setTimeout(function () {
                         window.location = "./afterlogin/Dashboard-FungiTech.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000);
 
                 });
 

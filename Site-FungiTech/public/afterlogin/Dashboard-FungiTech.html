@@ -1,3 +1,4 @@
+<!-- 
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +18,8 @@
     <title>FungiTech | Dashboard</title>
 </head>
 
-<body class="dashboard">
+<body class="dashboard" >
+    <!-- onload="ValidarSessao()" -->
 
     <!--Header-->
     <header class="header_dash">
@@ -197,12 +199,13 @@
 
 </html>
 
-
+<script src="../js/sessao.js"></script>
 <script>
+
 
     window.onload = verificar();
 
-    var cpfUsuario = sessionStorage.CPF_USUARIO;
+    var cpfUsuario = sessionStorage.getItem("CPF");
 
     // Botão 1
     var card1 = document.getElementById('divCard1'); // Transforma o id do botão (card) em váriavel
