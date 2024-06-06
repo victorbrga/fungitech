@@ -253,13 +253,31 @@
 
     function verificar(){
         console.log(cpfUsuario + 'estou na dash')
-        fetch("/alerta/verificar", {
+
+        fetch("/alerta/verificar_empresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 cpfUsuarioServer : cpfUsuario
+            })
+        }).then(function (resposta){
+        resposta.json().then(json => {
+        console.log(json);
+        console.log(json.resultado_verificar_empresa[0])
+
+        if(json.resultado_verificar_empresa != undefined && json.resultado_verificar_empresa.length > 0){
+            var cnpjempresa = (json.resultado_verificar_empresa[0]).cnpj;
+
+
+            fetch("/alerta/verificar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cnpjEmpresaServer : cnpjEmpresa
             })
         }).then(resposta => {
             if (resposta.status == 200){
@@ -301,6 +319,21 @@
             }
         });
 
+
+        }else {
+
+       console.log("Houve um erro ao tentar encontrar a empresa vinculada!");
+
+        resposta.text().then(texto => {
+            console.error(texto);
+        });
+        }
+
+        }).catch(function (erro) {
+        console.log(erro);
+        
+        })
+    });
         
     }
 </script>
