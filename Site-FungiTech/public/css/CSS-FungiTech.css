@@ -379,7 +379,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 501px;
+    height: 510px;
     margin: 0px;
 }
 
@@ -390,7 +390,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 300px;
+    height: 500px;
     width: 370px;
     border-radius: 5px;
     font-family: poppins, sans-serif;
@@ -1315,7 +1315,7 @@ footer .log_footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 9%;
+    margin-top: 3%;
     }
 
 footer .log_footer {

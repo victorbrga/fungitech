@@ -27,7 +27,7 @@
             </div>
 
             <div class="link"> <!--Ir para página inicial-->
-                <a href="HomePage-FungiTech.html">Inicio</a>
+                <a href="index.html">Inicio</a>
             </div>
 
             <div class="link"> <!--Ir para o simulador financeiro-->
@@ -55,7 +55,7 @@
 
             <div class="campoNumero">
                 <label>CPF:</label>
-                <input value="44159198805" type="number" placeholder="Informe seu CPF" id="inputCPF">
+                <input value="" type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
             <div id="avisoCPF" class="aviso"></div>
 
@@ -63,7 +63,7 @@
 
             <div class="campo">
                 <label>Senha:</label>
-                <input value="020312" type="password" placeholder="Informe sua senha" id="inputSenha">
+                <input value="" type="password" placeholder="Informe sua senha" id="inputSenha">
             </div>
             <div id="avisoSenha" class="aviso"></div>
 
@@ -91,13 +91,24 @@
 // login web-data-viz
 
 function entrar() {
- 
+
         var cpfVar = inputCPF.value;
         var senhaVar = inputSenha.value;
 
         if (cpfVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            avisoErro.innerHTML = "Insira valores válidos!";
+            avisoCPF.innerHTML = "Insira um CPF válido!";
+            avisoSenha.innerHTML = "Insira uma Senha válida!";
+            finalizarAguardar();
+            return false;
+
+        } else if (cpfVar <= 10) {
+            avisoCPF.innerHTML = "Insira um CPF existente!";
+            finalizarAguardar();
+            return false;
+
+        } else if (senhaVar <= 7) {
+            avisoSenha.innerHTML = "Senha incorreta para este login!";
             finalizarAguardar();
             return false;
         }
@@ -141,7 +152,7 @@ function entrar() {
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                avisoErro.innerHTML = "Houve um erro ao tentar realizar o login!";
 
                 resposta.text().then(texto => {
                     console.error(texto);

@@ -96,7 +96,7 @@ qtdToras as 'Quantidade de toras de madeira'
 from estufa;
 
 SELECT * FROM estufa
-JOIN usuario on fkcpf = cpf;
+JOIN funcionario on fkcpf = cpf;
 
 
 
@@ -151,16 +151,17 @@ from dadosSensor;
 
 CREATE TABLE alerta(
 idAlerta INT PRIMARY KEY auto_increment,
-qtdAlerta INT,
+descricao varchar(10),
 dtAlerta datetime,
-fkSensor int
+fkSensor int,
+constraint chkDesc check (descricao in('frio', 'quente', 'estável', 'estavel'))
 );
 
 INSERT INTO alerta VALUES
-(null, 2, '2024-02-21 21:45:29',1),
-(null, 10, '2024-03-01 19:20:59',2),
-(null, 9, '2024-01-29 10:19:24',3),
-(null, 12, '2024-04-06 09:10:02',1);
+(null, 'frio', '2024-02-21 21:45:29',1),
+(null, 'quente', '2024-03-01 19:20:59',2),
+(null, 'estavel', '2024-01-29 10:19:24',3),
+(null, 'estável', '2024-04-06 09:10:02',1);
 
 select * from alerta;
 
@@ -169,4 +170,5 @@ select * from funcionario;
 desc funcionario;
 desc empresa;
 
-delete from funcionario where cpf = 'teste';
+INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkCnpj) values
+('11122233344', 'luiza@gmail.com', 'Luiza M.', 'luiza123', '14020670099123');
