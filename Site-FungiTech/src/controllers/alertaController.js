@@ -3,9 +3,10 @@ var alertaModel = require("../models/alertaModel");
 function verificar(req,res){
 
     var CPFUsuario = req.body.cpfUsuarioServer;
+    
+    console.log(CPFUsuario + 'estou no controller')
 
     alertaModel.verificar(CPFUsuario)
-    console.log(CPFUsuario + 'estou no controller')
     .then(
         function (resultado_verificar_alertas) {
 

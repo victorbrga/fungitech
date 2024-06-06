@@ -7,12 +7,18 @@ function verificar(CPFUsuario) {
     CPFUsuario = "10458256422"
     
     var instrucaoSql = `
-    select  estufa.idEstufa as estufa, sum(fkSensor) as alertas from alerta 
-    join sensor on fkSensor = idSensor 
-    join estufa on fkEstufa = idEstufa
-    join funcionario on fkCPF = cpf
-    where cpf = ${CPFUsuario}
-    group by estufa.idEstufa, alerta.fksensor;
+    SELECT concat('Estufa ' , idEstufa) as Estufa , count(fkSensor) as qtdAlerta FROM  estufa
+	JOIN sensor
+		ON fkEstufa = idEstufa
+	JOIN alerta
+		ON fkSensor = idSensor
+	JOIN funcionario
+		ON fkCpf = Cpf
+	JOIN empresa
+		ON fkCNPJ = Cnpj
+	GROUP BY concat('Estufa ' , idEstufa)
+    WHERE Cnpj = ${CNPJEmpresa}
+	ORDER BY count(distinct(fkSensor)) DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

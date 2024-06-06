@@ -1,4 +1,3 @@
-<!-- 
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Link para o CSS-->
+    <!-- Link para o CSS-->
     <link rel="stylesheet" href="../css/CSS-FungiTech.css">
 
 
@@ -18,7 +17,7 @@
     <title>FungiTech | Dashboard</title>
 </head>
 
-<body class="dashboard">
+<body class="dashboard" onload="verificar()">
     <!-- onload="ValidarSessao()" -->
 
     <!--Header-->
@@ -54,7 +53,7 @@
     <!-- Conteudo do Site -->
     <div class="tela">
 
-        <div class="lateral"> <!-- Barra de alertas lateral -->
+        <div class="lateral" id="lateral"> <!-- Barra de alertas lateral -->
 
             <div class="tituloAlerta">
                 <h1 style="text-align: center;"> Emergência <br> Nas Estufas !!</h1>
@@ -203,8 +202,6 @@
 <script>
 
 
-    window.onload = verificar();
-
     var cpfUsuario = sessionStorage.getItem("CPF");
 
     // Botão 1
@@ -270,18 +267,39 @@
 
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    var estufa = (json.resultado_verificar_alertas[0]).estufa;
-                    var alerta = (json.resultado_verificar_alertas[0]).alertas;
+                    var tamanho_estufas = ((json.resultado_verificar_alertas).estufa).length;
 
+                    for (contagem = 0 ; contagem < tamanho_estufas ; contagem++){
+                    var estufa = (json.resultado_verificar_alertas[contagem]).estufa;
+                    var alerta = (json.resultado_verificar_alertas[contagem]).alerta;
+                    var img = ``
+
+                    if(alerta >= 5){
+                        img = `../img/alertaVermelho.png`
+                    } else if (alerta >= 2){
+                        img = `../img/alertaAmarelo.png`
+                    } else {
+                        img = `../img/alertaVerde.png`
+                    }
+
+                    lateral.innerHTML += `<div class="alerta">
+                <img src="${img}">
+
+                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
+                    <h4>${estufa}</h4>
+                </a>
+
+                <div class="textoAlerta">
+                    <p> Situação: </p>
+                    <small>${alerta} alerta</small>
+                </div>
+            </div>`
+}
                 });
 
 
             }
         });
-
-        for (v = 0; v => alerta; v++){
-
-        }
 
         
     }
