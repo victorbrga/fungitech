@@ -1,7 +1,7 @@
 -- CRIAÇÃO DO BANCO DE DADOS
 CREATE DATABASE fungitech;
 USE fungitech;
-DROP DATABASE fungitech;
+-- DROP DATABASE fungitech;
 
 
 
@@ -21,21 +21,21 @@ cpf char(11) primary key,
 email varchar(320),
 nomeFunc varchar(100),
 senha varchar(50),
-fkEmpresa char(14),
+fkEmpresa char(14)
 );
 
 CREATE TABLE Estufa(
 idEstufa int primary key auto_increment,
 qtdToras int,
 fkEmpresa char(14),
-fKMetrica int,
+fKMetrica int
 );
 
 CREATE TABLE Sensor( 
 idSensor int primary key auto_increment,
 nomeSensor varchar(30),
 fator decimal(4 , 2),
-fkEstufa int,
+fkEstufa int
 );
 
 CREATE TABLE Dados( 
@@ -60,7 +60,7 @@ idAlerta int auto_increment,
 fkEstufa int,
 primary key (idAlerta , fkEstufa),
 descricao varchar(7),
-dtAlerta datetime,
+dtAlerta datetime
 );
 
 
@@ -84,11 +84,11 @@ INSERT INTO Funcionario VALUES
 ('10458256422' , 'matheusilva888@gmail.com' , 'Matheus Silva' , '@M#S456' , '92105302450241');
 
 INSERT INTO Estufa VALUES
-(default , 56 , '50044758812' , 1),
-(default , 28 , '42213426641' , 1),
-(default , 189 , '14566828117' , 1),
-(default , 12 , '11124742898' , 1),
-(default , 98 , '10458256422' , 1);
+(default , 56 , '14020670099123' , 1),
+(default , 28 , '52120774512567' , 1),
+(default , 189 , '60203540571987' , 1),
+(default , 12 , '11807060034612' , 1),
+(default , 98 , '92105302450241' , 1);
 
 INSERT INTO Sensor VALUES
 (default, 'Sensor 1', 1.0, 1),
@@ -96,18 +96,18 @@ INSERT INTO Sensor VALUES
 (default, 'Sensor 3', 0.5, 3);
 
 INSERT INTO Dados VALUES
-(default , 25.22 , 75.87 , default),
-(default , 20.75 , 65.11 , default),
-(default , 21.00 , 95.10 , default);
+(default , 1 ,  25.22 , 75.87 , default),
+(default , 3 , 20.75 , 65.11 , default),
+(default , 2 , 21.00 , 95.10 , default);
 
 INSERT INTO Metrica VALUES
 (default, 20 , 25 , 75 , 95);
 
 INSERT INTO Alerta VALUES
-(default , 'Frio' , '2024-02-21 21:45:29' , 1),
-(default , 'Quente' , '2024-03-01 19:20:59' , 2),
-(default , 'Estável' , '2024-01-29 10:19:24' , 3),
-(default , 'Estável' , '2024-04-06 09:10:02' , 1);
+(default , 1 , 'Frio' , '2024-02-21 21:45:29'),
+(default , 2 , 'Quente' , '2024-03-01 19:20:59'),
+(default , 3 , 'Estável' , '2024-01-29 10:19:24'),
+(default , 1 , 'Estável' , '2024-04-06 09:10:02');
 
 
 
@@ -193,26 +193,26 @@ SELECT * FROM Metrica;
 SELECT * FROM Alerta;
 
 -- VISUALIZAÇÃO DAS VIEWS
-SELECT * FROM VerEmpresa;
-SELECT * FROM VerFuncionario;
-SELECT * FROM VerMetrica;
+SELECT * FROM VerEmpresas;
+SELECT * FROM VerFuncionarios;
+SELECT * FROM VerMetricas;
 SELECT * FROM Monitoramento;
 
 -- VISUALIZAÇÕES PERSONALIZADAS
 -- VER FUNCIONARIOS E SUAS EMPRESAS
 SELECT * FROM Funcionario 
 	JOIN Empresa 
-		ON cnpj = fkCnpj;
+		ON fkEmpresa = cnpj;
 
 -- VER DADOS DAS ESTUFAS (FORMATADOS)
 SELECT idEstufa as 'ID da estufa',
 qtdToras as 'Quantidade de toras de madeira'
 FROM Estufa;
 
--- VER DADOS DAS ESTUFAS E DADOS DOS FUNCIONÁRIOS QUE ATUAM NELAS
+-- VER DADOS DAS ESTUFAS E DADOS DAS EMPRESAS DONAS
 SELECT * FROM Estufa
-	JOIN Funcionario 
-		ON fkCpf = cpf;
+	JOIN Empresa 
+		ON fkEmpresa = cnpj;
 
 -- VER DADOS DOS SENSORES E DADOS DE SUAS RESPECTIVAS ESTUFAS
 SELECT * FROM Sensor
