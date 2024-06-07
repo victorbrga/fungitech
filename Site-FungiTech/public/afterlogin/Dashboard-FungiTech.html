@@ -61,7 +61,7 @@
 
 
             <div class="ultimoAlerta" id="ultimo"> <!-- Alerta -->
-                <img src="../img/" alt="Alerta Vermelho">
+                <img src="" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 3</h4>
@@ -75,7 +75,7 @@
 
 
             <div class="ultimoAlerta"> <!-- Alerta -->
-                <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
+                <img src="" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 4</h4>
@@ -89,7 +89,7 @@
 
 
             <div class="ultimoAlerta"> <!-- Alerta -->
-                <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
+                <img src="" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 2</h4>
@@ -103,7 +103,7 @@
 
 
             <div class="alerta"> <!-- Alerta -->
-                <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
+                <img src="" alt="Alerta Amarelo">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 5</h4>
@@ -116,7 +116,6 @@
             </div>
 
             <div class="alerta"> <!-- Alerta -->
-                <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4>Estufa 6</h4>
@@ -254,7 +253,7 @@
     function verificar(){
         console.log(cpfUsuario + 'estou na dash')
 
-        fetch("/alerta/verificar_empresa", {
+        fetch("/alerta/verificar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -285,11 +284,11 @@
 
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    var tamanho_estufas = ((json.resultado_verificar_alertas).estufa).length;
+                    var tamanho_estufas = ((json.resultado_verificar_alertas).Estufa).length;
 
                     for (contagem = 0 ; contagem < tamanho_estufas ; contagem++){
-                    var estufa = (json.resultado_verificar_alertas[contagem]).estufa;
-                    var alerta = (json.resultado_verificar_alertas[contagem]).alerta;
+                    var estufa = (json.resultado_verificar_alertas[contagem]).Estufa;
+                    var alerta = (json.resultado_verificar_alertas[contagem]).Alerta;
                     var img = ``
 
                     if(alerta >= 5){

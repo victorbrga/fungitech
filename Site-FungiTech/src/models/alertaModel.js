@@ -5,18 +5,25 @@ function verificar(CNPJEmpresa) {
     console.log('chegou aqui', CNPJEmpresa);
     
     var instrucaoSql = `
-    SELECT concat('Estufa ' , idEstufa) as Estufa , count(fkSensor) as qtdAlerta FROM  estufa
-	JOIN sensor
-		ON fkEstufa = idEstufa
-	JOIN alerta
-		ON fkSensor = idSensor
-	JOIN funcionario
-		ON fkCpf = Cpf
-	JOIN empresa
-		ON fkCNPJ = Cnpj
-	GROUP BY concat('Estufa ' , idEstufa)
-    WHERE Cnpj = ${CNPJEmpresa}
-	ORDER BY count(distinct(fkSensor)) DESC;
+	  SELECT 
+    CONCAT('Estufa ', Estufa.idEstufa) as Estufa, 
+    COUNT(Alerta.idAlerta) as qtdAlerta 
+FROM 
+    Estufa
+JOIN 
+    Sensor ON Sensor.fkEstufa = Estufa.idEstufa
+JOIN 
+    Alerta ON Alerta.fkEstufa = Estufa.idEstufa
+JOIN 
+    Empresa ON Estufa.fkEmpresa = Empresa.cnpj
+JOIN 
+    Funcionario ON Funcionario.fkEmpresa = Empresa.cnpj
+WHERE 
+    Funcionario.cpf = 12312312312
+GROUP BY 
+    Estufa
+ORDER BY 
+    qtdAlerta DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
