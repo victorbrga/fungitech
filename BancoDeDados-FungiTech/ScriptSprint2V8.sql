@@ -1,174 +1,227 @@
-create database fungitech;
-use fungitech;
-drop database fungitech;
+-- CRIAÇÃO DO BANCO DE DADOS
+CREATE DATABASE fungitech;
+USE fungitech;
+DROP DATABASE fungitech;
 
-create table empresa(
+
+
+
+
+-- CRIAÇÃO DAS TABELAS
+CREATE TABLE Empresa(
 cnpj char(14) primary key,
-nomeFantasia varchar(45),
-razaoSocial varchar(45),
+nomeFantasia varchar(100),
+razaoSocial varchar(100),
 cep char(9),
-logradouro varchar(45)
+logradouro varchar(200)
 );
 
-INSERT INTO empresa values
-('14020670099123', 'CoguMagic', 'Cogumelos mágicos LTDA', '00000-000','Rua Pedro Motos'),
-('52120774512567', 'Hisoka Sushi', 'Hisoka Peixes SA', '00000-000','Rua Matheus Carros'),
-('60203540571987', 'Shiitake Industry', 'Shiitake Industrial LTDA', '00000-000','Rua Luiza Aviões'),
-('11807060034612', 'DistribuidoraCogu', 'Cogumelos Distribuidora', '00000-000','Rua Fernando Dias'),
-('92105302450241', 'Yamanaka Sushi', 'Yamanaka SA', '00000-000','Rua Victor Navios');
-
-create view Empresa as (select cnpj as 'ID',
-logradouro as 'Logradouro',
-cep,
-nomeFantasia as 'Nome da empresa',
-razaoSocial as 'Razão Social'
-from empresa)
-;
-select * from Empresa;
-
---
-
-create table funcionario(
+CREATE TABLE Funcionario(
 cpf char(11) primary key,
-email varchar(45),
-nomeUsuario varchar(45),
-senha varchar(45),
-fkCnpj char(14),
-constraint fkEmpresaFuncionario foreign key (fkCnpj) references empresa(cnpj)
+email varchar(320),
+nomeFunc varchar(100),
+senha varchar(50),
+fkEmpresa char(14),
 );
 
-INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkCnpj) values
-('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
-('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
-('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
-('11124742898', 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', '11807060034612'),
-('10458256422', 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', '92105302450241');
-
-create view funcionario as (select cpf as 'CPF',
-email as 'E-mail',
-nomeUsuario as 'Nome do Usuário',
-senha as 'Senha'
-from funcionario
- );
-select * from funcionario;
-select * from funcionario join empresa on cnpj = fkCnpj;
-
-
-create table metrica(
-idMetrica int primary key auto_increment,
-tempMin decimal(4, 2),
-tempMax decimal(4, 2),
-umidMin decimal(4, 2),
-umidMax decimal(4, 2)
-);
-
-INSERT INTO metrica values
-(null, 20, 25, 75, 95);
-
-SELECT * FROM metrica;
-
-create view MetricaFormatada as(select idMetrica as 'ID',
-concat(tempMin, '°C') as 'Temperatura Mínima',
-concat(tempMax, '°C') as 'Temperatura Máxima',
-concat(umidMin, '%') as 'Umidade Mínima',
-concat(umidMax, '%') as 'Umidade Máxima'
-from metrica);
-
-
-create table estufa(
+CREATE TABLE Estufa(
 idEstufa int primary key auto_increment,
 qtdToras int,
-fkCpf char(11),
-fkMetrica int,
-constraint fkFuncionarioEstufa foreign key (fkCpf) references funcionario(cpf),
-constraint fkMetricasEstufa foreign key (fkMetrica) references metrica(idMetrica)
+fkEmpresa char(14),
+fKMetrica int,
 );
 
-INSERT INTO estufa(idEstufa, qtdToras, fkCpf, fkMetrica) values
-(null, 56, '50044758812', 1),
-(null, 28, '42213426641', 1),
-(null, 189, '14566828117', 1),
-(null, 12, '11124742898', 1),
-(null, 98, '10458256422', 1);
-
-select idEstufa as 'ID da estufa',
-qtdToras as 'Quantidade de toras de madeira'
-from estufa;
-
-SELECT * FROM estufa
-JOIN funcionario on fkcpf = cpf;
-
-
-
-
-create table sensor( 
+CREATE TABLE Sensor( 
 idSensor int primary key auto_increment,
-nomeSensor varchar(9),
-fator decimal(4,2),
+nomeSensor varchar(30),
+fator decimal(4 , 2),
 fkEstufa int,
-constraint fkEstufasSensor foreign key (fkEstufa) references estufa(idEstufa)
 );
 
-SELECT * FROM estufa;
-INSERT INTO sensor values
-(null, 'Sensor1', 1.0, 1),
-(null, 'Sensor2', 1.4, 2),
-(null, 'Sensor3', 0.5, 3);
-
-SELECT idSensor as 'ID do sensor'
-from sensor;
-
-SELECT * FROM sensor
-JOIN estufa ON idEstufa = fkEstufa;
-
-
-create table dadosSensor( 
-idDado int primary key auto_increment,
-dht11_temperatura decimal(4, 2),
-dht11_umidade decimal(4, 2),
+CREATE TABLE Dados( 
+idDado int auto_increment,
+fkSensor int,
+primary key (idDado , fkSensor),
+temperatura decimal(4 , 2),
+umidade decimal(4 , 2),
 dtHora datetime default current_timestamp
 ); 
 
-INSERT INTO dadosSensor values
-(null, 25.22, 75.87, default),
-(null, 20.75, 65.11, default),
-(null, 21.00, 95.10, default);
-
-create view Monitoramento as(select s.nomeSensor as 'Nome do Sensor',
- (dht11_temperatura * s.fator) as 'Temperatura',
- (dht11_umidade * s.fator) as 'Umidade',
- d.dtHora as 'Hora' 
- from sensor as s, 
- dadosSensor as d);
- 
- select * from Monitoramento;
-
-select idDado as 'ID',
-concat(dht11_temperatura, '°C') as 'Temperatura',
-concat(dht11_umidade, '%') as 'Umidade',
-dtHora as 'Horário'
-from dadosSensor;
-
-CREATE TABLE alerta(
-idAlerta INT PRIMARY KEY auto_increment,
-descricao varchar(10),
-dtAlerta datetime,
-fkSensor int,
-constraint chkDesc check (descricao in('frio', 'quente', 'estável', 'estavel'))
+CREATE TABLE Metrica(
+idMetrica int primary key auto_increment,
+tempMin decimal(4 , 2),
+tempMax decimal(4 , 2),
+umidMin decimal(4 , 2),
+umidMax decimal(4 , 2)
 );
 
-INSERT INTO alerta VALUES
-(null, 'frio', '2024-02-21 21:45:29',1),
-(null, 'quente', '2024-03-01 19:20:59',2),
-(null, 'estavel', '2024-01-29 10:19:24',3),
-(null, 'estável', '2024-04-06 09:10:02',1);
+CREATE TABLE Alerta(
+idAlerta int auto_increment,
+fkEstufa int,
+primary key (idAlerta , fkEstufa),
+descricao varchar(7),
+dtAlerta datetime,
+);
 
-select * from alerta;
 
-select * from empresa;
-select * from funcionario;
-desc funcionario;
-desc empresa;
 
-INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkCnpj) values
-('11122233344', 'luiza@gmail.com', 'Luiza M.', 'luiza123', '14020670099123');
+
+
+-- INSERÇÃO DE VALORES NAS TABELAS
+INSERT INTO Empresa VALUES
+('14020670099123' , 'CoguMagic' , 'Cogumelos mágicos LTDA' , '00000-000' , 'Rua Pedro Motos'),
+('52120774512567' , 'Hisoka Sushi' , 'Hisoka Peixes SA' , '00000-000', 'Rua Matheus Carros'),
+('60203540571987' , 'Shiitake Industry' , 'Shiitake Industrial LTDA' , '00000-000' , 'Rua Luiza Aviões'),
+('11807060034612' , 'DistribuidoraCogu' , 'Cogumelos Distribuidora' , '00000-000' , 'Rua Fernando Dias'),
+('92105302450241' , 'Yamanaka Sushi' , 'Yamanaka SA' , '00000-000' , 'Rua Victor Navios');
+
+INSERT INTO Funcionario VALUES
+('50044758812' , 'marciobraz0101@gmail.com' , 'Marcio Braz' , 'Marquinhosmilgrau987' , '14020670099123'),
+('42213426641' , 'laura.comandini@outlook.com' , 'Laura Comandini' , 'Meglinda123' , '52120774512567'),
+('11122233344' , 'luiza@gmail.Com' , 'Luiza M.' , 'Luiza123' , '14020670099123'),
+('14566828117' , 'fabiomaladarescorinthians@yahoo.com.br' , 'Fábio Maladares' , 'pIzzacommel.AmO' , '60203540571987'),
+('11124742898' , 'carmadejesuscristo@outlook.com' , 'Carma de Jesus' , '#432432Abencoada' , '11807060034612'),
+('10458256422' , 'matheusilva888@gmail.com' , 'Matheus Silva' , '@M#S456' , '92105302450241');
+
+INSERT INTO Estufa VALUES
+(default , 56 , '50044758812' , 1),
+(default , 28 , '42213426641' , 1),
+(default , 189 , '14566828117' , 1),
+(default , 12 , '11124742898' , 1),
+(default , 98 , '10458256422' , 1);
+
+INSERT INTO Sensor VALUES
+(default, 'Sensor 1', 1.0, 1),
+(default, 'Sensor 2', 1.4, 2),
+(default, 'Sensor 3', 0.5, 3);
+
+INSERT INTO Dados VALUES
+(default , 25.22 , 75.87 , default),
+(default , 20.75 , 65.11 , default),
+(default , 21.00 , 95.10 , default);
+
+INSERT INTO Metrica VALUES
+(default, 20 , 25 , 75 , 95);
+
+INSERT INTO Alerta VALUES
+(default , 'Frio' , '2024-02-21 21:45:29' , 1),
+(default , 'Quente' , '2024-03-01 19:20:59' , 2),
+(default , 'Estável' , '2024-01-29 10:19:24' , 3),
+(default , 'Estável' , '2024-04-06 09:10:02' , 1);
+
+
+
+
+
+-- CRIAÇÃO DAS CHAVES ESTRANGEIRAS
+ALTER TABLE Funcionario
+	ADD CONSTRAINT fkFuncionarioEmpresa foreign key (fkEmpresa)
+		REFERENCES Empresa (cnpj);
+
+ALTER TABLE Estufa
+	ADD CONSTRAINT fkEstufaEmpresa foreign key (fkEmpresa)
+		REFERENCES Empresa (cnpj);
+        
+ALTER TABLE Estufa
+	ADD CONSTRAINT fkEstufaMetrica foreign key (fkMetrica)
+		REFERENCES Metrica (idMetrica);
+        
+ALTER TABLE Sensor
+	ADD CONSTRAINT fkSensorEstufa foreign key (fkEstufa)
+		REFERENCES Estufa (idEstufa);
+        
+ALTER TABLE Dados
+	ADD CONSTRAINT fkDadosSensor foreign key (fkSensor)
+		REFERENCES Sensor (idSensor);
+        
+ALTER TABLE Alerta
+	ADD CONSTRAINT fkAlertaEstufa foreign key (fkEstufa)
+		REFERENCES Estufa (idEstufa);
+
+
+
+-- CRIAÇÃO DE VIEWS
+CREATE VIEW VerEmpresas as (SELECT cnpj as 'CNPJ',
+logradouro as 'Logradouro',
+cep as 'CEP',
+nomeFantasia as 'Nome da empresa',
+razaoSocial as 'Razão Social'
+FROM Empresa);
+
+CREATE VIEW VerFuncionarios as (SELECT cpf as 'CPF',
+email as 'E-mail',
+nomeFunc as 'Nome do Usuário',
+senha as 'Senha'
+FROM Funcionario
+ );
+ 
+ CREATE VIEW VerMetricas as (SELECT idMetrica as 'ID',
+concat(tempMin, '°C') as 'Temperatura Mínima',
+concat(tempMax, '°C') as 'Temperatura Máxima',
+concat(UmidMin, '%') as 'Umidade Mínima',
+concat(UmidMax, '%') as 'Umidade Máxima'
+FROM Metrica);
+
+CREATE VIEW Monitoramento as (SELECT nomeSensor as 'Sensor',
+ (temperatura * fator) as 'Tempeatura',
+ (umidade * fator) as 'Umidade',
+ dtHora as 'Hora' 
+ FROM Sensor, 
+ Dados);
+
+
+
+
+
+-- VISUALIZAÇÃO DE DADOS
+-- DESCRIÇÃO DAS TABELAS PARA FACILITAR CRIAÇÃO DOS SCRIPT
+DESC Empresa;
+DESC Funcionario;
+DESC Estufa;
+DESC Sensor;
+DESC Dados;
+DESC Metrica;
+DESC Alerta;
+
+-- VISUALIZAÇÃO INDIVIDUAL DAS TABELAS
+SELECT * FROM Empresa;
+SELECT * FROM Funcionario;
+SELECT * FROM Estufa;
+SELECT * FROM Sensor;
+SELECT * FROM Dados;
+SELECT * FROM Metrica;
+SELECT * FROM Alerta;
+
+-- VISUALIZAÇÃO DAS VIEWS
+SELECT * FROM VerEmpresa;
+SELECT * FROM VerFuncionario;
+SELECT * FROM VerMetrica;
+SELECT * FROM Monitoramento;
+
+-- VISUALIZAÇÕES PERSONALIZADAS
+-- VER FUNCIONARIOS E SUAS EMPRESAS
+SELECT * FROM Funcionario 
+	JOIN Empresa 
+		ON cnpj = fkCnpj;
+
+-- VER DADOS DAS ESTUFAS (FORMATADOS)
+SELECT idEstufa as 'ID da estufa',
+qtdToras as 'Quantidade de toras de madeira'
+FROM Estufa;
+
+-- VER DADOS DAS ESTUFAS E DADOS DOS FUNCIONÁRIOS QUE ATUAM NELAS
+SELECT * FROM Estufa
+	JOIN Funcionario 
+		ON fkCpf = cpf;
+
+-- VER DADOS DOS SENSORES E DADOS DE SUAS RESPECTIVAS ESTUFAS
+SELECT * FROM Sensor
+	JOIN Estufa 
+		ON idEstufa = fkEstufa;
+
+-- VER DADOS DOS SENSORES (FORMATADOS)
+SELECT idDado as 'ID',
+concat(temperatura, '°C') as 'Temperatura',
+concat(umidade, '%') as 'Umidade',
+dtHora as 'Horário'
+FROM Dados;
