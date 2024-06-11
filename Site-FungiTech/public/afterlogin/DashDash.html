@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link para o CSS-->
+    <link rel="stylesheet" href="../css/CSS-FungiTech.css">
+
+    <!--Link para a fonte importada da Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--Link do ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>FungiTech | Estufa 1</title>
+</head>
+
+<body class="media">
+
+    <!--Header-->
+    <header class="header_dash">
+
+        <div>
+            <div> <!--Logo da Empresa-->
+                <a href="HomePage-FungiTech.html"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
+                </a>
+            </div>
+
+            <div class="link"> <!--Ir para página inicial-->
+                <a href="Dashboard-FungiTech.html">Visão Geral</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="Dashboard(Media-Estufa1)-FungiTech.html">Média</a>
+            </div>
+
+            <div class="link"> <!--Ir para o simulador financeiro-->
+                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html">Alertas</a>
+            </div>
+
+            <div class="link"> <!--Ir para Tela de Cadastro-->
+                <a href="HomePage-FungiTech.html">Sair</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Barra Lateral -->
+    <div class="tela">
+        <div class="barraLateral">
+
+            <div class="botao" id="card3">
+                <h2> Voltar </h2>
+            </div>
+
+
+            <div class="botao" id="card4">
+                <h2> Visão geral da estufa </h2>
+            </div>
+
+
+            <div class="botao" id="card5">
+                <h2> Alertas </h2>
+            </div>
+
+        </div>
+
+
+
+        <!-- Graficos -->
+        
+        <center>
+            
+            <h1> Visão Geral da Estufa 1 </h1>
+
+            <div class="centro">
+                <div class="grafico">
+
+                    <h3> Umidade média </h3>
+                    <canvas id="myChart"></canvas>
+
+                    <div class="informacao" id="card">
+                        <h4> Ver Informações </h4>
+                    </div>
+
+                </div>
+
+
+                <div class="grafico">
+
+                    <h3> Temperatura média </h3>
+                    <canvas id="myChart2"></canvas>
+
+
+                    <div class="informacao" id="card2">
+                        <h4> Ver Informações </h4>
+                    </div>
+
+                </div>
+            </div>
+
+        </center>
+
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <div class="dash_footer">
+            <p> © Copyright FungiTech - 2024. Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+            window.onload = obterDadosGrafico();
+
+            function obterDadosGrafico() {
+
+
+                fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                            resposta.reverse();
+
+                            plotarGrafico(resposta);
+                            plotarGrafico2(resposta);
+
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                    .catch(function (error) {
+                        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                    });
+                }
+
+                // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+                // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+                // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+                function plotarGrafico(resposta) {
+
+                console.log('iniciando plotagem do gráfico...');
+                console.log(resposta);
+
+                // Criando estrutura para plotar gráfico - labels
+                let labels = [];
+
+                // Criando estrutura para plotar gráfico - dados
+                let dados = {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Likes',
+                            data: [],
+                            fill: false,
+                            backgroundColor: [
+                            '#2DC7FF',
+                            '#A10702',
+                            '#0CCE6B',
+                            '#FFFAFF',
+                            '#FB5607',
+                            '#7F0799'
+                            ],
+                            tension: 0.1
+                        }
+                    ]
+                };
+
+                console.log('----------------------------------------------')
+                console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+                console.log(resposta)
+
+                // Inserindo valores recebidos em estrutura para plotar o gráfico
+                for (i = 0; i < resposta.length; i++) {
+                    var registro = resposta[i];
+
+                    console.log("registro: ");
+                    console.log(registro);
+
+                    labels.push(registro.musculo);
+                    dados.datasets[0].data.push(registro.curtidas);
+                }
+
+                console.log('----------------------------------------------')
+                console.log('O gráfico será plotado com os respectivos valores:')
+                console.log('Labels:')
+                console.log(labels)
+                console.log('Dados:')
+                console.log(dados)
+                console.log('----------------------------------------------')
+
+                // Criando estrutura para plotar gráfico - config
+                const config = {
+                    type: 'polarArea',
+                    data: dados,
+                };
+
+                // Adicionando gráfico criado em div na tela
+                let myChart = new Chart(
+                    document.getElementById(`myChartCanvas`),
+                    config
+                );
+
+                }
+
+
+
+
+    // const labels = [
+    //     '00:00',
+    //     '01:00',
+    //     '02:00',
+    //     '03:00',
+    //     '04:00',
+    //     '05:00',
+    //     '06:00',
+    //     '07:00',
+    //     '08:00',
+    //     '09:00',
+    //     '10:00',
+    //     '11:00',
+    //     '12:00',
+    //     '13:00',
+    //     '14:00',
+    //     '15:00',
+    //     '16:00',
+    //     '17:00',
+    //     '18:00',
+    //     '19:00',
+    //     '20:00',
+    //     '21:00',
+    //     '22:00',
+    //     '23:00',
+    
+    // ];
+
+    // const labels2 = [
+    //     '00:00',
+    //     '01:00',
+    //     '02:00',
+    //     '03:00',
+    //     '04:00',
+    //     '05:00',
+    //     '06:00',
+    //     '07:00',
+    //     '08:00',
+    //     '09:00',
+    //     '10:00',
+    //     '11:00',
+    //     '12:00',
+    //     '13:00',
+    //     '14:00',
+    //     '15:00',
+    //     '16:00',
+    //     '17:00',
+    //     '18:00',
+    //     '19:00',
+    //     '20:00',
+    //     '21:00',
+    //     '22:00',
+    //     '23:00',
+    // ];
+
+    // const data = {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: 'Sensor 1',
+    //         backgroundColor: '#860000',
+    //         borderColor: '#860000',
+    //         data: [75, 79, 94, 84, 82, 90,82, 80, 94, 85, 82, 93,75, 79, 94, 81, 82, 93,75, 79, 94, 85, 82, 93],
+    //     }]
+    // };
+
+    // const data2 = {
+    //     labels: labels2,
+    //     datasets: [{
+    //         label: 'Sensor 1',
+    //         backgroundColor: '#860000',
+    //         borderColor: '#860000',
+    //         data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
+    //     }]
+    // };
+
+
+    // const config = {
+    //     type: 'line',
+    //     data: data,
+    //     options: {}
+    // };
+
+    // const config2 = {
+    //     type: 'line',
+    //     data: data2,
+    //     options: {}
+    // };
+
+
+    // const myChart = new Chart(
+    //     document.getElementById('myChart'),
+    //     config
+    // );
+
+    // const myChart2 = new Chart(
+    //     document.getElementById('myChart2'),
+    //     config2
+    // );
+
+
+
+    // MUDANDO DE PÁGINA 
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard(Umidade-Estufa1)-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card2');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard(Temperatura-Estufa1)-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card3');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card4');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard-FungiTech.html';
+    });
+
+    // Obtém o elemento do card pelo ID
+    var card2 = document.getElementById('card5');
+
+    // Adiciona um ouvinte de evento de clique ao card
+    card2.addEventListener('click', function () {
+        // Redireciona para a página desejada
+        window.location.href = 'Dashboard(Alerta-Estufa1)-FungiTech.html';
+    });
+</script>

@@ -27,7 +27,7 @@ function cadastrar_empresa(razaoSocial, nomeFantasia, CNPJEmpresa, logradouro, C
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql2 = `
-        INSERT INTO empresa (cnpj, nomeFantasia, razaoSocial, cep, logradouro) VALUES ('${CNPJEmpresa}', '${nomeFantasia}', '${razaoSocial}', '${CEP}', '${logradouro}');
+        INSERT INTO Empresa (cnpj, nomeFantasia, razaoSocial, cep, logradouro) VALUES ('${CNPJEmpresa}', '${nomeFantasia}', '${razaoSocial}', '${CEP}', '${logradouro}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql2);
     return database.executar(instrucaoSql2);
