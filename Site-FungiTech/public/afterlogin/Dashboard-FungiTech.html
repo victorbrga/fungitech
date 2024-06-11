@@ -109,53 +109,6 @@
 
     var cpfUsuario = sessionStorage.getItem("CPF");
 
-    // Botão 1
-    var card1 = document.getElementById('divCard1'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
-
-    // Botão 2
-    var card1 = document.getElementById('divCard2'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
-
-    // Botão 3
-    var card1 = document.getElementById('divCard3'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
-
-    // Botão 4
-    var card1 = document.getElementById('divCard4'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
-
-    // Botão 5
-    var card1 = document.getElementById('divCard5'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
-
-    // Botão 6
-    var card1 = document.getElementById('divCard6'); // Transforma o id do botão (card) em váriavel
-    card1.addEventListener('click', function () { // Cria uma função ao clicar no item da váriavel 
-        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'; // Mudar de página
-    });
-
-
     function verificar(){
         console.log(cpfUsuario + 'estou na dash')
 
@@ -172,6 +125,8 @@
         resposta.json().then(json => {
         console.log(json);
         console.log(json.resultado_verificar_usuario[0])
+
+        localStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
 
         if(json.resultado_verificar_usuario != undefined && json.resultado_verificar_usuario.length >= 0){
 
@@ -283,6 +238,6 @@
     }
 
     function tela_dash(){
-        window.location.href = 'DashDash.html'
+        window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'
     }
 </script>
