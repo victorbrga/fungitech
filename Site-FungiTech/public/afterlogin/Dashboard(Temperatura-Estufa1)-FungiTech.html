@@ -87,30 +87,9 @@
                     <canvas id="myChart2"></canvas>
                 </div>
 
-                <div class="grafico">
-                    <h2> Sensor Temperatura 3 </h2>
-                    <canvas id="myChart3"></canvas>
-                </div>
             </div>
 
-            <div class="linha">
-
-                <div class="grafico">
-                    <h2> Sensor Temperatura 4 </h2>
-                    <canvas id="myChart4"></canvas>
-                </div>
-
-                <div class="grafico">
-                    <h2> Sensor Temperatura 5 </h2>
-                    <canvas id="myChart5"></canvas>
-                </div>
-
-                <div class="grafico">
-                    <h2> Sensor Temperatura 6 </h2>
-                    <canvas id="myChart6"></canvas>
-                </div>
-
-            </div>
+            
 
         </center>
 
@@ -158,141 +137,7 @@
         '23:00',
     ];
 
-    const labels2 = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
-
-    const labels3 = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
-
-    const labels4 = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
-
-    const labels5 = [
-                '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
-
-    const labels6 = [
-                '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
-
+    
     const data = {
         labels: labels,
         datasets: [{
@@ -304,7 +149,7 @@
     };
 
     const data2 = {
-        labels: labels2,
+        labels: labels,
         datasets: [{
             label: 'Temperatura ',
             backgroundColor: '#DF9A62',
@@ -313,45 +158,9 @@
         }]
     };
 
-    const data3 = {
-        labels: labels3,
-        datasets: [{
-            label: 'Temperatura',
-            backgroundColor: '#D1884E',
-            borderColor: '#D1884E',
-            data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
-        }]
-    };
+    
 
-    const data4 = {
-        labels: labels4,
-        datasets: [{
-            label: 'Temperatura',
-            backgroundColor: '#8D431E',
-            borderColor: '#8D431E',
-            data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
-        }]
-    };
-
-    const data5 = {
-        labels: labels5,
-        datasets: [{
-            label: 'Temperatura',
-            backgroundColor: '#9C2F20',
-            borderColor: '#9C2F20',
-            data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
-        }]
-    };
-
-    const data6 = {
-        labels: labels6,
-        datasets: [{
-            label: 'Temperatura ',
-            backgroundColor: '#860000',
-            borderColor: '#860000',
-            data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
-        }]
-    };
+    
 
 
     const config = {
@@ -366,30 +175,9 @@
         options: {}
     };
 
-    const config3 = {
-        type: 'line',
-        data: data3,
-        options: {}
-    };
+    
 
-    const config4 = {
-        type: 'line',
-        data: data4,
-        options: {}
-    };
-
-    const config5 = {
-        type: 'line',
-        data: data5,
-        options: {}
-    };
-
-    const config6 = {
-        type: 'line',
-        data: data6,
-        options: {}
-    };
-
+    
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
@@ -400,25 +188,9 @@
         config2
     );
 
-    const myChart3 = new Chart(
-        document.getElementById('myChart3'),
-        config3
-    );
+    
 
-    const myChart4 = new Chart(
-        document.getElementById('myChart4'),
-        config4
-    );
-
-    const myChart5 = new Chart(
-        document.getElementById('myChart5'),
-        config5
-    );
-
-    const myChart6 = new Chart(
-        document.getElementById('myChart6'),
-        config6
-    );
+    
 
     // MUDANDO DE PÁGINA 
     // Obtém o elemento do card pelo ID

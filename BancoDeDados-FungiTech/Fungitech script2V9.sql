@@ -1,4 +1,5 @@
 -- CRIAÇÃO DO BANCO DE DADOS
+drop database fungitech;
 CREATE DATABASE fungitech;
 USE fungitech;
 -- DROP DATABASE fungitech;
@@ -31,21 +32,22 @@ fkEmpresa char(14),
 fKMetrica int
 );
 
+
 CREATE TABLE Sensor( 
 idSensor int primary key auto_increment,
 nomeSensor varchar(30),
-fator decimal(4 , 2),
 fkEstufa int
 );
 
 CREATE TABLE Dados( 
-idDado int auto_increment,
+idDado int auto_increment,	
 fkSensor int,
-primary key (idDado , fkSensor),
+primary key(idDado,fkSensor),
 temperatura decimal(4 , 2),
 umidade decimal(4 , 2),
 dtHora datetime default current_timestamp
 ); 
+
 
 CREATE TABLE Metrica(
 idMetrica int primary key auto_increment,
@@ -87,29 +89,32 @@ INSERT INTO Funcionario VALUES
 INSERT INTO Estufa VALUES
 (default , 56 , '14020670099123' , 1),
 (default , 28 , '52120774512567' , 1),
-(default , 189 , '60203540571987' , 1),
-(default , 12 , '11807060034612' , 1),
-(default , 98 , '92105302450241' , 1);
+(default , 189 , '60203540571987' , 1);
+
+select * from Estufa;
 
 INSERT INTO Sensor VALUES
 (default, 'Sensor 1', 1.0, 1),
 (default, 'Sensor 2', 1.4, 2),
 (default, 'Sensor 3', 0.5, 3);
 
-
-INSERT INTO Dados VALUES
-(default , 1 ,  25.22 , 75.87 , default),
-(default , 3 , 20.75 , 65.11 , default),
-(default , 2 , 21.00 , 95.10 , default);
+INSERT INTO Dados() VALUES
+(default , 1 ,  null, null , default),
+(default , 2 , null , null , default),
+(default , 3 , null , null , default),
+(default , 4 , null , null , default),
+(default , 5 , null , null , default),
+(default , 6 , null , null , default);
+select * from Dados;
 
 INSERT INTO Metrica VALUES
 (default, 20 , 25 , 75 , 95);
 
 INSERT INTO Alerta VALUES
-(default , 1 , 'Frio' , '2024-02-21 21:45:29'),
-(default , 2 , 'Quente' , '2024-03-01 19:20:59'),
-(default , 3 , 'Estável' , '2024-01-29 10:19:24'),
-(default , 1 , 'Estável' , '2024-04-06 09:10:02');
+(default , 1 , 'Frio' , default),
+(default , 2 , 'Quente' , default),
+(default , 3 , 'Estável' , default);
+select * from Alerta;
 
 
 

@@ -33,11 +33,11 @@ cpf char(11) primary key,
 email varchar(45),
 nomeUsuario varchar(45),
 senha varchar(45),
-fkCnpj char(14),
-constraint fkEmpresaFuncionario foreign key (fkCnpj) references empresa(cnpj)
+fkEmpresa char(14),
+constraint fkEmpresaFuncionario foreign key (fkEmpresa) references empresa(cnpj)
 );
 
-INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkCnpj) values
+INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkEmpresa) values
 ('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
 ('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
 ('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
@@ -51,7 +51,7 @@ senha as 'Senha'
 from funcionario
  );
 select * from funcionario;
-select * from funcionario join empresa on cnpj = fkCnpj;
+select * from funcionario join empresa on cnpj = fkEmpresa;
 
 
 create table metrica(

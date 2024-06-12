@@ -18,6 +18,54 @@ logradouro varchar(200)
 
 CREATE TABLE Funcionario(
 cpf char(11) primary key,
+<<<<<<< HEAD
+email varchar(45),
+nomeUsuario varchar(45),
+senha varchar(45),
+fkEmpresa char(14),
+constraint fkEmpresaFuncionario foreign key (fkEmpresa) references empresa(cnpj)
+);
+
+INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkEmpresa) values
+('50044758812', 'marciobraz0101@gmail.com', 'Marcio Braz', 'marquinhosmilgrau987', '14020670099123'),
+('42213426641', 'laura.comandini@outlook.com', 'Laura Comandini', 'meglinda123', '52120774512567'),
+('14566828117', 'fabiomaladarescorinthians@yahoo.com.br', 'Fábio Maladares', 'pizzacommel.AmO', '60203540571987'),
+('11124742898', 'carmadejesuscristo@outlook.com', 'Carma de Jesus', '#432432Abencoada', '11807060034612'),
+('10458256422', 'matheusilva888@gmail.com', 'Matheus Silva', '@m#S456', '92105302450241');
+
+create view funcionario as (select cpf as 'CPF',
+email as 'E-mail',
+nomeUsuario as 'Nome do Usuário',
+senha as 'Senha'
+from funcionario
+ );
+select * from funcionario;
+select * from funcionario join empresa on cnpj = fkEmpresa;
+
+
+create table metrica(
+idMetrica int primary key auto_increment,
+tempMin decimal(4, 2),
+tempMax decimal(4, 2),
+umidMin decimal(4, 2),
+umidMax decimal(4, 2)
+);
+
+INSERT INTO metrica values
+(null, 20, 25, 75, 95);
+
+SELECT * FROM metrica;
+
+create view MetricaFormatada as(select idMetrica as 'ID',
+concat(tempMin, '°C') as 'Temperatura Mínima',
+concat(tempMax, '°C') as 'Temperatura Máxima',
+concat(umidMin, '%') as 'Umidade Mínima',
+concat(umidMax, '%') as 'Umidade Máxima'
+from metrica);
+
+
+create table estufa(
+=======
 email varchar(320),
 nomeFunc varchar(100),
 senha varchar(50),
@@ -25,6 +73,7 @@ fkEmpresa char(14)
 );
 
 CREATE TABLE Estufa(
+>>>>>>> a262dc388fdbb3083efae1174b476f1727cd3c57
 idEstufa int primary key auto_increment,
 qtdToras int,
 fkEmpresa char(14),
@@ -64,6 +113,27 @@ dtAlerta datetime
 );
 
 
+<<<<<<< HEAD
+select * from metricas;
+select * from funcionario;
+desc funcionario;
+desc empresa;
+
+INSERT INTO funcionario(cpf, email, nomeUsuario, senha, fkEmpresa) values
+('11122233344', 'luiza@gmail.com', 'Luiza M.', 'luiza123', '14020670099123');
+
+SELECT concat('Estufa ' , idEstufa) as Estufa , count(fkSensor) as qtdAlerta FROM  estufa
+	JOIN sensor
+		ON fkEstufa = idEstufa
+	JOIN alerta
+		ON fkSensor = idSensor
+	JOIN funcionario
+		ON fkCpf = Cpf
+	JOIN empresa
+		ON fkEmpresa = Cnpj
+	GROUP BY concat('Estufa ' , idEstufa)
+	ORDER BY count(distinct(fkSensor)) DESC;
+=======
 
 
 
@@ -225,3 +295,4 @@ concat(temperatura, '°C') as 'Temperatura',
 concat(umidade, '%') as 'Umidade',
 dtHora as 'Horário'
 FROM Dados;
+>>>>>>> a262dc388fdbb3083efae1174b476f1727cd3c57
