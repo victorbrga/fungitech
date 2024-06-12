@@ -15,7 +15,7 @@ function verificar(CPFUsuario) {
 	JOIN funcionario
 		ON fkCpf = Cpf
 	JOIN empresa
-		ON fkCNPJ = Cnpj
+		ON fkEmpresa = Cnpj
 	GROUP BY concat('Estufa ' , idEstufa)
     WHERE Cnpj = ${CNPJEmpresa}
 	ORDER BY count(distinct(fkSensor)) DESC;

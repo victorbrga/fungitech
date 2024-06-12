@@ -60,7 +60,7 @@
             </div>
 
 
-            <div class="ultimoAlerta" id="ultimo"> <!-- Alerta -->
+            <div class="ultimoAlerta" id="ultimo"> <!-- Alerta 
                 <img src="../img/" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
@@ -74,7 +74,7 @@
             </div>
 
 
-            <div class="ultimoAlerta"> <!-- Alerta -->
+            <div class="ultimoAlerta"> <!-- Alerta
                 <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
@@ -88,7 +88,7 @@
             </div>
 
 
-            <div class="ultimoAlerta"> <!-- Alerta -->
+            <div class="ultimoAlerta"> <!-- Alerta 
                 <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
@@ -102,7 +102,7 @@
             </div>
 
 
-            <div class="alerta"> <!-- Alerta -->
+            <div class="alerta"> <!-- Alerta 
                 <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="alerta"> <!-- Alerta -->
+            <div class="alerta"> <!-- Alerta 
                 <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
@@ -129,7 +129,7 @@
             </div>
 
         </div>
-
+    -->
 
 
 
@@ -282,16 +282,16 @@
                         img = `../img/alertaVerde.png`
                     }
 
-                    lateral.innerHTML += `<div class="alerta">
-                <img src="${img}">
+                    lateral.innerHTML += `<div class="ultimoAlerta"> <!-- Alerta-->
+                <img ${img}
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>${estufa}</h4>
+                    <h4> ${estufa} </h4>
                 </a>
 
                 <div class="textoAlerta">
                     <p> Situação: </p>
-                    <small>${alerta} alerta</small>
+                    <small>${alerta} alerta! </small>
                 </div>
             </div>`
 }

@@ -884,7 +884,7 @@ input::-webkit-inner-spin-button {
 }
 
 .temperatura .grafico {
-    width: 252px;
+    width: 400px;
     padding-right: 80px;
 }
 
@@ -928,7 +928,7 @@ input::-webkit-inner-spin-button {
 }
 
 .umidade .grafico {
-    width: 252px;
+    width: 400px;
     padding-right: 80px;
 }
 
