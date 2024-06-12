@@ -120,104 +120,201 @@
 </html>
 
 <script>
-    const labels = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
+
+            window.onload = obterDadosGrafico();
+
+            function obterDadosGrafico() {
+
+
+                fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                            resposta.reverse();
+
+                            plotarGrafico(resposta);
+                            plotarGrafico2(resposta);
+
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                    .catch(function (error) {
+                        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                    });
+                }
+
+                // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+                // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+                // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+                function plotarGrafico(resposta) {
+
+                console.log('iniciando plotagem do gráfico...');
+                console.log(resposta);
+
+                // Criando estrutura para plotar gráfico - labels
+                let labels = [];
+
+                // Criando estrutura para plotar gráfico - dados
+                let dados = {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Likes',
+                            data: [],
+                            fill: false,
+                            backgroundColor: [
+                            '#2DC7FF',
+                            '#A10702',
+                            '#0CCE6B',
+                            '#FFFAFF',
+                            '#FB5607',
+                            '#7F0799'
+                            ],
+                            tension: 0.1
+                        }
+                    ]
+                };
+
+                console.log('----------------------------------------------')
+                console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+                console.log(resposta)
+
+                // Inserindo valores recebidos em estrutura para plotar o gráfico
+                for (i = 0; i < resposta.length; i++) {
+                    var registro = resposta[i];
+
+                    console.log("registro: ");
+                    console.log(registro);
+
+                    labels.push(registro.musculo);
+                    dados.datasets[0].data.push(registro.curtidas);
+                }
+
+                console.log('----------------------------------------------')
+                console.log('O gráfico será plotado com os respectivos valores:')
+                console.log('Labels:')
+                console.log(labels)
+                console.log('Dados:')
+                console.log(dados)
+                console.log('----------------------------------------------')
+
+                // Criando estrutura para plotar gráfico - config
+                const config = {
+                    type: 'polarArea',
+                    data: dados,
+                };
+
+                // Adicionando gráfico criado em div na tela
+                let myChart = new Chart(
+                    document.getElementById(`myChartCanvas`),
+                    config
+                );
+
+                }
+
+
+
+
+    // const labels = [
+    //     '00:00',
+    //     '01:00',
+    //     '02:00',
+    //     '03:00',
+    //     '04:00',
+    //     '05:00',
+    //     '06:00',
+    //     '07:00',
+    //     '08:00',
+    //     '09:00',
+    //     '10:00',
+    //     '11:00',
+    //     '12:00',
+    //     '13:00',
+    //     '14:00',
+    //     '15:00',
+    //     '16:00',
+    //     '17:00',
+    //     '18:00',
+    //     '19:00',
+    //     '20:00',
+    //     '21:00',
+    //     '22:00',
+    //     '23:00',
     
-    ];
+    // ];
 
-    const labels2 = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
+    // const labels2 = [
+    //     '00:00',
+    //     '01:00',
+    //     '02:00',
+    //     '03:00',
+    //     '04:00',
+    //     '05:00',
+    //     '06:00',
+    //     '07:00',
+    //     '08:00',
+    //     '09:00',
+    //     '10:00',
+    //     '11:00',
+    //     '12:00',
+    //     '13:00',
+    //     '14:00',
+    //     '15:00',
+    //     '16:00',
+    //     '17:00',
+    //     '18:00',
+    //     '19:00',
+    //     '20:00',
+    //     '21:00',
+    //     '22:00',
+    //     '23:00',
+    // ];
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Sensor 1',
-            backgroundColor: '#860000',
-            borderColor: '#860000',
-            data: [75, 79, 94, 84, 82, 90,82, 80, 94, 85, 82, 93,75, 79, 94, 81, 82, 93,75, 79, 94, 85, 82, 93],
-        }]
-    };
+    // const data = {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: 'Sensor 1',
+    //         backgroundColor: '#860000',
+    //         borderColor: '#860000',
+    //         data: [75, 79, 94, 84, 82, 90,82, 80, 94, 85, 82, 93,75, 79, 94, 81, 82, 93,75, 79, 94, 85, 82, 93],
+    //     }]
+    // };
 
-    const data2 = {
-        labels: labels2,
-        datasets: [{
-            label: 'Sensor 1',
-            backgroundColor: '#860000',
-            borderColor: '#860000',
-            data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
-        }]
-    };
-
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-    };
-
-    const config2 = {
-        type: 'line',
-        data: data2,
-        options: {}
-    };
+    // const data2 = {
+    //     labels: labels2,
+    //     datasets: [{
+    //         label: 'Sensor 1',
+    //         backgroundColor: '#860000',
+    //         borderColor: '#860000',
+    //         data: [20, 26, 22, 24, 22, 25,20, 22, 22, 25, 22, 20,22, 26, 22, 24, 22, 20,20, 26, 22, 24, 22, 20],
+    //     }]
+    // };
 
 
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
+    // const config = {
+    //     type: 'line',
+    //     data: data,
+    //     options: {}
+    // };
 
-    const myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
-    );
+    // const config2 = {
+    //     type: 'line',
+    //     data: data2,
+    //     options: {}
+    // };
+
+
+    // const myChart = new Chart(
+    //     document.getElementById('myChart'),
+    //     config
+    // );
+
+    // const myChart2 = new Chart(
+    //     document.getElementById('myChart2'),
+    //     config2
+    // );
 
 
 

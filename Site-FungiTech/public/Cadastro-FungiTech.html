@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/CSS-FungiTech.css">
     <link rel="stylesheet" href="css/dashboards.css"
 
-    <!--Link para a fonte importada da Google-->
+    <!-- Link para a fonte importada da Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -146,144 +146,7 @@
 
 
 
-
-  // CADASTRO WEB-DATA-VIZ
-
-  function cadastrar() {
-
-    aguardar();
-    var cadastro = selectCadastro.value;
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-
-    // cadastro empresa
-
-    if(cadastro == 'empresa'){
-    var razaoSocialVar = inputRazaoSocial.value;
-    var nomeFantasiaVar = inputNomeFantasia.value;
-    var CNPJEmpresaVar = inputCNPJEmpresa.value;
-    var logradouroVar = inputLogradouro.value;
-    var CEPVar = inputCEP.value;
-
-
     
-        console.log('cheguei aqui!')
-    if (
-        razaoSocialVar == ''||
-        nomeFantasiaVar == ''|| 
-        CNPJEmpresaVar == ''|| 
-        logradouroVar == ''|| 
-        CEPVar == ''
-    ) {
-    console.log('ta errado!')
-      finalizarAguardar();
-      return false;
-    }else{ 
-        console.log('chegou no fetch!')
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar_empresa", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        razaoSocialServer : razaoSocialVar,
-        nomeFantasiaServer : nomeFantasiaVar, 
-        CNPJEmpresaServer : CNPJEmpresaVar,
-        logradouroServer : logradouroVar,
-        CEPServer : CEPVar 
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-    }
-
-    }
-
-    else{
-    var nomeVar = inputNome.value;
-     var cpfVar = inputCPF.value;
-     var CNPJFuncionarioVar = inputCNPJFuncionario.value;
-     var emailVar = inputEmail.value;
-     var senhaVar = inputSenha.value;
-     var confirmacaoVar = inputConfirmacao.value;
-
-     if (
-            nomeVar == '' ||
-            cpfVar == '' ||
-            CNPJFuncionarioVar == '' ||
-            emailVar == '' ||
-            senhaVar == '' ||
-            confirmacaoVar == ''
-    ) {
-      finalizarAguardar();
-      return false;
-    } 
-    console.log(`cadastro: cpf ${cpfVar}, nome ${nomeVar}, email${emailVar}`)
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar_funcionario", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        cpfServer: cpfVar,
-        emailServer: emailVar,
-        nomeServer: nomeVar,
-        senhaServer: senhaVar,
-        CNPJFuncionarioServer: CNPJFuncionarioVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-    
-          setTimeout(() => {
-            window.location = "Login-FungiTech.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-
-    }
-    //cadastro usuario
- 
-   
-  }
-
- 
-
-  // FIM WEB-DATA-VIZ
-
     function selecionar() {
         var opcao = selectCadastro.value;
 
@@ -307,7 +170,7 @@
             <div class="campo">
                 <label>Nome Fantasia:</label>
                 <input type="text" placeholder="Informe o Nome Fantasia" id="inputNomeFantasia">
-            </div>
+                </div>
             <div id="avisoNomeFantasia" class="aviso"></div>
 
             <br>
@@ -317,13 +180,13 @@
                 <input type="number" placeholder="Informe seu CNPJ" id="inputCNPJEmpresa">
             </div>
             <div id="avisoCNPJempresa" class="aviso"></div>
-
+            
             <br>
-
+            
             <div class="campo">
                 <label>Logradouro:</label>
                 <input type="text" placeholder="Insira o logradouro" id="inputLogradouro">
-            </div>
+                </div>
             <div id="avisoLogradouro" class="aviso"></div>
 
             <br>
@@ -339,81 +202,81 @@
             </div>
             <div id="avisoFinalEmpresa" class="final"></div>
             <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+                <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
-
+        
         <div id="div_erros_login"></div>
     </div>`;
         }
 
-
-
+        
+        
         if (opcao == `funcionario`) {
             divEmpresa.innerHTML = ``;
             divFuncionario.innerHTML = `
-    <div class="cartao">
-        <div class="formulario">
+            <div class="cartao">
+                <div class="formulario">
             
             <div class="campo">
                 <label>Nome:</label>
                 <input type="text" placeholder="Informe seu nome completo" id="inputNome">
-            </div>
-            <div id="avisoNome" class="aviso"></div>
- 
-            <br>
-
-            <div class="campoNumero">
+                </div>
+                <div id="avisoNome" class="aviso"></div>
+                
+                <br>
+                
+                <div class="campoNumero">
                 <label>CPF:</label>
                 <input type="number" placeholder="Informe seu CPF" id="inputCPF">
             </div>
             <div id="avisoCPF" class="aviso"></div>
-
+            
             <br>
-
+            
             <div class="campoNumero">
                 <label>CNPJ:</label>
                 <input type="number" placeholder="Informe o CNPJ da empresa" id="inputCNPJFuncionario">
-            </div> 
+                </div> 
             <div id="avisoCNPJfuncionario" class="aviso"></div>
-
+            
             <br>
-
+            
             <div class="campo">
                 <label>E-mail:</label>
                 <input type="text" placeholder="Informe seu e-mail" id="inputEmail">
-            </div> 
-            <div id="avisoEmail" class="aviso"></div>
-
-            <br>
-
-            <div class="campo">
-                <label>Senha:</label>
+                </div> 
+                <div id="avisoEmail" class="aviso"></div>
+                
+                <br>
+                
+                <div class="campo">
+                    <label>Senha:</label>
                 <input type="password" placeholder="Digite sua senha" id="inputSenha">
-            </div> 
-            <div id="avisoSenha" class="aviso"></div>
-
-            <br>
-
-            <div class="campo">
-                <label>Confirme sua Senha:</label>
-                <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
-            </div>
-            <div id="avisoConfirmacao" class="aviso"></div>
-
-            <div id="botaoFuncionario"><button onclick="cadastrarFuncionario()">cadastrarFuncionario</button></div>
-
-            </div>
-            <div id="avisoFinalFuncionario" class="final"></div>
-            <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
-        <div id="div_erros_login"></div>
-    </div>`;
+                </div> 
+                <div id="avisoSenha" class="aviso"></div>
+                
+                <br>
+                
+                <div class="campo">
+                    <label>Confirme sua Senha:</label>
+                    <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
+                    </div>
+                    <div id="avisoConfirmacao" class="aviso"></div>
+                    
+                    <div id="botaoFuncionario"><button onclick="cadastrarFuncionario()">cadastrar</button></div>
+                    
+                    </div>
+                    <div id="avisoFinalFuncionario" class="final"></div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/circle-loading.gif" id="loading-gif" />
+                        </div>
+                        
+                        <div id="div_erros_login"></div>
+                        </div>`;
         }
-    }
+        }
 
-    function cadastrarEmpresa() {
+        function cadastrarEmpresa() {
         // Limpeza dos avisos
 
 
@@ -423,45 +286,45 @@
         avisoLogradouro.innerHTML = ``;
         avisoCEP.innerHTML = ``;
         avisoFinalEmpresa.innerHTML = ``;
-
+        
         // Declaração das variáveis das inputs
         var razaoSocial = inputRazaoSocial.value;
         var nomeFantasia = inputNomeFantasia.value;
         var cnpjEmpresa = inputCNPJEmpresa.value;
         var logradouro = inputLogradouro.value;
         var cep = inputCEP.value;
-
+        
         // Criação de váriaveis para auxiliar as validações  
         // Validação da Razão Social (até 144 caracteres de acordo com a lei)
         var tamanhoRazaoSocial = razaoSocial.length <= 144;
         var cadastroRazaoSocial = false;
-
+        
         // Validação do Nome Fantasia (até 60 caracteres de acordo com a lei)
         var tamanhoNomeFantasia = (nomeFantasia.length <= 60);
         var cadastroNomeFantasia = false;
-
+        
         // Validar CNPJ (14 caracteres, apenas numeros)
         var tamanhoCNPJEmpresa = cnpjEmpresa.length == 14;
         var cadastroCNPJempresa = false;
-
+        
         // Validar Logradouro (campo não pode estar vazio)
         var tamanhoLogradouro = logradouro.length > 0;
         var cadastroLogradouro = false;
-
+        
         // Validar CEP (8 caracteres, sem traço)
         var tamanhoCEP = cep.length == 8;
         var cadastroCEP = false;
-
-
+        
+        
         // Conferir se as validações são verdadeiras
         // Validar Razão Social
         if (razaoSocial.length <= 0) {
             avisoRazaoSocial.innerHTML = `Este campo é obrigatório!`;
             cadastroRazaoSocial = false;
-        } else if (tamanhoRazaoSocial == false) {
-            avisoRazaoSocial.innerHTML = `Razão Social grande demais`;
+            } else if (tamanhoRazaoSocial == false) {
+                avisoRazaoSocial.innerHTML = `Razão Social grande demais`;
             cadastroRazaoSocial = false;
-        } else {
+            } else {
             cadastroRazaoSocial = true;
         }
 
@@ -472,19 +335,19 @@
         } else if (tamanhoNomeFantasia == false) {
             avisoNomeFantasia.innerHTML = `Nome Fantasia grande demais`;
             cadastroNomeFantasia = false;
-        } else {
-            cadastroNomeFantasia = true;
+            } else {
+                cadastroNomeFantasia = true;
         }
 
         //Validar CNPJ
         if (cnpjEmpresa.length <= 0) {
             avisoCNPJempresa.innerHTML = `Este campo é obrigatório!`;
             cadastroCNPJempresa = false;
-        } else if (tamanhoCNPJEmpresa == false) {
+            } else if (tamanhoCNPJEmpresa == false) {
             avisoCNPJempresa.innerHTML = `Insira um CNPJ válido`;
             cadastroCNPJempresa = false;
-        } else {
-            cadastroCNPJempresa = true;
+            } else {
+                cadastroCNPJempresa = true;
         }
 
         // Validar Logradouro
@@ -493,16 +356,16 @@
             cadastroLogradouro = false;
         } else {
             cadastroLogradouro = true;
-        }
+            }
 
-        // Validar CEP
-        if (cep.length <= 0) {
+            // Validar CEP
+            if (cep.length <= 0) {
             avisoCEP.innerHTML = `Este campo é obrigatório!`;
             cadastroCEP = false;
-        } else if (tamanhoCEP == false) {
-            avisoCEP.innerHTML = `Informe um CEP válido`;
+            } else if (tamanhoCEP == false) {
+                avisoCEP.innerHTML = `Informe um CEP válido`;
             cadastroCEP = false;
-        } else {
+            } else {
             cadastroCEP = true;
         }
 
@@ -513,10 +376,10 @@
             cadastroCEP == true) {
             avisoFinalEmpresa.innerHTML = `Cadastro da empresa concluído! <br> Agora, cadastre um funcionário para analisar os seus dados.`;
             botaoEmpresa.innerHTML = ``;
-        }
-    }
+            }
+            }
 
-    function cadastrarFuncionario() {
+            function cadastrarFuncionario() {
         // Limpeza dos avisos
         avisoNome.innerHTML = ``;
         avisoCPF.innerHTML = ``;
@@ -525,7 +388,7 @@
         avisoSenha.innerHTML = ``;
         avisoConfirmacao.innerHTML = ``;
         avisoFinalFuncionario.innerHTML = ``;
-
+        
         // Declaração das variáveis das inputs
         var nome = inputNome.value;
         var cpf = inputCPF.value;
@@ -533,19 +396,19 @@
         var email = inputEmail.value;
         var senha = inputSenha.value;
         var confirmacao = inputConfirmacao.value;
-
+        
         // Criação de váriaveis para auxiliar as validações
         // Validações do campo nome (Maior ou igual a 3 caracteres e com espaço)
         var tamanhoNome = nome.length >= 3;
         var nomeCompleto = nome.indexOf(' ') >= 0;
         var cadastroNome = false;
-
+        
         // Validações dos campos CPF e CNPJ (igual a 11 e 14 caracteres, apenas numeros)
         var tamanhoCPF = cpf.length == 11;
         var tamanhoCNPJFuncionario = cnpjFuncionario.length == 14;
         var cadastroCPF = false;
         var cadastroCNPJfuncionario = false;
-
+        
         // Validação do email (precisa ter @ e ., maximo de 320 caracteres, sendo 64 antes e 255 depois do @)
         var emailValido = (email.indexOf('@') >= 0) && (email.indexOf('.') >= 0);
         if (emailValido) {
@@ -553,219 +416,219 @@
             var tamanhoEmailTotal = email.length <= 319;
             var tamanhoAntes = posicaoArroba <= 64;
             var tamanhoDepois = (posicaoArroba - email.length) <= 254
-        }
+            }
         var cadastroEmail = false;
-
+        
         // Validação da senha (Maior ou igual a 8, com uma maiuscula, minuscula, numero e caractere especial)
         var tamanhoSenha = senha.length >= 8;
         var cadastroSenha = false;
         var cadastroConfirmacao = false;
-
+        
         var senhaEspecial = (senha.indexOf('!') >= 0) ||
-            (senha.indexOf('@') >= 0) ||
-            (senha.indexOf('#') >= 0) ||
-            (senha.indexOf('$') >= 0) ||
-            (senha.indexOf('%') >= 0) ||
-            (senha.indexOf('&') >= 0) ||
-            (senha.indexOf('*') >= 0) ||
-            (senha.indexOf('?') >= 0) ||
-            (senha.indexOf('_') >= 0);
-
+        (senha.indexOf('@') >= 0) ||
+        (senha.indexOf('#') >= 0) ||
+        (senha.indexOf('$') >= 0) ||
+        (senha.indexOf('%') >= 0) ||
+        (senha.indexOf('&') >= 0) ||
+        (senha.indexOf('*') >= 0) ||
+        (senha.indexOf('?') >= 0) ||
+        (senha.indexOf('_') >= 0);
+        
         var senhaMaiuscula = (senha.indexOf('A') >= 0) ||
-            (senha.indexOf('B') >= 0) ||
-            (senha.indexOf('C') >= 0) ||
-            (senha.indexOf('D') >= 0) ||
-            (senha.indexOf('E') >= 0) ||
-            (senha.indexOf('F') >= 0) ||
-            (senha.indexOf('G') >= 0) ||
-            (senha.indexOf('H') >= 0) ||
-            (senha.indexOf('I') >= 0) ||
-            (senha.indexOf('J') >= 0) ||
-            (senha.indexOf('K') >= 0) ||
-            (senha.indexOf('L') >= 0) ||
-            (senha.indexOf('M') >= 0) ||
-            (senha.indexOf('N') >= 0) ||
-            (senha.indexOf('O') >= 0) ||
-            (senha.indexOf('P') >= 0) ||
-            (senha.indexOf('Q') >= 0) ||
-            (senha.indexOf('R') >= 0) ||
-            (senha.indexOf('S') >= 0) ||
-            (senha.indexOf('T') >= 0) ||
-            (senha.indexOf('U') >= 0) ||
-            (senha.indexOf('V') >= 0) ||
-            (senha.indexOf('W') >= 0) ||
-            (senha.indexOf('X') >= 0) ||
-            (senha.indexOf('Y') >= 0) ||
-            (senha.indexOf('Z') >= 0) ||
-            (senha.indexOf('Ç') >= 0);
-
+        (senha.indexOf('B') >= 0) ||
+        (senha.indexOf('C') >= 0) ||
+        (senha.indexOf('D') >= 0) ||
+        (senha.indexOf('E') >= 0) ||
+        (senha.indexOf('F') >= 0) ||
+        (senha.indexOf('G') >= 0) ||
+        (senha.indexOf('H') >= 0) ||
+        (senha.indexOf('I') >= 0) ||
+        (senha.indexOf('J') >= 0) ||
+        (senha.indexOf('K') >= 0) ||
+        (senha.indexOf('L') >= 0) ||
+        (senha.indexOf('M') >= 0) ||
+        (senha.indexOf('N') >= 0) ||
+        (senha.indexOf('O') >= 0) ||
+        (senha.indexOf('P') >= 0) ||
+        (senha.indexOf('Q') >= 0) ||
+        (senha.indexOf('R') >= 0) ||
+        (senha.indexOf('S') >= 0) ||
+        (senha.indexOf('T') >= 0) ||
+        (senha.indexOf('U') >= 0) ||
+        (senha.indexOf('V') >= 0) ||
+        (senha.indexOf('W') >= 0) ||
+        (senha.indexOf('X') >= 0) ||
+        (senha.indexOf('Y') >= 0) ||
+        (senha.indexOf('Z') >= 0) ||
+        (senha.indexOf('Ç') >= 0);
+        
         var senhaMinuscula = (senha.indexOf('a') >= 0) ||
-            (senha.indexOf('b') >= 0) ||
-            (senha.indexOf('c') >= 0) ||
-            (senha.indexOf('d') >= 0) ||
-            (senha.indexOf('e') >= 0) ||
-            (senha.indexOf('f') >= 0) ||
-            (senha.indexOf('g') >= 0) ||
-            (senha.indexOf('h') >= 0) ||
-            (senha.indexOf('i') >= 0) ||
-            (senha.indexOf('j') >= 0) ||
-            (senha.indexOf('k') >= 0) ||
-            (senha.indexOf('l') >= 0) ||
-            (senha.indexOf('m') >= 0) ||
-            (senha.indexOf('n') >= 0) ||
-            (senha.indexOf('o') >= 0) ||
-            (senha.indexOf('p') >= 0) ||
-            (senha.indexOf('q') >= 0) ||
-            (senha.indexOf('r') >= 0) ||
-            (senha.indexOf('s') >= 0) ||
-            (senha.indexOf('t') >= 0) ||
-            (senha.indexOf('u') >= 0) ||
-            (senha.indexOf('v') >= 0) ||
-            (senha.indexOf('w') >= 0) ||
-            (senha.indexOf('x') >= 0) ||
-            (senha.indexOf('y') >= 0) ||
-            (senha.indexOf('z') >= 0) ||
-            (senha.indexOf('ç') >= 0);
-
+        (senha.indexOf('b') >= 0) ||
+        (senha.indexOf('c') >= 0) ||
+        (senha.indexOf('d') >= 0) ||
+        (senha.indexOf('e') >= 0) ||
+        (senha.indexOf('f') >= 0) ||
+        (senha.indexOf('g') >= 0) ||
+        (senha.indexOf('h') >= 0) ||
+        (senha.indexOf('i') >= 0) ||
+        (senha.indexOf('j') >= 0) ||
+        (senha.indexOf('k') >= 0) ||
+        (senha.indexOf('l') >= 0) ||
+        (senha.indexOf('m') >= 0) ||
+        (senha.indexOf('n') >= 0) ||
+        (senha.indexOf('o') >= 0) ||
+        (senha.indexOf('p') >= 0) ||
+        (senha.indexOf('q') >= 0) ||
+        (senha.indexOf('r') >= 0) ||
+        (senha.indexOf('s') >= 0) ||
+        (senha.indexOf('t') >= 0) ||
+        (senha.indexOf('u') >= 0) ||
+        (senha.indexOf('v') >= 0) ||
+        (senha.indexOf('w') >= 0) ||
+        (senha.indexOf('x') >= 0) ||
+        (senha.indexOf('y') >= 0) ||
+        (senha.indexOf('z') >= 0) ||
+        (senha.indexOf('ç') >= 0);
+        
         var senhaNumeros = (senha.indexOf('0') >= 0) ||
-            (senha.indexOf('1') >= 0) ||
-            (senha.indexOf('2') >= 0) ||
-            (senha.indexOf('3') >= 0) ||
-            (senha.indexOf('4') >= 0) ||
-            (senha.indexOf('5') >= 0) ||
-            (senha.indexOf('6') >= 0) ||
-            (senha.indexOf('7') >= 0) ||
-            (senha.indexOf('8') >= 0) ||
-            (senha.indexOf('9') >= 0);
-
+        (senha.indexOf('1') >= 0) ||
+        (senha.indexOf('2') >= 0) ||
+        (senha.indexOf('3') >= 0) ||
+        (senha.indexOf('4') >= 0) ||
+        (senha.indexOf('5') >= 0) ||
+        (senha.indexOf('6') >= 0) ||
+        (senha.indexOf('7') >= 0) ||
+        (senha.indexOf('8') >= 0) ||
+        (senha.indexOf('9') >= 0);
+        
         var caracteresBloquados = (senha.indexOf(' ') < 0) &&
-            (senha.indexOf('"') < 0) &&
-            (senha.indexOf("'") < 0) &&
-            (senha.indexOf('`') < 0) &&
-            (senha.indexOf('^') < 0) &&
-            (senha.indexOf('´') < 0) &&
-            (senha.indexOf('~') < 0) &&
-            (senha.indexOf(',') < 0) &&
-            (senha.indexOf('ã') < 0) &&
-            (senha.indexOf('Ã') < 0) &&
-            (senha.indexOf('â') < 0) &&
-            (senha.indexOf('Â') < 0) &&
-            (senha.indexOf('á') < 0) &&
-            (senha.indexOf('Á') < 0) &&
-            (senha.indexOf('à') < 0) &&
-            (senha.indexOf('À') < 0) &&
-            (senha.indexOf('õ') < 0) &&
-            (senha.indexOf('Õ') < 0) &&
-            (senha.indexOf('ô') < 0) &&
-            (senha.indexOf('Ô') < 0) &&
-            (senha.indexOf('ó') < 0) &&
-            (senha.indexOf('Ó') < 0) &&
-            (senha.indexOf('Ò') < 0) &&
-            (senha.indexOf('ò') < 0) &&
-            (senha.indexOf('í') < 0) &&
-            (senha.indexOf('Í') < 0) &&
-            (senha.indexOf('ì') < 0) &&
-            (senha.indexOf('Ì') < 0) &&
-            (senha.indexOf('î') < 0) &&
-            (senha.indexOf('Î') < 0) &&
-            (senha.indexOf('ĩ') < 0) &&
-            (senha.indexOf('Ĩ') < 0) &&
-            (senha.indexOf('ú') < 0) &&
-            (senha.indexOf('Ú') < 0) &&
-            (senha.indexOf('ù') < 0) &&
-            (senha.indexOf('Ù') < 0) &&
-            (senha.indexOf('ũ') < 0) &&
-            (senha.indexOf('Ũ') < 0) &&
-            (senha.indexOf('û') < 0) &&
-            (senha.indexOf('Û') < 0) &&
-            (senha.indexOf('é') < 0) &&
-            (senha.indexOf('É') < 0) &&
-            (senha.indexOf('è') < 0) &&
-            (senha.indexOf('È') < 0) &&
-            (senha.indexOf('ẽ') < 0) &&
-            (senha.indexOf('Ẽ') < 0) &&
-            (senha.indexOf('ê') < 0) &&
-            (senha.indexOf('Ê') < 0) &&
-            (senha.indexOf('ñ') < 0) &&
-            (senha.indexOf('Ñ') < 0) &&
-            (senha.indexOf(';') < 0) &&
-            (senha.indexOf('°') < 0) &&
-            (senha.indexOf('/') < 0) &&
-            (senha.indexOf('º') < 0) &&
-            (senha.indexOf('ª') < 0) &&
-            (senha.indexOf('{') < 0) &&
-            (senha.indexOf('}') < 0) &&
-            (senha.indexOf('[') < 0) &&
-            (senha.indexOf(']') < 0) &&
-            (senha.indexOf('+') < 0) &&
-            (senha.indexOf('-') < 0) &&
-            (senha.indexOf('=') < 0) &&
-            (senha.indexOf('§') < 0) &&
-            (senha.indexOf('>') < 0) &&
-            (senha.indexOf('<') < 0) &&
-            (senha.indexOf('(') < 0) &&
-            (senha.indexOf(')') < 0) &&
-            (senha.indexOf('ü') < 0) &&
-            (senha.indexOf('Ü') < 0) &&
-            (senha.indexOf('¨') < 0) &&
-            (senha.indexOf('¬') < 0) &&
-            (senha.indexOf('¢') < 0) &&
-            (senha.indexOf('£') < 0) &&
-            (senha.indexOf('³') < 0) &&
-            (senha.indexOf('²') < 0) &&
-            (senha.indexOf('¹') < 0) &&
-            (senha.indexOf('|') < 0) &&
-            (senha.indexOf('ö') < 0) &&
-            (senha.indexOf('Ö') < 0) &&
-            (senha.indexOf('ä') < 0) &&
-            (senha.indexOf('Ä') < 0) &&
-            (senha.indexOf('ï') < 0) &&
-            (senha.indexOf('Ï') < 0) &&
-            (senha.indexOf('ë') < 0) &&
-            (senha.indexOf('Ë') < 0) &&
-            (senha.indexOf(':') < 0);
-
-
+        (senha.indexOf('"') < 0) &&
+        (senha.indexOf("'") < 0) &&
+        (senha.indexOf('`') < 0) &&
+        (senha.indexOf('^') < 0) &&
+        (senha.indexOf('´') < 0) &&
+        (senha.indexOf('~') < 0) &&
+        (senha.indexOf(',') < 0) &&
+        (senha.indexOf('ã') < 0) &&
+        (senha.indexOf('Ã') < 0) &&
+        (senha.indexOf('â') < 0) &&
+        (senha.indexOf('Â') < 0) &&
+        (senha.indexOf('á') < 0) &&
+        (senha.indexOf('Á') < 0) &&
+        (senha.indexOf('à') < 0) &&
+        (senha.indexOf('À') < 0) &&
+        (senha.indexOf('õ') < 0) &&
+        (senha.indexOf('Õ') < 0) &&
+        (senha.indexOf('ô') < 0) &&
+        (senha.indexOf('Ô') < 0) &&
+        (senha.indexOf('ó') < 0) &&
+        (senha.indexOf('Ó') < 0) &&
+        (senha.indexOf('Ò') < 0) &&
+        (senha.indexOf('ò') < 0) &&
+        (senha.indexOf('í') < 0) &&
+        (senha.indexOf('Í') < 0) &&
+        (senha.indexOf('ì') < 0) &&
+        (senha.indexOf('Ì') < 0) &&
+        (senha.indexOf('î') < 0) &&
+        (senha.indexOf('Î') < 0) &&
+        (senha.indexOf('ĩ') < 0) &&
+        (senha.indexOf('Ĩ') < 0) &&
+        (senha.indexOf('ú') < 0) &&
+        (senha.indexOf('Ú') < 0) &&
+        (senha.indexOf('ù') < 0) &&
+        (senha.indexOf('Ù') < 0) &&
+        (senha.indexOf('ũ') < 0) &&
+        (senha.indexOf('Ũ') < 0) &&
+        (senha.indexOf('û') < 0) &&
+        (senha.indexOf('Û') < 0) &&
+        (senha.indexOf('é') < 0) &&
+        (senha.indexOf('É') < 0) &&
+        (senha.indexOf('è') < 0) &&
+        (senha.indexOf('È') < 0) &&
+        (senha.indexOf('ẽ') < 0) &&
+        (senha.indexOf('Ẽ') < 0) &&
+        (senha.indexOf('ê') < 0) &&
+        (senha.indexOf('Ê') < 0) &&
+        (senha.indexOf('ñ') < 0) &&
+        (senha.indexOf('Ñ') < 0) &&
+        (senha.indexOf(';') < 0) &&
+        (senha.indexOf('°') < 0) &&
+        (senha.indexOf('/') < 0) &&
+        (senha.indexOf('º') < 0) &&
+        (senha.indexOf('ª') < 0) &&
+        (senha.indexOf('{') < 0) &&
+        (senha.indexOf('}') < 0) &&
+        (senha.indexOf('[') < 0) &&
+        (senha.indexOf(']') < 0) &&
+        (senha.indexOf('+') < 0) &&
+        (senha.indexOf('-') < 0) &&
+        (senha.indexOf('=') < 0) &&
+        (senha.indexOf('§') < 0) &&
+        (senha.indexOf('>') < 0) &&
+        (senha.indexOf('<') < 0) &&
+        (senha.indexOf('(') < 0) &&
+        (senha.indexOf(')') < 0) &&
+        (senha.indexOf('ü') < 0) &&
+        (senha.indexOf('Ü') < 0) &&
+        (senha.indexOf('¨') < 0) &&
+        (senha.indexOf('¬') < 0) &&
+        (senha.indexOf('¢') < 0) &&
+        (senha.indexOf('£') < 0) &&
+        (senha.indexOf('³') < 0) &&
+        (senha.indexOf('²') < 0) &&
+        (senha.indexOf('¹') < 0) &&
+        (senha.indexOf('|') < 0) &&
+        (senha.indexOf('ö') < 0) &&
+        (senha.indexOf('Ö') < 0) &&
+        (senha.indexOf('ä') < 0) &&
+        (senha.indexOf('Ä') < 0) &&
+        (senha.indexOf('ï') < 0) &&
+        (senha.indexOf('Ï') < 0) &&
+        (senha.indexOf('ë') < 0) &&
+        (senha.indexOf('Ë') < 0) &&
+        (senha.indexOf(':') < 0);
+        
+        
         // Validar o nome
         if (nome.length <= 0) {
             avisoNome.innerHTML = `Este campo é obrigatório!`;
-        } else if (tamanhoNome == false) {
-            avisoNome.innerHTML = `Nome curto demais`;
+            } else if (tamanhoNome == false) {
+                avisoNome.innerHTML = `Nome curto demais`;
             cadastroNome = false;
-        } else if (nomeCompleto == false) {
+            } else if (nomeCompleto == false) {
             avisoNome.innerHTML = `Insira seu nome e sobrenome`;
             cadastroNome = false;
-        } else {
-            cadastroNome = true;
-        }
-
-        // Validar o CPF
-        if (cpf.length <= 0) {
+            } else {
+                cadastroNome = true;
+                }
+                
+                // Validar o CPF
+                if (cpf.length <= 0) {
             avisoCPF.innerHTML = `Este campo é obrigatório!`;
             cadastroCPF = false;
-        } else if (tamanhoCPF == false) {
-            avisoCPF.innerHTML = `Insira um CPF existente`;
+            } else if (tamanhoCPF == false) {
+                avisoCPF.innerHTML = `Insira um CPF existente`;
             cadastroCPF = false;
-        } else {
+            } else {
             cadastroCPF = true;
-        }
-
-        // Validar o CNPJ
-        if (cnpjFuncionario.length <= 0) {
-            avisoCNPJfuncionario.innerHTML = `Este campo é obrigatório!`;
+            }
+            
+            // Validar o CNPJ
+            if (cnpjFuncionario.length <= 0) {
+                avisoCNPJfuncionario.innerHTML = `Este campo é obrigatório!`;
             cadastroCNPJfuncionario = false;
-        } else if (tamanhoCNPJFuncionario == false) {
+            } else if (tamanhoCNPJFuncionario == false) {
             avisoCNPJfuncionario.innerHTML = `Insira um CNPJ existente`;
             cadastroCNPJfuncionario = false;
-        } else {
-            cadastroCNPJfuncionario = true;
+            } else {
+                cadastroCNPJfuncionario = true;
         }
 
         // Validar o Email
         if (email.length <= 0) {
             avisoEmail.innerHTML = `Este campo é obrigatório`;
             cadastroEmail = false;
-        } else if (emailValido == false ||
+            } else if (emailValido == false ||
             tamanhoAntes == false ||
             tamanhoDepois == false ||
             tamanhoEmailTotal == false) {
@@ -773,19 +636,19 @@
             cadastroEmail = false;
         } else {
             cadastroEmail = true;
-        }
-
-        // Validar a Senha
-        if (senha.length <= 0) {
-            avisoSenha.innerHTML = `Este campo é obrigatório!`;
+            }
+            
+            // Validar a Senha
+            if (senha.length <= 0) {
+                avisoSenha.innerHTML = `Este campo é obrigatório!`;
             cadastroSenha = false;
-        } else if (tamanhoSenha == false) {
+            } else if (tamanhoSenha == false) {
             avisoSenha.innerHTML = `Senha muito pequena!`;
             cadastroSenha = false;
-        } else if (caracteresBloquados == false){
-            avisoSenha.innerHTML = `Senha inválida`;
+            } else if (caracteresBloquados == false){
+                avisoSenha.innerHTML = `Senha inválida`;
             cadastroSenha = false;
-        } else if (senhaEspecial == false ||
+            } else if (senhaEspecial == false ||
             senhaMaiuscula == false ||
             senhaMinuscula == false ||
             senhaNumeros == false) {
@@ -793,29 +656,162 @@
             cadastroSenha = false;
         } else {
             cadastroSenha = true;
-        }
+            }
 
-        // Confirmar a Senha
-        if (confirmacao.length <= 0) {
-            avisoConfirmacao.innerHTML = `Este campo é obrigatório!`;
+            // Confirmar a Senha
+            if (confirmacao.length <= 0) {
+                avisoConfirmacao.innerHTML = `Este campo é obrigatório!`;
             cadastroConfirmacao = false;
-        } else if (confirmacao != senha){
+            } else if (confirmacao != senha){
             avisoConfirmacao.innerHTML = `As senhas são diferentes`;
             cadastroConfirmacao = false;
-        } else {
-            cadastroConfirmacao = true;
+            } else {
+                cadastroConfirmacao = true;
         }
-
+        
         if (cadastroNome == true &&
-            cadastroCPF == true &&
-            cadastroCNPJfuncionario == true &&
-            cadastroEmail == true &&
-            cadastroSenha == true &&
-            cadastroConfirmacao == true) {
+        cadastroCPF == true &&
+        cadastroCNPJfuncionario == true &&
+        cadastroEmail == true &&
+        cadastroSenha == true &&
+        cadastroConfirmacao == true) {
             avisoFinalFuncionario.innerHTML = `Cadastro concluído! <br> Para acessar as informações dos sensores, faça o login`;
             botaoFuncionario.innerHTML = ``;
+        
+        
+        
+            aguardar();
+            var cadastro = selectCadastro.value;
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+        
+            // cadastro empresa
+        
+            if(cadastro == 'empresa'){
+            var razaoSocialVar = inputRazaoSocial.value;
+            var nomeFantasiaVar = inputNomeFantasia.value;
+            var CNPJEmpresaVar = inputCNPJEmpresa.value;
+            var logradouroVar = inputLogradouro.value;
+            var CEPVar = inputCEP.value;
+        
+        
+            
+                console.log('cheguei aqui!')
+            if (
+                razaoSocialVar == ''||
+                nomeFantasiaVar == ''|| 
+                CNPJEmpresaVar == ''|| 
+                logradouroVar == ''|| 
+                CEPVar == ''
+            ) {
+            console.log('ta errado!')
+              finalizarAguardar();
+              return false;
+            }else{ 
+                console.log('chegou no fetch!')
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar_empresa", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                razaoSocialServer : razaoSocialVar,
+                nomeFantasiaServer : nomeFantasiaVar, 
+                CNPJEmpresaServer : CNPJEmpresaVar,
+                logradouroServer : logradouroVar,
+                CEPServer : CEPVar 
+              }),
+            })
+              .then(function (resposta) {
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+                  limparFormulario();
+                  finalizarAguardar();
+                } else {
+                  throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+              })
+              .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+              });
+        
+            return false;
+            }
+        
+            }
+        
+            else{
+            var nomeVar = inputNome.value;
+             var cpfVar = inputCPF.value;
+             var CNPJFuncionarioVar = inputCNPJFuncionario.value;
+             var emailVar = inputEmail.value;
+             var senhaVar = inputSenha.value;
+             var confirmacaoVar = inputConfirmacao.value;
+        
+             if (
+                    nomeVar == '' ||
+                    cpfVar == '' ||
+                    CNPJFuncionarioVar == '' ||
+                    emailVar == '' ||
+                    senhaVar == '' ||
+                    confirmacaoVar == ''
+            ) {
+              finalizarAguardar();
+              return false;
+            } 
+            console.log(`cadastro: cpf ${cpfVar}, nome ${nomeVar}, email${emailVar}`)
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar_funcionario", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                cpfServer: cpfVar,
+                emailServer: emailVar,
+                nomeServer: nomeVar,
+                senhaServer: senhaVar,
+                CNPJFuncionarioServer: CNPJFuncionarioVar
+              }),
+            })
+              .then(function (resposta) {
+                console.log("resposta: ", resposta);
+        
+                if (resposta.ok) {
+            
+                  setTimeout(() => {
+                    window.location = "Login-FungiTech.html";
+                  }, "2000");
+        
+                  limparFormulario();
+                  finalizarAguardar();
+                } else {
+                  throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+              })
+              .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+              });
+        
+            return false;
+        
+            }
+            //cadastro usuario
+         
+           
+          }
+        
+         
+        
+          // FIM WEB-DATA-VIZ
         }
-    }
-
-  
-</script>
+        
+        </script>
