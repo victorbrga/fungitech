@@ -25,7 +25,8 @@
 
         <div>
             <div> <!--Logo da Empresa-->
-                <a href="HomePage-FungiTech.html"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
+                <a href="HomePage-FungiTech.html"> <img class="logo" src="../img/LogoFungiTech3.png"
+                        alt="Logo FungiTech">
                 </a>
             </div>
 
@@ -53,113 +54,36 @@
     <!-- Conteudo do Site -->
     <div class="tela">
 
-        <div class="lateral" id="lateral"> <!-- Barra de alertas lateral -->
+        <div class="lateral" id="lateral">
 
             <div class="tituloAlerta">
                 <h1 style="text-align: center;"> Emergência <br> Nas Estufas !!</h1>
             </div>
 
-<<<<<<< HEAD
-
-            <div class="ultimoAlerta" id="ultimo"> <!-- Alerta 
-                <img src="../img/" alt="Alerta Vermelho">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa 3</h4>
-                </a>
-
-                <div class="textoAlerta">
-                    <p> Situação: </p>
-                    <small> alertas</small>
-                </div>
-            </div>
-
-
-            <div class="ultimoAlerta"> <!-- Alerta
-                <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa 4</h4>
-                </a>
-
-                <div class="textoAlerta">
-                    <p> Situação: </p>
-                    <small>6 alertas</small>
-                </div>
-            </div>
-
-
-            <div class="ultimoAlerta"> <!-- Alerta 
-                <img src="img/alertaVermelho.png" alt="Alerta Vermelho">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa 2</h4>
-                </a>
-
-                <div class="textoAlerta">
-                    <p> Situação: </p>
-                    <small>4 alertas</small>
-                </div>
-            </div>
-
-
-            <div class="alerta"> <!-- Alerta 
-                <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa 5</h4>
-                </a>
-
-                <div class="textoAlerta">
-                    <p> Situação: </p>
-                    <small>1 alerta</small>
-                </div>
-            </div>
-
-            <div class="alerta"> <!-- Alerta 
-                <img src="img/alertaAmarelo.png" alt="Alerta Amarelo">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa 6</h4>
-                </a>
-
-                <div class="textoAlerta">
-                    <p> Situação: </p>
-                    <small>1 alerta</small>
-                </div>
-            </div>
-
-=======
->>>>>>> a262dc388fdbb3083efae1174b476f1727cd3c57
         </div>
-    -->
 
 
 
-        <div class="principal"> <!-- Centro da Pagina -->
+        <div class="principal">
 
             <div class="tituloPrincipal">
                 <br> <br>
                 <h1> Confira suas estufas! </h1> <br>
 
                 <div class="estufa">
-<br> 
-                    <div id="linha1" class="linha"> <!-- Linha de botões superior -->
-                      
-                    </div>
+                    <br>
+
+                    <div id="linha1" class="linha"></div>
 
                     <br> <br> <br>
 
-                    <div id="linha2" class="linha"> <!-- Linha de botões inferior -->
-                       
-                    </div>
+                    <div id="linha2" class="linha"></div>
 
                 </div>
 
             </div>
 
         </div>
-
     </div>
 
 
@@ -181,7 +105,7 @@
 
     var cpfUsuario = sessionStorage.getItem("CPF");
 
-    function verificar(){
+    function verificar() {
         console.log(cpfUsuario + 'estou na dash')
 
         fetch("/alerta/verificar_usuario", {
@@ -190,125 +114,124 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                cpfUsuarioServer : cpfUsuario
+                cpfUsuarioServer: cpfUsuario
             })
-        }).then(function (resposta){
-            
-        resposta.json().then(json => {
-        console.log(json);
-        console.log(json.resultado_verificar_usuario[0])
+        }).then(function (resposta) {
 
-        localStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
-
-        if(json.resultado_verificar_usuario != undefined && json.resultado_verificar_usuario.length >= 0){
-
-            var cnpjEmpresa = (json.resultado_verificar_usuario[0]).fkEmpresa;
-
-
-            fetch("/alerta/verificar_empresa", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                cnpjEmpresaServer : cnpjEmpresa
-            })
-             }).then(function (resposta){
             resposta.json().then(json => {
                 console.log(json);
-                console.log(json.resultado_verificar_empresa[0])
-                    
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                  
-                    var tamanho_estufas = (json.resultado_verificar_empresa).length
+                console.log(json.resultado_verificar_usuario[0])
 
-                    console.log(tamanho_estufas)
+                localStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
+
+                if (json.resultado_verificar_usuario != undefined && json.resultado_verificar_usuario.length >= 0) {
+
+                    var cnpjEmpresa = (json.resultado_verificar_usuario[0]).fkEmpresa;
 
 
-                    var img = ``
+                    fetch("/alerta/verificar_empresa", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            cnpjEmpresaServer: cnpjEmpresa
+                        })
+                    }).then(function (resposta) {
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(json.resultado_verificar_empresa[0])
 
-                    for (contagem = 0 ; contagem < tamanho_estufas; contagem++){
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    var estufa = (json.resultado_verificar_empresa[contagem].Estufa);
+                            var tamanho_estufas = (json.resultado_verificar_empresa).length
 
-                    var alerta = (json.resultado_verificar_empresa[contagem].qtdAlerta);
-               
-                    if(alerta >= 5){
-                        img = `../img/alertaVermelho.png`
-                    } else if (alerta >= 2){
-                        img = `../img/alertaAmarelo.png`
-                    } else {
-                        img = `../img/alertaVerde.png`
-                    }
+                            console.log(tamanho_estufas)
 
-                    lateral.innerHTML += `<div class="ultimoAlerta"> <!-- Alerta-->
+
+                            var img = ``
+
+                            for (contagem = 0; contagem < tamanho_estufas; contagem++) {
+
+                                var estufa = (json.resultado_verificar_empresa[contagem].Estufa);
+
+                                var alerta = (json.resultado_verificar_empresa[contagem].qtdAlerta);
+
+                                if (alerta < 2) {
+                                    img = `../img/alertaVerde.png`
+                                    } else if (alerta <= 3) {
+                                    img = `../img/alertaAmarelo.png`
+                                    } else {
+                                    img = `../img/alertaVermelho.png`
+                                }
+
+                                lateral.innerHTML += `<div class="ultimoAlerta"> <!-- Alerta-->
                 <img ${img}
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4> ${estufa} </h4>
+                    <h4> Estufa ${estufa} </h4>
                 </a>
 
                 <div class="textoAlerta">
                     <p> Situação: </p>
-                    <small>${alerta} alerta! </small>
+                    <small>${alerta} alertas! </small>
                 </div>
-            </div>
+            </div>`
 
-                }
+                            }
 
-                for(contagem = 0; contagem < tamanho_estufas; contagem++){
+                            for (contagem = 0; contagem < tamanho_estufas; contagem++) {
 
-                    var estufa = (json.resultado_verificar_empresa[contagem].Estufa);
+                                var estufa = (json.resultado_verificar_empresa[contagem].Estufa);
 
-                    var alerta = (json.resultado_verificar_empresa[contagem].qtdAlerta);
+                                var alerta = (json.resultado_verificar_empresa[contagem].qtdAlerta);
 
-                    var card =  
+                                if (alerta < 2) {
+                                    var card = ` 
                     <div onclick="tela_dash()" class="card3" id="divCard3"> 
                             <h2> Estufa ${estufa} - <br>
                                 Tudo certo! </h2>
                         </div>`;
-
-                    if(alerta <= 2){
-                       card = ` 
+                                } else if (alerta <= 3) {
+                                    card = ` 
                        <div onclick="tela_dash()" class="card2" id="divCard3"> 
                             <h2> Estufa ${estufa} - <br>
-                                Em estado de alerta! </h2>
+                                Em estado de alerta!</h2>
                         </div>`
-                        
-                    }else if(alerta >= 4){
-                        card = ` 
+                                } else if (alerta >= 4) {
+                                    card = ` 
                     <div onclick="tela_dash()" class="card1" id="divCard3"> 
                             <h2> Estufa ${estufa} - <br>
                                 Em risco! </h2>
                         </div>`
-                        msg = ''
-                    }
+                                    msg = ''
+                                }
 
-                    if(contagem <= 2){
-                        linha1.innerHTML += card
-                    }else{
-                        linha2.innerHTML += card
-                    }
+                                if (contagem <= 2) {
+                                    linha1.innerHTML += card
+                                } else {
+                                    linha2.innerHTML += card
+                                }
 
+
+                            }
+
+                        });
+
+
+                    });
 
                 }
 
-                });
+            }).catch(function (erro) {
+                console.log(erro);
 
-
+            })
         });
 
-        }
-
-        }).catch(function (erro) {
-        console.log(erro);
-        
-        })
-    });
-        
     }
 
-    function tela_dash(){
+    function tela_dash() {
         window.location.href = 'Dashboard(Media-Estufa1)-FungiTech.html'
     }
 </script>
