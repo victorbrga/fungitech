@@ -18,9 +18,9 @@ const HABILITAR_OPERACAO_INSERIR = true;
 const serial = async (
     valoresDht11Umidade,
     valoresDht11Temperatura,
-    valoresLuminosidade,
-    valoresLm35Temperatura,
-    valoresChave
+    // valoresLuminosidade,
+    // valoresLm35Temperatura,
+    // valoresChave
 ) => {
     let poolBancoDados = ''
 
@@ -31,7 +31,7 @@ const serial = async (
             // Credenciais do banco de dados
             host: 'localhost',
             user: 'root', // MUDAR USUÁRIO
-            password: '#XXX', // MUDAR SENHA
+            password: '#gf48252129803', // MUDAR SENHA
             database: 'fungitech', 
             port: 3306 // MUDAR PORTA
         }
@@ -114,17 +114,17 @@ const serial = async (
 
             await poolBancoDados.execute(
                 'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro4, dht11Temperatura + aleatório_inteiro4, 4]
+                [dht11Umidade+ aleatório_inteiro4, dht11Temperatura + aleatório_inteiro4, 1]
             );
 
             await poolBancoDados.execute(
                 'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro5, dht11Temperatura + aleatório_inteiro5, 5]
+                [dht11Umidade+ aleatório_inteiro5, dht11Temperatura + aleatório_inteiro5, 2]
             );
 
             await poolBancoDados.execute(
                 'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro6, dht11Temperatura + aleatório_inteiro6, 6]
+                [dht11Umidade+ aleatório_inteiro6, dht11Temperatura + aleatório_inteiro6, 3]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura )
         
