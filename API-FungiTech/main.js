@@ -30,10 +30,10 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'aluno',
-            password: 'Sptech#2024',
-            database: 'fungitech',
-            port: 3307
+            user: 'root', // MUDAR USUÁRIO
+            password: '#XXX', // MUDAR SENHA
+            database: 'fungitech', 
+            port: 3306 // MUDAR PORTA
         }
     ).promise();
 
@@ -63,16 +63,16 @@ const serial = async (
         const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
-        const lm35Temperatura = parseFloat(valores[2]);
-        const luminosidade = parseFloat(valores[3]);
-        const chave = parseInt(valores[4]);
+        // const lm35Temperatura = parseFloat(valores[2]);
+        // const luminosidade = parseFloat(valores[3]);
+        // const chave = parseInt(valores[4]);
 
         // Armazena os valores dos sensores nos arrays correspondentes
         valoresDht11Umidade.push(dht11Umidade);
         valoresDht11Temperatura.push(dht11Temperatura);
-        valoresLuminosidade.push(luminosidade);
-        valoresLm35Temperatura.push(lm35Temperatura);
-        valoresChave.push(chave);
+        // valoresLuminosidade.push(luminosidade);
+        // valoresLm35Temperatura.push(lm35Temperatura);
+        // valoresChave.push(chave);
 
         // Insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {

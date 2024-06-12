@@ -241,27 +241,18 @@
                         img = `../img/alertaVerde.png`
                     }
 
-<<<<<<< HEAD
                     lateral.innerHTML += `<div class="ultimoAlerta"> <!-- Alerta-->
                 <img ${img}
 
                 <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
                     <h4> ${estufa} </h4>
-=======
-                    lateral.innerHTML += `
-                    <div class="alerta">
-                        <img src="${img}">
-
-                <a href="Dashboard(Alerta-Estufa1)-FungiTech.html" class="botaoAlerta">
-                    <h4>Estufa ${estufa}</h4>
->>>>>>> a262dc388fdbb3083efae1174b476f1727cd3c57
                 </a>
 
                 <div class="textoAlerta">
                     <p> Situação: </p>
                     <small>${alerta} alerta! </small>
                 </div>
-            </div>`
+            </div>
 
                 }
 
@@ -271,7 +262,7 @@
 
                     var alerta = (json.resultado_verificar_empresa[contagem].qtdAlerta);
 
-                    var card = `  
+                    var card =  
                     <div onclick="tela_dash()" class="card3" id="divCard3"> 
                             <h2> Estufa ${estufa} - <br>
                                 Tudo certo! </h2>
