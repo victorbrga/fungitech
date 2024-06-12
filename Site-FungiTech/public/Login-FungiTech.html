@@ -143,6 +143,7 @@ function entrar() {
                     sessionStorage.setItem("NOME_USUARIO", json.nome);
                     sessionStorage.setItem("EMAIL_USUARIO", json.email);
                     sessionStorage.setItem("CPF", json.cpf);
+                    sessionStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
 
                     setTimeout(function () {
                         window.location = "./afterlogin/Dashboard-FungiTech.html";
