@@ -65,6 +65,7 @@ dtAlerta datetime
 
 
 
+
 select * from Funcionario;
 
 -- INSERÇÃO DE VALORES NAS TABELAS
@@ -94,6 +95,7 @@ INSERT INTO Sensor VALUES
 (default, 'Sensor 1', 1.0, 1),
 (default, 'Sensor 2', 1.4, 2),
 (default, 'Sensor 3', 0.5, 3);
+
 
 INSERT INTO Dados VALUES
 (default , 1 ,  25.22 , 75.87 , default),
@@ -236,3 +238,31 @@ concat(temperatura, '°C') as 'Temperatura',
 concat(umidade, '%') as 'Umidade',
 dtHora as 'Horário'
 FROM Dados;
+
+select * from Estufa;
+select * from Sensor;
+select * from Dados;
+
+INSERT INTO Sensor VALUES
+(default, 'Sensor 4', 0.8, 1);
+
+INSERT INTO Dados VALUES
+(default , 4 ,  27.00 , 60.87 , default);
+
+INSERT INTO Funcionario VALUES
+('44159198807' , 'fernando@gmail.com' , 'F' , '020312' , '14020670099123');
+
+SELECT idEstufa as Estufa,  
+truncate(avg(temperatura),2) as Temperatura,
+truncate(avg(umidade),2) as Umidade
+FROM Dados
+JOIN Sensor ON fkSensor = idSensor 
+join Estufa on fkEstufa = idEstufa 
+JOIN Empresa on fkEmpresa = cnpj
+ where cnpj = 14020670099123
+ group by idEstufa;
+ 
+ 
+ 
+ 
+ 
