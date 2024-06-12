@@ -17,7 +17,10 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // Função para comunicação serial
 const serial = async (
     valoresDht11Umidade,
-    valoresDht11Temperatura
+    valoresDht11Temperatura,
+    valoresLuminosidade,
+    valoresLm35Temperatura,
+    valoresChave
 ) => {
     let poolBancoDados = ''
 
@@ -60,20 +63,68 @@ const serial = async (
         const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
-      
+        const lm35Temperatura = parseFloat(valores[2]);
+        const luminosidade = parseFloat(valores[3]);
+        const chave = parseInt(valores[4]);
 
         // Armazena os valores dos sensores nos arrays correspondentes
         valoresDht11Umidade.push(dht11Umidade);
         valoresDht11Temperatura.push(dht11Temperatura);
-      
+        valoresLuminosidade.push(luminosidade);
+        valoresLm35Temperatura.push(lm35Temperatura);
+        valoresChave.push(chave);
+
         // Insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
+            
+        var min = Number(-3);
+        var max = 3;
+        var intervalo = max - min   
+        var aleatório1 = Math.random() *intervalo + min;
+        var aleatório2 = Math.random() *intervalo + min;
+        var aleatório3 = Math.random() *intervalo + min;
+        var aleatório4 = Math.random() *intervalo + min;
+        var aleatório5 = Math.random() *intervalo + min;
+        var aleatório6 = Math.random() *intervalo + min;
 
+        
+
+        var aleatório_inteiro1 = Number(aleatório1.toFixed(0));
+        var aleatório_inteiro2 = Number(aleatório2.toFixed(0));
+        var aleatório_inteiro3 = Number(aleatório3.toFixed(0));
+        var aleatório_inteiro4 = Number(aleatório4.toFixed(0));
+        var aleatório_inteiro5 = Number(aleatório5.toFixed(0));
+        var aleatório_inteiro6 = Number(aleatório6.toFixed(0));
             // altere!
-            // Este insert irá inserir os dados na tabela "dadosSensor"
+            // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO dadosSensor (dht11_temperatura, dht11_umidade) VALUES (?, ?)',
-                [dht11Umidade, dht11Temperatura]
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade + aleatório_inteiro1, dht11Temperatura + aleatório_inteiro1, 1]
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro2, dht11Temperatura + aleatório_inteiro2, 2]
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro3, dht11Temperatura + aleatório_inteiro3, 3]
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro4, dht11Temperatura + aleatório_inteiro4, 4]
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro5, dht11Temperatura + aleatório_inteiro5, 5]
+            );
+
+            await poolBancoDados.execute(
+                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro6, dht11Temperatura + aleatório_inteiro6, 6]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura )
         
@@ -93,6 +144,9 @@ const serial = async (
 const servidor = (
     valoresDht11Umidade,
     valoresDht11Temperatura,
+    valoresLuminosidade,
+    valoresLm35Temperatura,
+    valoresChave
 ) => {
     const app = express();
 
@@ -115,7 +169,15 @@ const servidor = (
     app.get('/sensores/dht11/temperatura', (_, response) => {
         return response.json(valoresDht11Temperatura);
     });
-   
+    app.get('/sensores/luminosidade', (_, response) => {
+        return response.json(valoresLuminosidade);
+    });
+    app.get('/sensores/lm35/temperatura', (_, response) => {
+        return response.json(valoresLm35Temperatura);
+    });
+    app.get('/sensores/chave', (_, response) => {
+        return response.json(valoresChave);
+    });
 }
 
 // Função principal assíncrona para iniciar a comunicação serial e o servidor web
@@ -123,16 +185,25 @@ const servidor = (
     // Arrays para armazenar os valores dos sensores
     const valoresDht11Umidade = [];
     const valoresDht11Temperatura = [];
+    const valoresLuminosidade = [];
+    const valoresLm35Temperatura = [];
+    const valoresChave = [];
 
     // Inicia a comunicação serial
     await serial(
         valoresDht11Umidade,
         valoresDht11Temperatura,
+        valoresLuminosidade,
+        valoresLm35Temperatura,
+        valoresChave
     );
 
     // Inicia o servidor web
     servidor(
         valoresDht11Umidade,
         valoresDht11Temperatura,
+        valoresLuminosidade,
+        valoresLm35Temperatura,
+        valoresChave
     );
 })();
