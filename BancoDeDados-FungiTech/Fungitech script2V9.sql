@@ -1,12 +1,8 @@
 -- CRIAÇÃO DO BANCO DE DADOS
-drop database fungitech;
+drop database if exists fungitech;
 CREATE DATABASE fungitech;
 USE fungitech;
 -- DROP DATABASE fungitech;
-
-
-
-
 
 -- CRIAÇÃO DAS TABELAS
 CREATE TABLE Empresa(
@@ -65,8 +61,30 @@ descricao varchar(7),
 dtAlerta datetime
 );
 
+-- CRIAÇÃO DAS CHAVES ESTRANGEIRAS
+ALTER TABLE Funcionario
+	ADD CONSTRAINT fkFuncionarioEmpresa foreign key (fkEmpresa)
+		REFERENCES Empresa (cnpj);
 
-
+ALTER TABLE Estufa
+	ADD CONSTRAINT fkEstufaEmpresa foreign key (fkEmpresa)
+		REFERENCES Empresa (cnpj);
+        
+ALTER TABLE Estufa
+	ADD CONSTRAINT fkEstufaMetrica foreign key (fkMetrica)
+		REFERENCES Metrica (idMetrica);
+        
+ALTER TABLE Sensor
+	ADD CONSTRAINT fkSensorEstufa foreign key (fkEstufa)
+		REFERENCES Estufa (idEstufa);
+        
+ALTER TABLE Dados
+	ADD CONSTRAINT fkDadosSensor FOREIGN KEY (fkSensor)
+    REFERENCES Sensor(idSensor);
+    
+ALTER TABLE Alerta
+	ADD CONSTRAINT fkAlertaEstufa foreign key (fkEstufa)
+		REFERENCES Estufa (idEstufa);
 
 select * from Funcionario;
 
@@ -86,66 +104,33 @@ INSERT INTO Funcionario VALUES
 ('11124742898' , 'carmadejesuscristo@outlook.com' , 'Carma de Jesus' , '#432432Abencoada' , '11807060034612'),
 ('10458256422' , 'matheusilva888@gmail.com' , 'Matheus Silva' , '@M#S456' , '92105302450241');
 
+INSERT INTO Metrica VALUES
+(default, 20 , 25 , 75 , 95);
+
 INSERT INTO Estufa VALUES
 (default , 56 , '14020670099123' , 1),
 (default , 28 , '52120774512567' , 1),
 (default , 189 , '60203540571987' , 1);
 
-select * from Estufa;
-
 INSERT INTO Sensor VALUES
-(default, 'Sensor 1', 1.0, 1),
-(default, 'Sensor 2', 1.4, 2),
-(default, 'Sensor 3', 0.5, 3);
+(default, 'Sensor 1', 1),
+(default, 'Sensor 2', 2),
+(default, 'Sensor 3', 3);
 
 INSERT INTO Dados() VALUES
 (default , 1 ,  null, null , default),
 (default , 2 , null , null , default),
 (default , 3 , null , null , default),
-(default , 4 , null , null , default),
-(default , 5 , null , null , default),
-(default , 6 , null , null , default);
+(default , 1 , null , null , default),
+(default , 2 , null , null , default),
+(default , 3 , null , null , default);
 select * from Dados;
-
-INSERT INTO Metrica VALUES
-(default, 20 , 25 , 75 , 95);
 
 INSERT INTO Alerta VALUES
 (default , 1 , 'Frio' , default),
 (default , 2 , 'Quente' , default),
 (default , 3 , 'Estável' , default);
 select * from Alerta;
-
-
-
-
-
--- CRIAÇÃO DAS CHAVES ESTRANGEIRAS
-ALTER TABLE Funcionario
-	ADD CONSTRAINT fkFuncionarioEmpresa foreign key (fkEmpresa)
-		REFERENCES Empresa (cnpj);
-
-ALTER TABLE Estufa
-	ADD CONSTRAINT fkEstufaEmpresa foreign key (fkEmpresa)
-		REFERENCES Empresa (cnpj);
-        
-ALTER TABLE Estufa
-	ADD CONSTRAINT fkEstufaMetrica foreign key (fkMetrica)
-		REFERENCES Metrica (idMetrica);
-        
-ALTER TABLE Sensor
-	ADD CONSTRAINT fkSensorEstufa foreign key (fkEstufa)
-		REFERENCES Estufa (idEstufa);
-        
-ALTER TABLE Dados
-	ADD CONSTRAINT fkDadosSensor foreign key (fkSensor)
-		REFERENCES Sensor (idSensor);
-        
-ALTER TABLE Alerta
-	ADD CONSTRAINT fkAlertaEstufa foreign key (fkEstufa)
-		REFERENCES Estufa (idEstufa);
-
-
 
 -- CRIAÇÃO DE VIEWS
 CREATE VIEW VerEmpresas as (SELECT cnpj as 'CNPJ',
@@ -170,8 +155,8 @@ concat(UmidMax, '%') as 'Umidade Máxima'
 FROM Metrica);
 
 CREATE VIEW Monitoramento as (SELECT nomeSensor as 'Sensor',
- (temperatura * fator) as 'Tempeatura',
- (umidade * fator) as 'Umidade',
+ (temperatura) as 'Tempeatura',
+ (umidade) as 'Umidade',
  dtHora as 'Hora' 
  FROM Sensor, 
  Dados);
@@ -182,7 +167,8 @@ Empresa.nomeFantasia as 'Nome Fantasia',
 Empresa.cep as 'CEP Empresa', 
 Estufa.qtdToras as 'Quantidade de Toras por Empresa' from Empresa join Estufa on fkEmpresa = cnpj;
 
-create view Empresa_Funcionario as select Funcionario.nomeFunc as 
+create view Empresa_Funcionario as 
+select Funcionario.nomeFunc as 
 'Nome Funcionario', Funcionario.email as 'Email do Funcionario',
 Funcionario.cpf as 'CPF Funcionario', Empresa.nomeFantasia as 'Empresa do Funcionario', 
 Empresa.cnpj as 'CNPJ da Empresa' from Funcionario join Empresa on fkEmpresa = cnpj;
@@ -249,7 +235,7 @@ select * from Sensor;
 select * from Dados;
 
 INSERT INTO Sensor VALUES
-(default, 'Sensor 4', 0.8, 1);
+(default, 'Sensor 4', 1);
 
 INSERT INTO Dados VALUES
 (default , 4 ,  27.00 , 60.87 , default);
@@ -267,7 +253,10 @@ JOIN Empresa on fkEmpresa = cnpj
  where cnpj = 14020670099123
  group by idEstufa;
  
+ select * from Empresa;
+ select * from Sensor;
+ select * from Dados;
  
- 
- 
- 
+SELECT Dados.temperatura, Dados.umidade, Sensor.nomeSensor FROM Dados 
+ Inner JOIN Sensor ON idSensor = fkSensor 
+inner JOIN Estufa on idEstufa = fkEstufa inner join Empresa on cnpj = fkEmpresa where cnpj like '14020670099123';
