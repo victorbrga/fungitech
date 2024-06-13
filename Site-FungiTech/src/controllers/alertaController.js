@@ -75,7 +75,7 @@ function dadosUmidade(req, res) {
 
   
 function alerta_um() {
-    var idEmpresa = req.body.idEmpresaServer;
+    var idEmpresa = req.body.CNPJEmpresaServer;
 
     usuarioModel.alerta_um(idEmpresa)
     .then(
@@ -97,7 +97,7 @@ function alerta_um() {
 
 
  function alerta_umidade() {
-     var idEmpresa = req.body.idEmpresaServer;
+     var idEmpresa = req.body.CNPJEmpresaServer;
 
      usuarioModel.alerta_umidade(idEmpresa)
      .then(

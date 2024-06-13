@@ -138,15 +138,19 @@ function entrar() {
                     console.log("json.string", JSON.stringify(json));
                     console.log('Dados recebido:  ' + Object.keys(json));
 
-                    localStorage.setItem("NOME_USUARIO", json.nome);
+                    localStorage.setItem("NOME_USUARIO", json.nomeFunc);
                     localStorage.setItem("EMAIL_USUARIO", json.email);
                     localStorage.setItem("CPF", json.cpf);
-                    localStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
+                    localStorage.setItem("CNPJ_EMPRESA", json.cnpj);
+
+
+                    console.log(json);
 
                     sessionStorage.setItem("NOME_USUARIO", json.nome);
                     sessionStorage.setItem("EMAIL_USUARIO", json.email);
                     sessionStorage.setItem("CPF", json.cpf);
-                    sessionStorage.setItem("CNPJ_EMPRESA", json.fkEmpresa);
+                    sessionStorage.setItem("CNPJ_EMPRESA", json.cnpj);
+    
 
                     setTimeout(function () {
                         window.location = "./afterlogin/Dashboard-FungiTech.html";

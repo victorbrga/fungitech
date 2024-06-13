@@ -119,7 +119,7 @@ function cadastrar_empresa(req, res) {
 }
 
 function capturar() {
-    var idEmpresa = req.body.idEmpresaServer;
+    var idEmpresa = req.body.CNPJEmpresaServer;
 
     usuarioModel.capturar(idEmpresa)
     .then(

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../js/sessao.js"></script>
 
     <!--Link do ChartJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,11 +23,11 @@
 <body class="alerta">
 
     <!--Header-->
-    <header class="header_dash">
+    <header class="header_dash" onload="plotarGrafico()">
 
         <div>
             <div> <!--Logo da Empresa-->
-                <a href="HomePage-FungiTech.html"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
+                <a href="../index.html" onclick="limparSessao()"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
                 </a>
             </div>
 
@@ -43,7 +44,7 @@
             </div>
 
             <div class="link"> <!--Ir para Tela de Cadastro-->
-                <a href="HomePage-FungiTech.html">Sair</a>
+                <a href="../index.html" onclick="limparSessao()">Sair</a>
             </div>
 
         </div>
@@ -130,7 +131,6 @@
                   console.log("Dados recebidos: ", JSON.stringify(resposta));
     
     
-                  plotarGrafico2(resposta);
                 });
               }
             });
@@ -141,7 +141,8 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta) {
+    
+function plotarGrafico() {
     
     console.log('iniciando plotagem do gráfico...');
     
@@ -149,17 +150,50 @@
     let labels = [];
     
     // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: labels,
-        datasets: [{
-            label: 'Temperatura',
-            data: [],
-            fill: false,
-            backgroundColor: '#F2C197',
-            borderColor: '#F2C197',
-            tension: 0.1
-        }]
-    };
+    const data = {
+  labels: labels,
+  datasets: [
+    {
+      label: "Acertos por mês",
+      backgroundColor: "#563872",
+      borderColor: "#563872",
+      data: [
+        acertosJaneiro,
+        acertosFevereiro,
+        acertosMarco,
+        acertosAbril,
+        acertosMaio,
+        acertosJunho,
+      ],
+    },
+  ],
+};
+
+// Configurações do gráfico
+const config = {
+  type: "line",
+  data: data,
+  options: {
+    scales: {
+      x: {
+        grid: {
+          color: "",
+        },
+      },
+      y: {
+        grid: {
+          color: "gray",
+        },
+      },
+    },
+  },
+};
+
+// Plotagem do gráfico
+const desempenho = new Chart(document.getElementById("desempenho"), config);
+
+
+  }
     
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -182,7 +216,7 @@
     
     // Criando estrutura para plotar gráfico - config
     const config = {
-        type: 'bar',
+        type: 'line',
         data: dados,
     };
     
@@ -193,62 +227,9 @@
     );
     
     // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-    }
     
-    
-    function plotarGrafico2(resposta) {
-    
-    console.log('iniciando plotagem do gráfico...');
-    
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-    
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-    labels: labels,
-    datasets: [{
-        label: 'Temperatura',
-        data: [],
-        fill: false,
-        backgroundColor: '#F2C197',
-        borderColor: '#F2C197',
-        tension: 0.1
-    }]
-    };
-    
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-    
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-    var registro = resposta[i];
-    labels.push(registro.hora);
-    dados.datasets[0].data.push(registro.temperatura);
-    }
-    
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
-    
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-    type: 'bar',
-    data: dados,
-    };
-    
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-    document.getElementById(`myChart2`),
-    config
-    );
     
     // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
-    }
     
     
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../js/sessao.js"></script>
 
     <!--Link do ChartJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -19,14 +20,14 @@
     <title>FungiTech | Estufa 1</title>
 </head>
 
-<body class="media">
+<body onload="plotarGrafico()" class="media">
 
     <!--Header-->
     <header class="header_dash">
 
         <div>
             <div> <!--Logo da Empresa-->
-                <a href="HomePage-FungiTech.html"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
+                <a href="../index.html" onclick="limparSessao()"> <img class="logo" src="../img/LogoFungiTech3.png" alt="Logo FungiTech">
                 </a>
             </div>
 
@@ -43,7 +44,7 @@
             </div>
 
             <div class="link"> <!--Ir para Tela de Cadastro-->
-                <a href="HomePage-FungiTech.html">Sair</a>
+                <a href="../index.html" onclick="limparSessao()">Sair</a>
             </div>
 
         </div>
@@ -64,9 +65,9 @@
             </div>
 
 
-            <div class="botao" id="card5">
+            <!-- <div class="botao" id="card5">
                 <h2> Alertas </h2>
-            </div>
+            </div> -->
 
         </div>
 
@@ -120,15 +121,13 @@
 </html>
 
 <script>
-            var CNPJ = sessionStorage.getItem("CNPJ_EMPRESA");
+            var cpf = sessionStorage.getItem("CPF");
 
             let proximaAtualizacao;
 
-            
-            window.onload = obterDadosGrafico();
 
     function obterDadosGrafico() {
-
+        console.log(cpf)
         }
         fetch("/medidas/ultimas", {
             method: "POST",
@@ -136,16 +135,15 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                cnpjEmpresaServer : CNPJ
+                cpfUsuarioServer : cpf
             })
              }).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (resposta) {
                             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            resposta.reverse();
 
                             plotarGrafico(resposta);
-                            plotarGrafico2(resposta);
+                             plotarGrafico2(resposta);
 
                         });
                     } else {
@@ -154,7 +152,7 @@
                     }
                 })
                     .catch(function (error) {
-                        console.log(resposta)
+                      
                         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                     });
                 
@@ -175,8 +173,8 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Likes',
-                            data: [],
+                            label: 'Úmidade',
+                            data: [60, 63, 70, 80],
                             fill: false,
                             backgroundColor: [
                             '#2DC7FF'
@@ -189,16 +187,20 @@
                 console.log('----------------------------------------------')
                 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
                 console.log(resposta)
-
+                console.log(`PLOTANDO HORAS${resposta.resultado_ultimas.length}`)
                 // Inserindo valores recebidos em estrutura para plotar o gráfico
-                for (i = 0; i < resposta.length; i++) {
-                    var registro = resposta[i];
+                for (i = 0; i < resposta.resultado_ultimas.length; i++) {
+
+                    console.log(resposta.resultado_ultimas.length)
+                    var registro = resposta.resultado_ultimas[i];
 
                     console.log("registro: ");
                     console.log(registro);
 
-                    labels.push(registro.estufa);
+                    labels.push(registro.hora);
+                    console.log(registro.dtHora)
                     dados.datasets[0].data.push(registro.Umidade);
+                    console.log(registro.Umidade)
                 }
 
                 console.log('----------------------------------------------')
@@ -211,7 +213,7 @@
 
                 // Criando estrutura para plotar gráfico - config
                 const config = {
-                    type: 'bar',
+                    type: 'line',
                     data: dados,
                 };
 
@@ -222,6 +224,72 @@
                 );
 
                 }
+
+                function plotarGrafico2(resposta) {
+
+console.log('iniciando plotagem do gráfico...');
+console.log(resposta);
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados = {
+    labels: labels,
+    datasets: [
+        {
+            label: 'Temperatura',
+            data: [60, 63, 70, 80],
+            fill: false,
+            backgroundColor: [
+            'red'
+            ],
+            tension: 0.1
+        }
+    ]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
+console.log(`PLOTANDO HORAS${resposta.resultado_ultimas.length}`)
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i = 0; i < resposta.resultado_ultimas.length; i++) {
+
+    console.log(resposta.resultado_ultimas.length)
+    var registro = resposta.resultado_ultimas[i];
+
+    console.log("registro: ");
+    console.log(registro);
+
+    labels.push(registro.hora);
+    console.log(registro.dtHora)
+    dados.datasets[0].data.push(registro.Temperatura);
+    console.log(registro.Temperatura)
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config = {
+    type: 'line',
+    data: dados,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart = new Chart(
+    document.getElementById(`myChartCanvas2`),
+    config
+);
+
+}
+
 
 
 

@@ -30,10 +30,10 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'root', // MUDAR USUÁRIO
-            password: '#gf48252129803', // MUDAR SENHA
+            user: 'aluno', // MUDAR USUÁRIO
+            password: 'Sptech#2024', // MUDAR SENHA
             database: 'fungitech', 
-            port: 3306 // MUDAR PORTA
+            port: 3307 // MUDAR PORTA
         }
     ).promise();
 
@@ -89,43 +89,43 @@ const serial = async (
 
         
 
-        var aleatório_inteiro1 = Number(aleatório1.toFixed(0));
-        var aleatório_inteiro2 = Number(aleatório2.toFixed(0));
-        var aleatório_inteiro3 = Number(aleatório3.toFixed(0));
-        var aleatório_inteiro4 = Number(aleatório4.toFixed(0));
-        var aleatório_inteiro5 = Number(aleatório5.toFixed(0));
-        var aleatório_inteiro6 = Number(aleatório6.toFixed(0));
+        var aleatório_inteiro1 = Number(aleatório1.toFixed(2));
+        var aleatório_inteiro2 = Number(aleatório2.toFixed(2));
+        var aleatório_inteiro3 = Number(aleatório3.toFixed(2));
+        var aleatório_inteiro4 = Number(aleatório4.toFixed(2));
+        var aleatório_inteiro5 = Number(aleatório5.toFixed(2));
+        var aleatório_inteiro6 = Number(aleatório6.toFixed(2));
             // altere!
             // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                'INSERT INTO Dados (umidade, temperatura, fkSensor) VALUES (?, ?, ?)',
                 [dht11Umidade + aleatório_inteiro1, dht11Temperatura + aleatório_inteiro1, 1]
             );
 
             await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                'INSERT INTO Dados (umidade, temperatura, fkSensor) VALUES (?, ?, ?)',
                 [dht11Umidade+ aleatório_inteiro2, dht11Temperatura + aleatório_inteiro2, 2]
             );
 
             await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+                'INSERT INTO Dados (umidade, temperatura, fkSensor) VALUES (?, ?, ?)',
                 [dht11Umidade+ aleatório_inteiro3, dht11Temperatura + aleatório_inteiro3, 3]
             );
 
             await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro4, dht11Temperatura + aleatório_inteiro4, 1]
+                'INSERT INTO Dados (umidade, temperatura, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade+ aleatório_inteiro4, dht11Temperatura + aleatório_inteiro4, 4]
             );
 
-            await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro5, dht11Temperatura + aleatório_inteiro5, 2]
-            );
+            // await poolBancoDados.execute(
+            //     'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+            //     [dht11Umidade+ aleatório_inteiro5, dht11Temperatura + aleatório_inteiro5, 5]
+            // );
 
-            await poolBancoDados.execute(
-                'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade+ aleatório_inteiro6, dht11Temperatura + aleatório_inteiro6, 3]
-            );
+            // await poolBancoDados.execute(
+            //     'INSERT INTO Dados (temperatura, umidade, fkSensor) VALUES (?, ?, ?)',
+            //     [dht11Umidade+ aleatório_inteiro6, dht11Temperatura + aleatório_inteiro6, 6]
+            // );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura )
         
         }

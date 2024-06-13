@@ -3,9 +3,10 @@ var database = require("../database/config")
 function autenticar(cpf, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", cpf, senha)
     var instrucaoSql = `
-        SELECT cpf, email, nomeFunc, senha, fkEmpresa as cnpj FROM Funcionario WHERE cpf = '${cpf}' AND senha = '${senha}';
+        SELECT f.cpf, f.email, f.nomeFunc, f.senha, e.cnpj FROM Funcionario as f join Empresa as e on fkEmpresa = cnpj
+        WHERE cpf = '${cpf}' AND senha = '${senha}';
 
-    `;
+    `;  
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -34,7 +35,7 @@ function cadastrar_empresa(razaoSocial, nomeFantasia, CNPJEmpresa, logradouro, C
     return database.executar(instrucaoSql2);
 }
 
-function capturar(idEmpresa) {
+function capturar(cnpj) {
     var instrucaoSql2 = `
     SELECT Dados.temperatura, Dados.umidade, Sensor.nomeSensor FROM Dados 
  Inner JOIN Sensor ON idSensor = fkSensor 

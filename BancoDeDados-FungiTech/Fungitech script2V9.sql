@@ -117,14 +117,8 @@ INSERT INTO Sensor VALUES
 (default, 'Sensor 2', 2),
 (default, 'Sensor 3', 3);
 
-INSERT INTO Dados() VALUES
-(default , 1 ,  null, null , default),
-(default , 2 , null , null , default),
-(default , 3 , null , null , default),
-(default , 1 , null , null , default),
-(default , 2 , null , null , default),
-(default , 3 , null , null , default);
-select * from Dados;
+
+select * from Sensor;
 
 INSERT INTO Alerta VALUES
 (default , 1 , 'Frio' , default),
@@ -237,13 +231,6 @@ select * from Dados;
 INSERT INTO Sensor VALUES
 (default, 'Sensor 4', 1);
 
-INSERT INTO Dados VALUES
-(default , 1 ,  25.00 , 65.87 , default),
-(default , 1 ,  27.00 , 63.87 , default),
-(default , 1 ,  19.00 , 61.87 , default),
-(default , 1 ,  22.00 , 75.87 , default),
-(default , 1 ,  24.00 , 76.87 , default);
-
 INSERT INTO Funcionario VALUES
 ('44159198807' , 'fernando@gmail.com' , 'F' , '020312' , '14020670099123');
 
@@ -291,10 +278,51 @@ SELECT idEstufa as Estufa , count(Alerta.fkEstufa) as qtdAlerta FROM  Empresa
 	select * from Dados;
     
     select * from Sensor;
+    use fungitech;
     
     select count(temperatura) as 'Alerta da temperatura', count(umidade) as 'Alerta Umidade' from Dados where temperatura > 25 OR umidade < 75 or umidade > 95 
     or temperatura < 20 AND fkSensor = 4;
     
-    select count(temperatura) as 'Alerta da Temperatura' from Dados join Sensor on fkSensor = idSensor join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where temperatura > 25 or temperatura < 20 and cnpj = ;
+    select count(temperatura) as 'Alerta da Temperatura' from Dados
+    join Sensor on fkSensor = idSensor join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where temperatura > 25 or temperatura < 20 and cnpj = 14020670099123 ;
+    
+    select count(umidade) as 'Alerta da umidade' from Dados join Sensor on fkSensor = idSensor 
+    join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where umidade > 95 or umidade < 75 and cnpj = 14020670099123;
 
-   
+   select * from Dados;
+   select * from Sensor;
+SELECT 
+    truncate(avg(temperatura),2) as Temperatura,
+    truncate(avg(umidade),2) as Umidade, 
+    date_format(dtHora, '%H:%i:%s')
+    FROM Dados
+    JOIN Sensor ON fkSensor = idSensor 
+    join Estufa on fkEstufa = idEstufa 
+    JOIN Empresa on Estufa.fkEmpresa = cnpj
+    JOIN Funcionario on Funcionario.fkEmpresa = cnpj
+     where cpf = '44159198807'
+     group by  Estufa and dtHora;
+     
+     SELECT 
+    truncate(avg(temperatura),2) as Temperatura,
+    truncate(avg(umidade),2) as Umidade, 
+     date_format(dtHora, '%H:%i:%s') as hora,
+    dtHora
+    FROM Dados
+    JOIN Sensor ON fkSensor = idSensor 
+    join Estufa on fkEstufa = idEstufa 
+    JOIN Empresa on Estufa.fkEmpresa = cnpj
+    JOIN Funcionario on Funcionario.fkEmpresa = cnpj
+     where cpf = '44159198807'
+     group by  dtHora;
+     truncate table Dados;
+     select * from Dados;
+     
+     delete from Dados where idDado = 7;
+     
+     INSERT INTO Estufa VALUES
+(default , 40 , '14020670099123' , 1),
+(default , 47 , '14020670099123' , 1);
+
+INSERT INTO Alerta VALUES
+(default , 5 , 'Frio' , default);

@@ -79,7 +79,7 @@ function verificar_empresa(CNPJEmpresa) {
 	 	  function alerta_umidade() {
 	 		var instrucao = `
 					
-     select count(umidade) as 'Alerta da umidade' from Dados join Sensor on fkSensor = idSensor join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where umidade > 95 or umidade < 75 and cnpj = 4;
+     select count(umidade) as 'Alerta da umidade' from Dados join Sensor on fkSensor = idSensor join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where umidade > 95 or umidade < 75 and cnpj = ${idEmpresa};
 	 	`;
 	 		console.log("Executando a instrução SQL: \n" + instrucao);
 	 		return database.executar(instrucao);

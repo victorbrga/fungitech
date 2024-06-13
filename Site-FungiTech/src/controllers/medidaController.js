@@ -1,10 +1,10 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function ultimas(req, res) {
     
-    var CNPJEmpresa = req.body.cnpjEmpresaServer;
+    var CPFUsuario = req.body.cpfUsuarioServer;
     
-    medidaModel.buscarUltimasMedidas(CNPJEmpresa)
+    medidaModel.ultimas(CPFUsuario)
     .then(
         function (resultado_ultimas) {
 
@@ -37,7 +37,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarUltimasMedidas,
+    ultimas,
     buscarMedidasEmTempoReal
 
 }

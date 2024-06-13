@@ -184,6 +184,7 @@
 }
 
 .barraLateral .botao {
+    cursor: pointer;
     background: #98512B;
     border: 5px solid #8f4b27;
     color: #F2C197;
@@ -693,6 +694,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard .botaoAlerta {
+    cursor: pointer;
     text-decoration: none;
     color: #f2c7b2;
 }
@@ -725,6 +727,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard .card1 {
+    cursor: pointer;
     background-color: #9c2e20d4;
     width: 100%;
     height: 100%;
@@ -734,6 +737,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard .card2 {
+cursor: pointer;
     background-color: #d8a721a4;
     width: 120%;
     height: 100%;
@@ -743,6 +747,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard .card3 {
+    cursor: pointer;
     background-color: #458e44c7;
     width: 100%;
     height: 100%;
@@ -1290,6 +1295,11 @@ input::-webkit-inner-spin-button {
 .home .fale .direita .info ::placeholder{
     font-family: poppins, sans-serif;
     color: #8e5c42;
+}
+
+.home a {
+    text-decoration: none;
+    color: #7d482c;
 }
 
 
