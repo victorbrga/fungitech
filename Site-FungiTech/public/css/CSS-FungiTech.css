@@ -1296,7 +1296,6 @@ input::-webkit-inner-spin-button {
 /*HOME FOOTER*/
 footer .home_footer{
     padding-top: 1%;
-    position: absolute;
     width: 100%;
     height: 20%;
     border-top: #250f0431 solid 2px;
@@ -1316,7 +1315,6 @@ footer .home_footer p {
 
 /*LOGIN FOOTER*/
 footer .log_footer{
-    position: absolute;
     width: 100%;
     height: 14.6%;
     border-top: #250f0431 solid 2px;

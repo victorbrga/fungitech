@@ -238,7 +238,11 @@ INSERT INTO Sensor VALUES
 (default, 'Sensor 4', 1);
 
 INSERT INTO Dados VALUES
-(default , 4 ,  27.00 , 60.87 , default);
+(default , 1 ,  25.00 , 65.87 , default),
+(default , 1 ,  27.00 , 63.87 , default),
+(default , 1 ,  19.00 , 61.87 , default),
+(default , 1 ,  22.00 , 75.87 , default),
+(default , 1 ,  24.00 , 76.87 , default);
 
 INSERT INTO Funcionario VALUES
 ('44159198807' , 'fernando@gmail.com' , 'F' , '020312' , '14020670099123');
@@ -260,3 +264,37 @@ JOIN Empresa on fkEmpresa = cnpj
 SELECT Dados.temperatura, Dados.umidade, Sensor.nomeSensor FROM Dados 
  Inner JOIN Sensor ON idSensor = fkSensor 
 inner JOIN Estufa on idEstufa = fkEstufa inner join Empresa on cnpj = fkEmpresa where cnpj like '14020670099123';
+
+  select Estufa.idEstufa as Estufa, count(Alerta.fkEstufa) as qtdAlerta
+    from Alerta join Estufa on fkEstufa = idEstufa
+    join Empresa on fkEmpresa = cnpj
+    where Empresa.cnpj = 14020670099123
+    group by Estufa.idEstufa
+    order by qtdAlerta DESC;
+
+SELECT idEstufa as Estufa , count(Alerta.fkEstufa) as qtdAlerta FROM  Empresa
+       JOIN Estufa
+			ON Estufa.fkEmpresa = cnpj
+        LEFT JOIN Sensor
+                ON fkEstufa = idEstufa
+        LEFT JOIN Alerta
+			ON Alerta.fkEstufa = idEstufa
+		WHERE cnpj = 14020670099123
+        GROUP BY idEstufa
+        ORDER BY count(distinct(Alerta.fkEstufa)) DESC;
+        
+        select * from Dados;
+        
+	SELECT fkSensor as sensor, umidade, date_format(dtHora, '%H:%i:%s') as hora from Dados 
+		WHERE fkSensor = 4 or fkSensor = 1;
+        
+	select * from Dados;
+    
+    select * from Sensor;
+    
+    select count(temperatura) as 'Alerta da temperatura', count(umidade) as 'Alerta Umidade' from Dados where temperatura > 25 OR umidade < 75 or umidade > 95 
+    or temperatura < 20 AND fkSensor = 4;
+    
+    select count(temperatura) as 'Alerta da Temperatura' from Dados join Sensor on fkSensor = idSensor join Estufa on idEstufa = fkEstufa join Empresa on fkEmpresa = cnpj where temperatura > 25 or temperatura < 20 and cnpj = ;
+
+   

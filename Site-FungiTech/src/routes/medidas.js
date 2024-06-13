@@ -7,5 +7,9 @@ router.get("/ultimas", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
+router.get("/tempo_real", function (req, res) {
+    medidaController.buscarUltimasMedidas(req, res);
+});
+
 
 module.exports = router;
